@@ -3,7 +3,7 @@
 <img src="https://cdn.discordapp.com/attachments/739424796814737418/1226723831859642429/433872754_380611904813792_8595088391949233537_n.jpg?ex=6625ce98&is=66135998&hm=77b787eb5759d9e6dea4554768c570ef261dae0b6e4663c9e4fce4bd8958923b&">
 <br>
 <p align="center">
-    <h1>💬 A Web-based Online Application Management for OJT Applicants in Dota Aero Aviation Corporation made using:</h1>
+    <h1 style="text-align: center;">💬 A Web-based Online Application Management for OJT Applicants in Dota Aero Aviation Corporation made using:</h1>
 </p>
 
 <p align="center">
@@ -18,15 +18,19 @@
 </p>
 
 <p align="center">
-    <h2>Contributors</h2>
+    <h2 style="text-align: center;">Contributors</h2>
     😊 Pineda Maria Cecilia
     <a href="https://www.facebook.com/Raicem.Caelia.79">
         <img src="https://img.icons8.com/color/48/000000/facebook.png" width="20">
+</p>
     </a>
+<p align="center">
     🤪 Rodelas Jr. Levi
     <a href="https://www.facebook.com/Danke.Danke11/">
         <img src="https://img.icons8.com/color/48/000000/facebook.png" width="20">
+</p>
     </a>
+<p align="center">
     😜 Sayago Marc David
     <a href="https://www.facebook.com/Naixs">
         <img src="https://img.icons8.com/color/48/000000/facebook.png" width="20">
