@@ -19,7 +19,22 @@
 
 <p align="center">
     <h2>Contributors</h2>
+    😊 Pineda Maria Cecilia
+    <a href="https://www.facebook.com/Raicem.Caelia.79">
+        <img src="https://img.icons8.com/color/48/000000/facebook.png" width="20">
+    </a>
+    &nbsp;
+    🤪 Rodelas Jr. Levi
+    <a href="https://www.facebook.com/Danke.Danke11/">
+        <img src="https://img.icons8.com/color/48/000000/facebook.png" width="20">
+    </a>
+    &nbsp;
+    😜 Sayago Marc David
+    <a href="https://www.facebook.com/Naixs">
+        <img src="https://img.icons8.com/color/48/000000/facebook.png" width="20">
+    </a>
 </p>
+
 
 
 
