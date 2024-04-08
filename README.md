@@ -19,7 +19,9 @@
 
 <p align="center">
     <h2 style="text-align: center;">Contributors</h2>
-    😊 Pineda Maria Cecilia
+</p>
+
+<p align="center"> 😊 Pineda Maria Cecilia
     <a href="https://www.facebook.com/Raicem.Caelia.79">
         <img src="https://img.icons8.com/color/48/000000/facebook.png" width="20">
 </p>
