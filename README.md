@@ -15,9 +15,15 @@
 </p>
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=LaffeyTaffey)](https://github.com/LaffeyTaffey/github-readme-stats)
+<br>
+
+<h2><p align="center">Feature Highlights</p></h2>
+<p align="center">
+....
+</p>
 
 <br>
-    <h2 style="text-align: center;"><p align="center">Contributors</p></h2>
+    <h3 style="text-align: center;"><p align="center">Contributors</p></h3>
 <p align="center"> 
     😊 Pineda Maria Cecilia
     <a href="https://www.facebook.com/Raicem.Caelia.79">
@@ -35,6 +41,11 @@
     <a href="https://www.facebook.com/Naixs">
         <img src="https://img.icons8.com/color/48/000000/facebook.png" width="20">
     </a>
+</p>
+
+<h4><p align="center">Documentation</p></h4>
+<p align="center">
+....
 </p>
 
 
