@@ -16,11 +16,9 @@
     <img src="https://cdn.discordapp.com/attachments/739424796814737418/1226724994206400532/PHP-logo.svg_1.png?ex=6625cfae&is=66135aae&hm=99ee00937216f7aa22ad643a7d31e6e1ca281f811449f176aa015fafe5dec3e4&" width="150">
     <img src="https://cdn.discordapp.com/attachments/739424796814737418/1226726611395809380/Mysql_logo.png?ex=6625d12f&is=66135c2f&hm=bdc4962895266ce3d3c195e40bb2b2cfe56c48142031d9f8535fcdfaf1852dba&" width="150">
 </p>
-
 <p align="center">
-    <h2 style="text-align: center;">Contributors</h2>
+    <h1 style="text-align: center;">Contributors</h1>
 </p>
-
 <p align="center"> 😊 Pineda Maria Cecilia
     <a href="https://www.facebook.com/Raicem.Caelia.79">
         <img src="https://img.icons8.com/color/48/000000/facebook.png" width="20">
