@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Open+Sans:300,400,600,700');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    width: 100%;
+    padding: 10px 40px;
+    border-bottom: 1px solid #E5E5E5;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    transition: all 0.25s ease;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+header img {
+    height: 80px;
+}
