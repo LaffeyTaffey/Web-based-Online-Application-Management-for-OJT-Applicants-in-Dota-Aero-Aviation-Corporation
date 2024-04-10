@@ -377,3 +377,29 @@ main {
 .logo:hover {
     filter: brightness(80%);
 }
+
+/* ========== college admission  =========*/
+.container {
+    max-width: 800px;
+    margin: 5% auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+}
+
+.text-center {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.college-gallery {
+    display: flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
