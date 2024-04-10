@@ -284,7 +284,7 @@ main {
 }
 
 .indicators li.active {
-    background: #93278f
+    background: lightblue
 }
 
 .indicators li:hover {
