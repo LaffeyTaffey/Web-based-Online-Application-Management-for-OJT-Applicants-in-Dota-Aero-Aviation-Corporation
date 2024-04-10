@@ -8,10 +8,12 @@
     border-radius:10px;
     width: fit-content;
     max-width: 100%;
+    margin: 0 auto;
 }
 
 #ticket {
     border: none;
     width: 640px;
     height: 100%;
+    margin: auto;
 }
