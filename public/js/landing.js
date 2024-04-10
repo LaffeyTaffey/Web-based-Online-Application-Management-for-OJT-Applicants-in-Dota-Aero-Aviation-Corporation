@@ -505,4 +505,42 @@ document.querySelector('.contact button').addEventListener('mouseout', () => {
 	document.querySelector('.contact button span').style.animationName = 'buttonEffectRemoval'
 })
 
+// ============= college gallery =================
+(function() {
+    var $college = $("<div class='college'></div>");
+    var $img = $("<img>");
+    var $caption = $("<p class='caption'></p>");
+
+    // adds the image and the caption to the college
+    $college
+        .append($img)
+        .append($caption);
+
+    // add college to the document body
+    $('body').append($college);
+
+    // event handler for clicking on college-gallery images
+    $('.college-gallery img').on('click', function(e) {
+        e.preventDefault();
+
+        // gets the image link and description
+        var src = $(this).attr("data-image-hd");
+        var cap = $(this).attr("alt");
+
+        // adds the data to the college
+        $img.attr('src', src);
+        $caption.text(cap);
+
+        // shows the college
+        $college.fadeIn('fast');
+    });
+
+    // event handler for clicking on the college to close it
+    $college.on('click', function() {
+        $college.fadeOut('fast');
+    });
+})();
+
+
+
 // end

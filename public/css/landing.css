@@ -388,6 +388,7 @@ main {
     overflow: hidden;
     box-sizing: border-box;
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+
 }
 
 .text-center {
@@ -452,3 +453,15 @@ main {
     color: #eee;
 }
 
+.background {
+    background-color: #3bb2b8;
+    background: linear-gradient(25deg,
+            rgba(66, 230, 149, 1),
+            rgba(66, 32, 149, 1));
+    background-repeat: no-repeat;
+    height: 100vh;
+    font-family: "Open Sans", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
