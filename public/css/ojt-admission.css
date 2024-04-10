@@ -1,3 +1,5 @@
+@import url('https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css');
+@import 'material-icons/iconfont/material-icons.css';
 container-ojt {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -122,4 +124,49 @@ container-ojt {
         transform: scaleY(0);
         transform-origin: bottom;
     }
+}
+
+/* button */
+button.neumorphic {
+    border: none;
+    border-radius: 2rem;
+    color: hsl(0 0% 10%);
+    background: none;
+    display: grid;
+    place-content: center;
+    gap: 1rem;
+    --shadow:
+        -.5rem -.5rem 1rem hsl(0 0% 100% / .75),
+        .5rem .5rem 1rem hsl(0 0% 50% / .5);
+    box-shadow: var(--shadow);
+    outline: none;
+    transition: all 0.1s;
+    padding: 1.5rem 2rem;
+
+    &:hover,
+    &:focus-visible {
+        color: hsl(10 80% 50%);
+        transform: scale(1.1);
+    }
+
+    &:active,
+    &.active {
+        box-shadow:
+            var(--shadow),
+            inset .5rem .5rem 1rem hsl(0 0% 50% / .5),
+            inset -.5rem -.5rem 1rem hsl(0 0% 100% / .75);
+        color: hsl(10 80% 50%);
+    }
+
+    >img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.ojt-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    
 }
