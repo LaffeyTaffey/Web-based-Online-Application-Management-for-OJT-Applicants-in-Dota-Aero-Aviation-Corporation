@@ -21,7 +21,11 @@
     min-height: 400px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
     z-index: 2;
 }
 
@@ -30,13 +34,14 @@
     width: 25vw;
     height: 50vh;
     min-height: 320px;
-    background: #f2f2f2;
+    background: rgba(242, 242, 242, 0.8);
     overflow: hidden;
     transition: all 0.5s ease-in;
     z-index: 2;
     box-sizing: border-box;
     padding: 30px;
     box-shadow: -10px 25px 50px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
 }
 
 .quotes .box::before {
