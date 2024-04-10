@@ -506,41 +506,91 @@ document.querySelector('.contact button').addEventListener('mouseout', () => {
 })
 
 // ============= college gallery =================
-(function() {
-    var $college = $("<div class='college'></div>");
-    var $img = $("<img>");
-    var $caption = $("<p class='caption'></p>");
 
-    // adds the image and the caption to the college
-    $college
-        .append($img)
-        .append($caption);
+// Define an array of image paths
+var imagePaths = [
+    "public/assets/img/col-adm-imgs/1-admission-scaled.jpg",
+    "public/assets/img/col-adm-imgs/2-admission-scaled.jpg",
+    "public/assets/img/col-adm-imgs/3-admission-scaled.jpg",
+    "public/assets/img/col-adm-imgs/4-admission-scaled.jpg",
+    "public/assets/img/col-adm-imgs/5-admission-scaled.jpg",
+    "public/assets/img/col-adm-imgs/6-admission-scaled.jpg",
+    "public/assets/img/col-adm-imgs/7-admission-scaled.jpg"
+];
 
-    // add college to the document body
-    $('body').append($college);
+// Variable to track the index of the currently displayed image
+var currentImageIndex = 0;
 
-    // event handler for clicking on college-gallery images
-    $('.college-gallery img').on('click', function(e) {
-        e.preventDefault();
+function showHdImage(imagePath, altText) {
+    var modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.style.display = 'flex';
+    modal.style.justifyContent = 'center';
+    modal.style.alignItems = 'center';
+    modal.style.position = 'fixed';
+    modal.style.zIndex = '1000';
+    modal.style.inset = '0';
+    modal.style.backgroundColor = 'rgba(0,0,0,0.4)';
 
-        // gets the image link and description
-        var src = $(this).attr("data-image-hd");
-        var cap = $(this).attr("alt");
+    var img = document.createElement('img');
+    img.className = 'modal-img';
+    img.src = imagePath;
+    img.alt = altText;
 
-        // adds the data to the college
-        $img.attr('src', src);
-        $caption.text(cap);
+    var altDiv = document.createElement('div');
+    altDiv.className = 'modal-alt';
+    altDiv.textContent = altText;
 
-        // shows the college
-        $college.fadeIn('fast');
-    });
+    var imgContainer = document.createElement('div');
+    imgContainer.style.display = 'flex';
+    imgContainer.style.flexDirection = 'column';
+    imgContainer.style.alignItems = 'center';
+    imgContainer.appendChild(img);
+    imgContainer.appendChild(altDiv);
 
-    // event handler for clicking on the college to close it
-    $college.on('click', function() {
-        $college.fadeOut('fast');
-    });
-})();
+    var prevArrow = document.createElement('div');
+    prevArrow.className = 'modal-arrow modal-arrow-prev';
+    prevArrow.textContent = '❮';
+    prevArrow.onclick = function() {
+        currentImageIndex--;
+        if (currentImageIndex < 0) {
+            currentImageIndex = imagePaths.length - 1; // Wrap around to the last image
+        }
+        img.src = imagePaths[currentImageIndex];
+        altDiv.textContent = "Alt Text for Image " + (currentImageIndex + 1);
+    };
 
+    var nextArrow = document.createElement('div');
+    nextArrow.className = 'modal-arrow modal-arrow-next';
+    nextArrow.textContent = '❯';
+    nextArrow.onclick = function() {
+        currentImageIndex++;
+        if (currentImageIndex >= imagePaths.length) {
+            currentImageIndex = 0; // Wrap around to the first image
+        }
+        img.src = imagePaths[currentImageIndex];
+        altDiv.textContent = "Alt Text for Image " + (currentImageIndex + 1);
+    };
 
+    var closeBtn = document.createElement('button');
+    closeBtn.className = 'modal-close';
+    closeBtn.textContent = 'X';
+    closeBtn.onclick = function() {
+        modal.style.animation = 'fadeOut 0.5s forwards';
+        setTimeout(function() {
+            document.body.removeChild(modal);
+        }, 500);
+    };
 
-// end
+    modal.appendChild(prevArrow);
+    modal.appendChild(imgContainer);
+    modal.appendChild(nextArrow);
+    modal.appendChild(closeBtn);
+
+    document.body.appendChild(modal);
+}
+
+// Initially show the first image
+showHdImage(imagePaths[currentImageIndex], "Alt Text for Image 1");
+
+// ends
