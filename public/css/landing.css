@@ -412,6 +412,11 @@ main {
 .college-gallery div > img {
     max-width: 100%;
     display: block;
+    transition: transform 0.3s ease;
+}
+
+.college-gallery div > img:hover {
+    transform: scale(1.5);
 }
 
 .college-gallery div {
