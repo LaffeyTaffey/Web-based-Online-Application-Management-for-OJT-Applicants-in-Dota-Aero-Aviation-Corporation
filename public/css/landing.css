@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa|Open+Sans:300,400,600,700');
 
 * {
-    padding: 0;
+    padding: 0 ;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
@@ -26,21 +26,19 @@ body {
 /* ========== header and navbar styling ==========*/
 
 header {
-    width: 100%;
+    width: 100%; 
     padding: 10px 40px;
     border-bottom: 1px solid #E5E5E5;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.7));
-        
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.7)); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
     transition: all 0.25s ease;
     z-index: 3;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    justify-content: center ;
+    align-items: center ;
    
 }
 
@@ -86,7 +84,7 @@ nav li {
 
 nav li a {
     margin: 0 15px;
-    padding: 10px 5px 15px 5px;
+    padding: 10px 5px 15px 5px; 
     color: #828282;
     text-transform: uppercase;
     letter-spacing: 0.05rem;
