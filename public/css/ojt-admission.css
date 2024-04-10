@@ -1,4 +1,4 @@
-.container-ojt {
+container-ojt {
     padding-top: 20px;
     padding-bottom: 20px;
 }
@@ -17,7 +17,7 @@
     position: relative;
 }
 
-.content-ojt h2{font-size:19px;}
+.container-ojt h2{font-size:19px;}
 
 .box-ojt {
     position: absolute;
@@ -61,11 +61,11 @@
     bottom: 15px;
     border: 1px solid #f0a591;
     padding: 20px;
-    text-align:center;
+    text-align: center;
     box-shadow: 0 5px 10px rgba(9,0,0,0.5);
 }
 
-.box-ojt span{
+.box-ojt span {
     position: absolute;
     top: 0;
     left: 0;
@@ -73,30 +73,26 @@
     height: 100%;
     display: block;
     box-sizing: border-box;
+
 }
 
-.box-ojt span:nth-child(1)
-{
-    transform:rotate(0deg);
+.box-ojt span:nth-child(1) {
+    transform: rotate(0deg);
 }
 
-.box-ojt span:nth-child(2)
-{
-    transform:rotate(90deg);
+.box-ojt span:nth-child(2) {
+    transform: rotate(90deg);
 }
 
-.box-ojt span:nth-child(3)
-{
-    transform:rotate(180deg);
+.box-ojt span:nth-child(3) {
+    transform: rotate(180deg);
 }
 
-.box-ojt span:nth-child(4)
-{
-    transform:rotate(270deg);
+.box-ojt span:nth-child(4) {
+    transform: rotate(270deg);
 }
 
-.box-ojt span:before
-{
+.box-ojt span:before {
     content: '';
     position: absolute;
     width: 100%;
@@ -107,22 +103,23 @@
 
 @keyframes animate {
     0% {
-        transform: scaleX(0);
-        transform-origin: left;
+        transform: scaleY(0);
+        transform-origin: top;
     }
-    50%
-    {
-        transform: scaleX(1);
-        transform-origin: left;
+
+    50% {
+        transform: scaleY(1);
+        transform-origin: top;
     }
-    50.1%
-    {
-        transform: scaleX(1);
-        transform-origin: right;
+
+    50.1% {
+        transform: scaleY(1);
+        transform-origin: bottom;
+
     }
-    100%
-    {
-        transform: scaleX(0);
-        transform-origin: right;
+
+    100% {
+        transform: scaleY(0);
+        transform-origin: bottom;
     }
 }
