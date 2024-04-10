@@ -593,4 +593,9 @@ function showHdImage(imagePath, altText) {
 // Initially show the first image
 showHdImage(imagePaths[currentImageIndex], "Alt Text for Image 1");
 
+// news gallery.
+
+
+
+
 // ends
