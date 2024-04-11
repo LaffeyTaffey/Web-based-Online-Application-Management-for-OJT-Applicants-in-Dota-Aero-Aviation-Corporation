@@ -7,3 +7,18 @@ body {
     background: linear-gradient(25deg, rgba(66, 230, 149, 1), rgba(66, 32, 149, 1));
     background-repeat: no-repeat;
 }
+
+/*calendar -sayago */ 
+.calendar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    width: 50%;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 130px;
+}
