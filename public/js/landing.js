@@ -500,9 +500,9 @@ document.querySelector('nav button').addEventListener('mouseout', () => {
 
 document.querySelector('.contact button').addEventListener('mouseover', () => {
 	document.querySelector('.contact button span').style.animationName = 'buttonEffect'
-})
-document.querySelector('.contact button').addEventListener('mouseout', () => {
-	document.querySelector('.contact button span').style.animationName = 'buttonEffectRemoval'
+	document.querySelector('.contact button').addEventListener('mouseout', () => {
+		document.querySelector('.contact button span').style.animationName = 'buttonEffectRemoval'
+	})
 })
 
 // ============= college gallery =================

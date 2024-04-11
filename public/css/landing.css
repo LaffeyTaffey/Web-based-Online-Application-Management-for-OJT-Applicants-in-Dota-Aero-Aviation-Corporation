@@ -29,7 +29,7 @@ header {
     width: 100%; 
     padding: 10px 40px;
     border-bottom: 1px solid #E5E5E5;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.7)); 
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1)); 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
