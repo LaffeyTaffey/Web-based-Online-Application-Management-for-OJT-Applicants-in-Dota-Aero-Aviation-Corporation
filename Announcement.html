@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="public/assets/img/dota_logo.png" />
+    <meta name="theme-color" content="#1885ed">
+    <link rel="stylesheet" href="public/css/landing.css" type="text/css">
+    <link rel="stylesheet" href="public/css/index.css" type="text/css">
+    <script src="public/js/landing.js"></script>
+    <script src="public/js/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <title>Student Portal</title>
+</head>
+
+<body background="public/assets/img/dark-bg2.png">
+    <header id="header">
+        <div class="logo-container">
+            <img src="public/assets/img/dota_logo.png" alt="DOTA" id="header-img">
+            <h1>DOTA</h1>
+        </div>
+
+        <nav id="nav-bar">
+            <ul>
+                <li><a class="nav-link" href="enrollment.html">Enrollment</a></li>
+                <li><a class="nav-link" href="#announcement">Announcement</a></li>
+                <li><a class="nav-link" href="#acad">My Schedule</a></li>
+                <li><a class="nav-link" href="#msg">Message </a></li>
+                <li><a class="nav-link" href="#index">Personal Information</a></li>
+                <li><a class="nav-link" href="#calendar">Calendar</a></li>
+                <li><a class="nav-link" href="#about">Deficiency/Balance</a></li>
+                <li><a class="nav-link" href="landing.html">Homepage</a></li>
+            </ul>
+            <button id="signin-button">Sign In →</button>
+        </nav>
+    </header>
+    <main>
+        <br><br><br><br><br><br><br><br>
+        <div class="announcements">
+            <h2>Announcements</h2>
+        
+        
+            <button id="edit-announcements-button" onclick="showEditOption()" class="edit-announcements-button">Edit
+                Announcements</button>
+        
+            <button id="save-changes-button" onclick="saveChanges()" class="save-changes-button" style="display: none;">Save
+                Changes</button>
+        
+            <style>
+                .edit-announcements-button {
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    outline: none;
+                    padding: 8px 16px;
+                    font-size: 14px;
+                    cursor: pointer;
+                    border-radius: 4px;
+                }
+        
+                .edit-announcements-button:hover {
+                    background-color: #45a049;
+                }
+        
+                .save-changes-button {
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    outline: none;
+                    padding: 8px 16px;
+                    font-size: 14px;
+                    cursor: pointer;
+                    border-radius: 4px;
+                }
+        
+                .save-changes-button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+        
+        
+        
+            <div class="updates">
+        
+            </div>
+        
+        
+        </div>
+        
+        <script>
+            function showEditOption() {
+                var password = prompt("Only admins can edit the announcement panel. If you're the admin, please enter the password below:");
+                if (password === "universityportalsystem") {
+                    var messages = document.getElementsByClassName("message");
+                    for (var i = 0; i < messages.length; i++) {
+                        messages[i].setAttribute("contenteditable", "true");
+                        messages[i].setAttribute("data-original-content", messages[i].innerHTML);
+                        messages[i].style.border = "1px solid #ccc";
+                        messages[i].style.padding = "5px";
+                    }
+                    alert("You can now edit the announcement panel.");
+
+                    // Show the Save Changes button
+                    document.querySelector(".save-changes-button").style.display = "block";
+                    document.querySelector(".edit-announcements-button").style.display = "none";
+                } else {
+                    alert("Incorrect password. Access denied.");
+                }
+            }
+
+            function saveChanges() {
+                var password = prompt("Only admins can save the announcement panel. If you're the admin, please enter the password below:");
+                if (password === "universityportalsystem") {
+                    var messages = document.getElementsByClassName("message");
+                    for (var i = 0; i < messages.length; i++) {
+                        var pElement = messages[i].querySelector("p");
+                        if (pElement) {
+                            var content = pElement.innerText;
+                            var title = messages[i].querySelector("b").innerHTML;
+                            // Remove the title from the content
+                            content = content.replace(title, '').trim();
+                            var originalContent = messages[i].getAttribute("data-original-content");
+                            var announcementId = messages[i].getAttribute("data-id");
+                            var timeElement = document.getElementById("elapsed-time-" + announcementId);
+
+                            if (content !== originalContent) {
+                                saveAnnouncement(title, content, announcementId, timeElement.innerHTML);
+                            }
+                            messages[i].setAttribute("data-original-content", content);
+                        }
+
+                        messages[i].removeAttribute("contenteditable");
+                        messages[i].style.border = "";
+                        messages[i].style.padding = "";
+                    }
+                    alert("Changes saved successfully.");
+
+                    // Clear the input field for the password
+                    password = null;
+
+                    document.querySelector(".save-changes-button").style.display = "none";
+                    document.querySelector(".edit-announcements-button").style.display = "block";
+                }
+            }
+
+
+
+
+            function saveAnnouncement(title, content, announcementId, timeElement) {
+                content = content.replace('<b>' + title + '</b>', '').trim();
+                fetch('/save-announcement', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        title: title,
+                        content: content,
+                        id: announcementId,
+                        updated_at: new Date().toISOString(),
+                    }),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        console.log(data);
+                        if (data.success) {
+                            updateElapsedTime();
+                        }
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    });
+            }
+
+
+            function fetchAnnouncements() {
+                return fetch('/get-announcements')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            const announcements = data.announcements;
+                            const updatesDiv = document.querySelector('.updates');
+
+                            announcements.forEach(announcement => {
+                                const messageDiv = document.createElement('div');
+                                messageDiv.classList.add('message');
+                                messageDiv.setAttribute('data-id', announcement.id);
+
+                                const pElement = document.createElement('p');
+                                pElement.innerHTML = `<b>${announcement.title}</b> ${announcement.content}`;
+                                messageDiv.appendChild(pElement);
+
+                                const spanElement = document.createElement('span');
+                                spanElement.id = `elapsed-time-${announcement.id}`;
+                                spanElement.classList.add('elapsed-time');
+                                messageDiv.appendChild(spanElement);
+
+                                updatesDiv.appendChild(messageDiv);
+
+                                const elapsedTime = formatElapsedTime(announcement.updated_at);
+                                spanElement.textContent = elapsedTime; // Display initial elapsed time
+                            });
+                        } else {
+                            console.error('Failed to fetch announcements');
+                        }
+                        return data.announcements;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching announcements:', error);
+                    });
+            }
+
+
+            // Call the fetchAnnouncements function when the page loads
+            fetchAnnouncements().then(() => {
+                updateElapsedTime(); // Start updating the elapsed time
+            });
+
+
+
+
+            // Format the elapsed time to display in human-readable format
+            function formatElapsedTime(updated_at) {
+                const now = new Date();
+                const updatedDate = new Date(updated_at);
+                const diffInSeconds = Math.floor((now - updatedDate) / 1000);
+
+                if (diffInSeconds < 60) {
+                    return `${diffInSeconds} seconds ago`;
+                }
+                const diffInMinutes = Math.floor(diffInSeconds / 60);
+                if (diffInMinutes < 60) {
+                    return `${diffInMinutes} minutes ago`;
+                }
+                const diffInHours = Math.floor(diffInMinutes / 60);
+                const diffInMinutesRemainder = diffInMinutes % 60;
+                return `${diffInHours}h ${diffInMinutesRemainder}m ago`;
+            }
+
+
+
+
+
+
+
+
+            function updateElapsedTime() {
+                fetch('/get-announcements')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            const announcements = data.announcements;
+                            const elapsedTimeElements = document.querySelectorAll('.elapsed-time');
+                            elapsedTimeElements.forEach(el => {
+                                const announcementId = el.parentElement.dataset.id;
+                                const announcement = announcements.find(a => a.id === parseInt(announcementId));
+                                if (announcement) {
+                                    el.textContent = formatElapsedTime(announcement.updated_at); // Update the elapsed time
+                                }
+                            });
+
+                            // Update the elapsed times every minute
+                            setTimeout(updateElapsedTime, 60 * 1000);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching announcements:', error);
+                    });
+            }
+
+
+
+
+
+            window.onbeforeunload = function () {
+                var messages = document.getElementsByClassName("message");
+                for (var i = 0; i < messages.length; i++) {
+                    messages[i].setAttribute("contenteditable", "false");
+                    messages[i].style.border = "none";
+                    messages[i].style.padding = "0";
+                }
+            };
+
+            function renderAnnouncements(announcements) {
+                const announcementList = document.getElementById('announcementList');
+                announcementList.innerHTML = '';
+
+                announcements.forEach(announcement => {
+                    const updatedTime = new Date(announcement.updated_at);
+                    const now = new Date();
+                    const elapsedTime = (now - updatedTime) / (1000 * 60 * 60); // Convert milliseconds to hours
+
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${announcement.title} - ${elapsedTime.toFixed(0)} hours ago`;
+                    announcementList.appendChild(listItem);
+                });
+            }
+
+            app.post('/save-announcement', async (req, res) => {
+                    const { title, content, id } = req.body;
+
+                    try {
+                        // Remove existing <b> tags from the announcement content
+                        const cleanedContent = content.replace(/<b>/gi, '').replace(/<\/b>/gi, '');
+
+                        const existingAnnouncement = await db('announcements').where('id', '=', id).first();
+
+                        if (!existingAnnouncement) {
+                            return res.status(404).json({ success: false, error: 'Announcement not found.' });
+                        }
+
+                        const updated_at = new Date(); // Get the current timestamp
+
+                        const result = await db('announcements')
+                            .where('id', '=', id) // Target the specific announcement by its id
+                            .update({
+                                title: title,
+                                content: cleanedContent,
+                                updated_at: existingAnnouncement.content !== cleanedContent ? updated_at : existingAnnouncement.updated_at,
+                            })
+                            .returning('updated_at');
+
+                        res.status(200).json({
+                            success: true,
+                            updated_at: result[0], // Send back the updated timestamp
+                        });
+                    } catch (error) {
+                        console.error(error);
+                        res.status(500).json({ success: false });
+                    }
+                });
+
+
+
+
+
+
+
+
+
+                app.get('/get-announcements', async (req, res) => {
+                    try {
+                        const announcements = await db.select('*').from('announcements').orderBy('updated_at', 'desc');
+                        res.status(200).json({ success: true, announcements });
+                    } catch (error) {
+                        console.error(error);
+                        res.status(500).json({ success: false });
+                    }
+                });
+
+        </script>
+    </main>
+    <br>
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="whitetext">Made With: <strong>JQuery</strong></p>
+                    <p class="whitetext">Created by: <strong>Pineda Maria Cecilia || Rodelas Jr. Levi || Sayago Marc
+                            David</strong></p>
+                    <p class="whitetext">Students of MT-41 Universidad De Manila. </p>
+                    <br>
+                    <br>
+                    <div class="social-icons">
+                        <div class="person">
+                            <a href="https://github.com/raicem-caelia" target="_blank"><img
+                                    src="public/assets/img/github.png" alt="GitHub" class="logo"></a>
+                            <a href="https://www.facebook.com/Raicem.Caelia.79" target="_blank"><img
+                                    src="public/assets/img/fb.png" alt="Facebook" class="logo"></a>
+                        </div>
+                        <div class="person">
+                            <a href="https://github.com/LaffeyTaffey" target="_blank"><img
+                                    src="public/assets/img/github.png" alt="GitHub" class="logo"></a>
+                            <a href="https://www.facebook.com/Danke.Danke11/" target="_blank"><img
+                                    src="public/assets/img/fb.png" alt="Facebook" class="logo"></a>
+                        </div>
+                        <div class="person">
+                            <a href="https://github.com/paslangbenteuno" target="_blank"><img
+                                    src="public/assets/img/github.png" alt="GitHub" class="logo"></a>
+                            <a href="https://www.facebook.com/Naixs" target="_blank"><img src="public/assets/img/fb.png"
+                                    alt="Facebook" class="logo"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="public/js/landing.js"></script>
+</body>
+
+</html>
