@@ -13,14 +13,7 @@ appExpress.get('/', (req, res) => {
     res.sendFile(path.join(intialPath, "landing.html"));
 });
 
-// Serve static files after defining the route
 appExpress.use(express.static(intialPath));
-
-// Middleware to set and send the request header
-appExpress.use((req, res, next) => {
-    res.set('Bypass-Tunnel-Reminder', 'olive-walls-cough-103-181-222-27');
-    next();
-});
 
 appExpress.use((req, res, next) => {
     res.status(404).sendFile(path.join(__dirname, "404.html"));
