@@ -24,3 +24,7 @@ appExpress.listen(3000, (req, res) => {
     console.log('listening on port 3000......')
     console.log('Welcome to the server')
 });
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(intialPath,  "landing.html"));
+})
