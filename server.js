@@ -4,10 +4,16 @@ const bodyParser = require('body-parser');
 const knex = require('knex');
 
 const appExpress = express();
-
-let intialPath = path.join(__dirname, "public");
+// bruh
+let intialPath = path.join(__dirname, "");
 
 appExpress.use(bodyParser.json());
+
+appExpress.get('/', (req, res) => {
+    res.sendFile(path.join(intialPath, "landing.html"));
+});
+
+// Serve static files after defining the route
 appExpress.use(express.static(intialPath));
 
 // Middleware to set and send the request header
@@ -17,14 +23,10 @@ appExpress.use((req, res, next) => {
 });
 
 appExpress.use((req, res, next) => {
-    res.status(404).sendFile(path.join(__dirname,  "404.html"));
+    res.status(404).sendFile(path.join(__dirname, "404.html"));
 });
 
-appExpress.listen(3000, (req, res) => {
+appExpress.listen(3000, () => {
     console.log('listening on port 3000......')
     console.log('Welcome to the server')
 });
-
-app.get('/', (req, res) => {
-    res.sendFile(path.join(intialPath,  "landing.html"));
-})
