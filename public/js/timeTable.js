@@ -130,4 +130,6 @@ const Saturday =[
         subject: 'OR104',
         type: 'Lecture'
     }
+
+    yes
 ]
