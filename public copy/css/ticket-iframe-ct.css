@@ -1,0 +1,19 @@
+.iframe-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    border-radius:10px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+#ticket {
+    border: none;
+    width: 640px;
+    height: 100%;
+    margin: auto;
+}
