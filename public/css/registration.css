@@ -1,0 +1,174 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
+/* --------------------------header title ojt application---------------------- */
+
+#OJTapplication{
+	background-color: #422095;
+	height: 90px;
+	overflow: hidden;
+}
+.application-header{
+	display: inline-block;
+
+}
+.application-header h3, p{
+	margin-left: -250px;
+	float: left;
+	color: white;
+	font-family: 'Poppins';
+
+}
+.application-header h3{
+	margin-top: -15px;
+	font-size: 20px;
+}
+.application-header p{
+	margin-top: -10px;
+	font-size: 10px;
+	font-weight: lighter;
+}
+
+.application-header img{
+	filter: brightness(0) invert(1);
+	width: 100px;
+}
+.application-header img{
+	margin-top: 10px;
+	margin-right: -450px;
+	float: right;
+}
+
+
+#img-bg{
+	float: right;
+	display: flex;
+	z-index: -1;
+	margin-right: -35px;
+	height: 90px;
+	width:250px;
+	background-color: rgba(255,255,255,0.3);
+}
+
+#img-bg{
+	transform-origin: right top;
+	transform: skewX(-20deg);
+
+}
+
+
+.registrationForms{
+	background: #fff;
+	border-radius: 10px;
+	width: 900px;
+	height:600px;
+
+}
+
+
+.registrationForms input{
+	position: relative;
+	width: 250px;
+	height: 30px;
+	padding: 10px;
+	border: 1px solid black;
+	border-radius: 7px;
+}
+
+#address{
+	width: 530px;
+}
+
+table td{
+	padding-left: 30px;
+	padding-bottom: 15px;
+}
+
+table td select{
+	position: relative;
+	width: 250px;
+	height: 35px;
+	padding: 5px;
+	border: 1px solid black;
+	border-radius: 7px;
+}
+
+
+table th{
+	padding-left: 30px;
+	text-align: left;
+	color: gray;
+	font-weight: lighter;
+}
+
+#button-forms{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: -200px;
+}
+
+#button-submit{
+	padding: 30px 50px 30px 30px;
+}
+#button-submit [type="button"]{
+		width: 150px;
+		height: 40px;
+		border-radius: 10px;
+ 	 background: dodgerblue;
+ 	 color: #fff;
+ 	 border: #fff;
+}
+
+#button-submit:hover [type="button"]{
+		background: linear-gradient(25deg, rgba(66, 230, 149, 1), rgba(66, 32, 149, 1));
+}
+
+
+/* multi step indicator */
+
+.multi-step_indicator{
+	position: absolute;
+	z-index: 2;
+	top: 290px;
+	margin-left: 550px;
+}
+
+
+.step i{
+	height: 50px;
+  	width: 50px;
+ 	margin: 0px 20px;
+ 	display: inline-block;
+ 	opacity: 0.5;
+	text-align: center;
+}
+
+/* Mark the active step: */
+.step.active {
+	opacity: 1;
+  }
+
+.step.finish {
+	color: #04AA6D;
+  }
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+	background-color: #ffdddd;
+  }
+
+/* hiding the step*/
+.registrationForms{
+	display: none;
+}
+
+/*div consent*/
+div #consent{
+	width: 70%;
+	height: 35%;
+	z-index: 3;
+	border: 1px solid #ccc;
+
+}
+
+/*input type radio resizing and align*/
