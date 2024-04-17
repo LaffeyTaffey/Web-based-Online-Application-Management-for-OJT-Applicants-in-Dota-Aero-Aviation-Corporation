@@ -35,7 +35,7 @@
     </header>
     <main>
         <br><br><br><br><br><br><br><br>
-        <div class="announcements">
+        <div class="announcements" id="announcement">
             <h2>Announcements</h2>
         
         
@@ -215,6 +215,21 @@
                 updateElapsedTime(); // Start updating the elapsed time
             });
 
+            function renderAnnouncements(announcements) {
+                    const announcementList = document.getElementById('announcementList');
+                    announcementList.innerHTML = '';
+
+                    announcements.forEach(announcement => {
+                        const updatedTime = dayjs(announcement.updated_at);
+                        const now = dayjs();
+                        const elapsedTime = now.diff(updatedTime, 'hour');
+
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `${announcement.title} - ${elapsedTime} hours ago`;
+                        announcementList.appendChild(listItem);
+                    });
+                }
+
 
 
 
@@ -266,8 +281,6 @@
                         console.error('Error fetching announcements:', error);
                     });
             }
-
-
 
 
 

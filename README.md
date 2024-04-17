@@ -14,6 +14,8 @@
     <img src="https://cdn.discordapp.com/attachments/739424796814737418/1226726611395809380/Mysql_logo.png?ex=6625d12f&is=66135c2f&hm=bdc4962895266ce3d3c195e40bb2b2cfe56c48142031d9f8535fcdfaf1852dba&" width="150">
     <img src="https://cdn.discordapp.com/attachments/739424796814737418/1226814720917504040/jQuery.png?ex=6626233e&is=6613ae3e&hm=287ada9f05254724904442d243c1b71f9f24eca89441a210254ee8896a22415c&" width="150">
     <img src="https://cdn.discordapp.com/attachments/739424796814737418/1227662846712610828/font_awesome.png?ex=6629391f&is=6616c41f&hm=f8f5bf0d71c9bcefc78f8cb17ac9d4492319f6ee7e68bf4eb2090a6e27feaa90&" width="150">
+    <img src="https://cdn.discordapp.com/attachments/739424796814737418/1229685767740063764/Bootstrap_logo.svg.png?ex=6630951d&is=661e201d&hm=ec06c76eb0c93a98ed4ddcea77a7d2c435461900170318e9f4dea6b7a0b79d25&" width="150">
+    <img src="https://cdn.discordapp.com/attachments/739424796814737418/1229685768063156275/1200px-Node.js_logo.svg.png?ex=6630951d&is=661e201d&hm=58507ce98edddf71c8b2288722218f545d31cf5499c4221a8c40427435eb7398&" width="150">
 </p>
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=LaffeyTaffey)](https://github.com/LaffeyTaffey/github-readme-stats)
