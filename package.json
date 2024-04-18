@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@flaticon/flaticon-uicons": "^3.2.1",
     "body-parser": "^1.20.2",
     "express.js": "^1.0.0",
     "knex": "^3.1.0",
