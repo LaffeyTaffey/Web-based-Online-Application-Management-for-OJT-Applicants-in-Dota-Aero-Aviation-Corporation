@@ -10,6 +10,79 @@ General Style
     box-sizing: border-box;
 }
 
+header {
+    width: 100%;
+    padding: 10px 40px;
+    border-bottom: 1px solid #E5E5E5;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    transition: all 0.25s ease;
+    z-index: 3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+
+}
+
+header img {
+    height: 30px;
+    width: 30px;
+    margin-right: 20px;
+}
+
+
+header h1 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #101920;
+    margin: 0;
+
+}
+
+nav {
+    padding: 15px 15px 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+nav li {
+    list-style-type: none;
+}
+
+nav li a {
+    margin: 0 15px;
+    padding: 10px 5px 15px 5px;
+    color: #828282;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    font-size: 0.8rem;
+}
+
+nav li a:hover {
+    color: #EB0028;
+    border-bottom: 2px solid #EB0028;
+    font-weight: bold;
+}
+
 body,
 html {
     height: 100%;
@@ -36,7 +109,7 @@ html {
     margin: 10px 0;
 }
 
-.containe-footer {
+.container-footer {
     width: 100%;
     margin: auto;
 }
@@ -160,6 +233,7 @@ Login Box
     width: 330px;
     position: absolute;
     top: 50%;
+    bottom: -10%;
     left: 50%;
 
     -webkit-transform: translate(-50%, -50%);

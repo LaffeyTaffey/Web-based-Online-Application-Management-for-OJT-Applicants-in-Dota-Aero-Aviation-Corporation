@@ -349,38 +349,46 @@ main {
 /* ========== footer =========*/
 
 .footer {
-    background-color: rgba(0, 128, 128, 0.5);
-    padding: 25px 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.whitetext {
-    color: white;
-    margin: 10px 0;
-    padding: 0px;
     text-align: center;
 }
 
-.social-icons {
+.footer-line {
+    border: none;
+    border-top: 1px solid #fff;
+    margin: 10px 0;
+}
+
+.container-footer {
+    width: 100%;
+    margin: auto;
+}
+
+.row-footer {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
 }
 
-.person {
+.col {
+    flex: 1 0 100%;
+    padding: 10px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.social-icons .person {
+    display: inline-block;
     margin: 0 10px;
 }
 
 .logo {
-    height: 25px;
-    width: auto;
-    margin: 0 5px;
-    transition: filter 0.3s ease;
-}
-
-.logo:hover {
-    filter: brightness(80%);
+    width: 30px;
+    height: 30px;
 }
 
 /* ========== college admission  =========*/
