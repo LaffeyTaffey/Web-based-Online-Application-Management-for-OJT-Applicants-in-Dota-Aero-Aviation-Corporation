@@ -1,0 +1,295 @@
+input:-internal-autofill-selected {
+    background-color: #fff !important;
+}
+
+#multistep {
+    width: 550px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    height: 100%;
+    z-index: -1;
+    opacity: 1;
+    visibility: visible;
+    bottom: -15%;
+}
+
+.document-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columns with equal width */
+    gap: 20px;
+    /* Gaps between grid items */
+}
+
+.document {
+    text-align: center;
+}
+
+.document h3 {
+    margin-top: 10px;
+}
+
+.document img {
+    height: 350px;
+    width: 350px;
+    display: block;
+    margin: 0 auto;
+    /* Centers the image horizontally */
+}
+
+/*progress header*/
+#progress_header {
+    overflow: hidden;
+    margin: 0 auto 30px;
+    padding: 0;
+}
+
+#progress_header li {
+    list-style-type: none;
+    width: 33.33%;
+    float: left;
+    position: relative;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: monospace;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+#progress_header li:after {
+    width: 35px;
+    line-height: 35px;
+    display: block;
+    font-size: 22px;
+    color: #888;
+    font-family: monospace;
+    background-color: #fff;
+    border-radius: 100px;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    font-family: 'Roboto', sans-serif;
+}
+
+#progress_header li:nth-child(1):after {
+    content: "1";
+}
+
+#progress_header li:nth-child(2):after {
+    content: "2";
+}
+
+#progress_header li:nth-child(3):after {
+    content: "3";
+}
+
+#progress_header li:before {
+    content: '';
+    width: 100%;
+    height: 5px;
+    background: #fff;
+    position: absolute;
+    left: -50%;
+    top: 50%;
+    z-index: -1;
+}
+
+#progress_header li:first-child:before {
+    content: none;
+}
+
+#progress_header li.active:before,
+#progress_header li.active:after {
+    background-image: linear-gradient(to right top, #35e8c3, #36edbb, #3df2b2, #4af7a7, #59fb9b) !important;
+    color: #fff !important;
+    transition: all 0.5s;
+}
+
+/*title*/
+.title-box {
+    width: 100%;
+    margin: 0 0 30px 0;
+}
+
+.title-box h2 {
+    font-size: 22px;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin: 0;
+    font-family: cursive;
+    display: inline-block;
+    position: relative;
+    padding: 0 0 10px 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.title-box h2:before {
+    content: "";
+    background: #6ddc8b;
+    width: 70px;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: block;
+}
+
+.title-box h2:after {
+    content: "";
+    background: #6ddc8b;
+    width: 50px;
+    height: 2px;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: block;
+}
+
+/*Input and Button*/
+.multistep-box {
+    max-width: 800px;
+    margin: 5% auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+}
+
+.multistep-box:not(:first-of-type) {
+    display: none;
+}
+
+.multistep-box p {
+    margin: 0 0 12px 0;
+    text-align: left;
+}
+
+.multistep-box span {
+    font-size: 12px;
+    color: #FF0000;
+}
+
+input,
+textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color: #2C3E50;
+    font-size: 13px;
+    transition: all 0.5s;
+    outline: none;
+}
+
+input:focus,
+textarea:focus {
+    box-shadow: inset 0px 0px 50px 2px rgb(0, 0, 0, 0.1);
+}
+
+input.box_error,
+textarea.box_error {
+    border-color: #FF0000;
+    box-shadow: inset 0px 0px 50px 2px rgb(255, 0, 0, 0.1);
+}
+
+input.box_error:focus,
+textarea.box_error:focus {
+    box-shadow: inset 0px 0px 50px 2px rgb(255, 0, 0, 0.1);
+}
+
+p.nxt-prev-button {
+    margin: 25px 0 0 0;
+    text-align: center;
+}
+
+.action-button {
+    width: 100px;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 0 5px;
+    background-image: linear-gradient(to right top, #35e8c3, #36edbb, #3df2b2, #4af7a7, #59fb9b);
+    transition: all 0.5s;
+}
+
+.action-button:hover,
+.action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #6ce199;
+}
+
+.form_submited #multistep_form {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.form_submited h1 {
+    -webkit-background-clip: text;
+    transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+    transition: all 0.3s ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Style for the instruction */
+.instruction {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style for the submit button wrapper */
+.submit-button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Style for the submit button */
+.submit_btn {
+    width: 150px;
+    height: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Hover effect for the submit button */
+.submit_btn:hover {
+    background-color: #45a049;
+    /* Darker green color */
+}
+
+/* Style for the success pop-up */
+.success-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+}
+
+/* more to come... */
