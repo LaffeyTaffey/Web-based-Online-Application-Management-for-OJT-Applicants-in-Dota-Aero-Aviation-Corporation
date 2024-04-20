@@ -1,0 +1,60 @@
+.announcement-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+        /* Increased shadow */
+    }
+
+    .announcement {
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        max-width: 600px;
+        position: relative;
+    }
+
+    .announcement:hover {
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .announcement:hover h2 {
+        color: #007bff;
+        /* Change text color to vibrant blue */
+    }
+
+    .announcement:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.8));
+        z-index: -1;
+        border-radius: 10px;
+    }
+
+    .announcement h2 {
+        margin-bottom: 10px;
+        color: #333;
+        transition: color 0.3s ease;
+        /* Add transition for text color */
+    }
+
+    .announcement p {
+        color: #666;
+        margin-bottom: 15px;
+    }
+
+    .announcement-info {
+        margin-top: 10px;
+        color: #666;
+    }
