@@ -31,18 +31,13 @@
     </header>
 <br><br><br><br><br><br><br>
     <!-- search -->
-<div id="cover">
-    <form method="get" action="">
-        <div class="tb">
-            <div class="td"><input type="text" placeholder="Search" required></div>
-            <div class="td" id="s-cover">
-                <button type="submit">
-                    <div id="s-circle"></div>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-    </form>
+    
+<div class="search-wrapper">
+    <div class="input-holder">
+        <input type="text" class="search-input" placeholder="Search Ref# for OJT admission results. Ex: 001" />
+        <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+    </div>
+    <span class="close" onclick="searchToggle(this, event);"></span>
 </div>
 
 </body>
@@ -108,5 +103,6 @@
 </script>
 <!-- End of Async Drift Code -->
 <script src="public/js/ojt-requirements.js"></script>
+<script src="public/js/ojt-adm-results.js"></script>
 
 </html>
