@@ -38,6 +38,10 @@ input:-internal-autofill-selected {
     /* Centers the image horizontally */
 }
 
+.document.centered {
+    grid-column: span 2;
+}
+
 /*progress header*/
 #progress_header {
     overflow: hidden;
