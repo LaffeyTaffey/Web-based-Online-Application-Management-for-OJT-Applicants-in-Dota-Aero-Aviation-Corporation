@@ -729,3 +729,42 @@ main .side .weather .meta .datetime .time {
     }
 }
 
+
+.main .refs {
+border-top: solid 1px var(--c-lighter);
+background-color: var(--c-light);
+-webkit-backdrop-filter: blur(6px);
+backdrop-filter: blur(6px);
+padding: var(--o-padding);
+grid-gap: var(--o-padding);
+position: relative;
+overflow: overlay;
+}
+
+
+.dashboard .cardcolumn .card .avatar {
+    position: relative;
+    display: inline-block;
+}
+
+.dashboard .cardcolumn .card .avatar .profile_img_ctrls {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.dashboard .cardcolumn .card .avatar .profile_img_ctrls a {
+    color: #fff;
+    text-decoration: none;
+    margin: 5px 0;
+}
+
+.dashboard .cardcolumn .card .avatar .profile_img_ctrls .upload {
+    display: none;
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css" />
     <link rel="stylesheet" href="public/css/ojt-adm-results.css" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="public/js/ojt-adm-results.js"></script>
     <title>Admin Panel</title>
 </head>
@@ -49,7 +51,7 @@
             <span class="expander iconoir-arrow-right"></span>
         </div>
         <div class="topbar">
-            <h1 class="current">Dashboard</h1>
+            <h1 class="current">Admin Profile Settings</h1>
             <span class="search">
                 <label><span class="iconoir-search"></span></label>
                 <input class="bar" type="text" placeholder="Search..." />
@@ -62,86 +64,42 @@
             </nav>
         </div>
 
-        <div class="dashboard" id="admdash">
-            <div class="cardcolumn">
-                <div class="card">
-                    <header>
-                        <a class="title" href="#"></a>
-                        <span class="iconoir-more-vert"></span>
-                    </header>
-                    <div class="content"></div>
-                    <div class="meta">
-                        <span class="iconoir-pin"></span>
-                        <span class="iconoir-eye-off"></span>
-                        <span class="iconoir-share-ios"></span>
-                    </div>
-                </div>
-                <div class="card">
-                    <header>
-                        <a class="title" href="#"></a>
-                        <span class="iconoir-more-vert"></span>
-                    </header>
-                    <div class="content"></div>
-                    <div class="meta">
-                        <span class="iconoir-pin"></span>
-                        <span class="iconoir-eye-off"></span>
-                        <span class="iconoir-share-ios"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="cardcolumn">
-                <div class="card">
-                    <header>
-                        <a class="title" href="#"></a>
-                        <span class="iconoir-more-vert"></span>
-                    </header>
-                    <div class="content"></div>
-                    <div class="meta">
-                        <span class="iconoir-pin"></span>
-                        <span class="iconoir-eye-off"></span>
-                        <span class="iconoir-share-ios"></span>
-                    </div>
-                </div>
-                <div class="card">
-                    <header>
-                        <a class="title" href="#"></a>
-                        <span class="iconoir-more-vert"></span>
-                    </header>
-                    <div class="content"></div>
-                    <div class="meta">
-                        <span class="iconoir-pin"></span>
-                        <span class="iconoir-eye-off"></span>
-                        <span class="iconoir-share-ios"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="cardcolumn">
-                <div class="card">
-                    <header>
-                        <a class="title" href="#"></a>
-                        <span class="iconoir-more-vert"></span>
-                    </header>
-                    <div class="content"></div>
-                    <div class="meta">
-                        <span class="iconoir-pin"></span>
-                        <span class="iconoir-eye-off"></span>
-                        <span class="iconoir-share-ios"></span>
-                    </div>
-                </div>
-                <div class="card">
-                    <header>
-                        <a class="title" href="#"></a>
-                        <span class="iconoir-more-vert"></span>
-                    </header>
-                    <div class="content"></div>
-                    <div class="meta">
-                        <span class="iconoir-pin"></span>
-                        <span class="iconoir-eye-off"></span>
-                        <span class="iconoir-share-ios"></span>
+        <script>
+            $(document).ready(function () {
+                    $('.change-picture').on('click', function (e) {
+                        e.preventDefault();
+                        $('.upload').trigger('click');
+                    });
+
+                    $('.upload').on('change', function () {
+                        // Handle the file upload here
+                    });
+
+                    $('.remove-picture').on('click', function (e) {
+                        e.preventDefault();
+                        // Handle the picture removal here
+                    });
+                });
+        </script>
+
+        <div class="dashboard">
+            <div class="cardcolumn" style="text-align: center">
+                <div class="card" style="text-align: center">
+                    <div class="avatar">
+                        <img class="thumb" src="https://avatars.githubusercontent.com/u/34617016?v=4" width="60" />
+                        <h2 id="name">Dito lagay name</h2>
+                        <br><br><br>
+                        <div class="profile_img_ctrls">
+                            <a href="#" class="change-picture"><i class="fa fa-pencil"></i> Change Picture</a>
+                            <a href="#" class="remove-picture"><i class="fa fa-trash"></i> Remove Picture</a>
+                            <input type="file" class="upload" style="display: none;" />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        
         <div class="side">
             <div class="card weather">
                 <img class="condition"
@@ -163,10 +121,13 @@
                 <header>Notes</header>
                 <div class="content">
                     <ul>
-                        <li>(15:30) results.html ojt applicants can type their reference number and search if accepted or not, if yes, appointment will pop up and they
-                        can now log in to their portal) -me, and sayago will display results (img) </li>
-                        <li>(18:00) Portal HREF nav -assigned sayago, check first if the user is logged, if its, go to index.html dashboard and if not, go
-                        to login page first</li>
+                        <li>(15:30) results.html ojt applicants can type their reference number and search if accepted
+                            or not,
+                            if yes, appointment will pop up and they
+                            can now log in to their portal) -me, and sayago will display results (img) </li>
+                        <li>(18:00) Portal HREF nav -assigned sayago, check first if the user is logged, if its, go to
+                            index.html dashboard and if not, go
+                            to login page first</li>
                         <li>(19:30) index (student dashboard) -cecil</li>
                         <li>(22:00) my schedule.html (sayago ojt time and where timeschedule) or improve calendar</li>
                         <li>(23:30) announcement.html (javascript real time) -sayago and me (front end).</li>
@@ -178,7 +139,7 @@
     </main>
     <div class="video">
         <video src="public/assets/img/videos/i0aze.mp4" muted playinline autoplay loop></video>
-       <!--to be edited <video
+        <!--to be edited <video
             src="https://user-images.githubusercontent.com/30212452/203724691-9e93bf50-df02-4034-9743-dfe32d18bf58.mp4"
             muted playsinline autoplay loop></video>-->
     </div>
@@ -211,4 +172,5 @@
 </script>
 <script src="public/js/admin.js"></script>
 <script src="public/js/ojt-adm-results.js"></script>
+
 </html>

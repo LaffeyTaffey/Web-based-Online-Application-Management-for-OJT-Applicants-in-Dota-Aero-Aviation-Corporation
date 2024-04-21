@@ -34,10 +34,10 @@ time.innerText= `${today.getHours()}:${formatZero(today.getMinutes())}`;
 const dummyData = () => {
   mainCards.forEach((card, i) => {
     card.querySelector(".title").innerText =
-      "Edit ";
+      "Notices ";
     card.querySelector(
       ".content"
-    ).innerText = "ayaya.".slice(
+    ).innerText = "dito natin lalagay yung mga other contents".slice(
       0,
       Math.round(Math.random() * -200)
     );
@@ -60,3 +60,4 @@ const weatherData = async () => {
 
 dummyData();
 weatherData();
+

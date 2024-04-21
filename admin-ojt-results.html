@@ -25,7 +25,7 @@
                     <span class="iconoir-report-columns"></span>
                     <span class="desc">Dashboard</span>
                 </a>
-                <a href="admin-ojt-results.html" class="menu-item">
+                <a href="admin-ojt-results.html#ref" class="menu-item">
                     <span class="iconoir-table"></span>
                     <span class="desc">Check OJT Ref#</span>
                 </a>
@@ -49,7 +49,7 @@
             <span class="expander iconoir-arrow-right"></span>
         </div>
         <div class="topbar">
-            <h1 class="current">Dashboard</h1>
+            <h1 class="current">Check OJT Ref#</h1>
             <span class="search">
                 <label><span class="iconoir-search"></span></label>
                 <input class="bar" type="text" placeholder="Search..." />
@@ -61,86 +61,20 @@
                 <a href="admin-login.html" class="menu-item">Logout</a> <!--database--> <!--Change href -sayago-->
             </nav>
         </div>
-
-        <div class="dashboard" id="admdash">
-            <div class="cardcolumn">
-                <div class="card">
-                    <header>
-                        <a class="title" href="#"></a>
-                        <span class="iconoir-more-vert"></span>
-                    </header>
-                    <div class="content"></div>
-                    <div class="meta">
-                        <span class="iconoir-pin"></span>
-                        <span class="iconoir-eye-off"></span>
-                        <span class="iconoir-share-ios"></span>
-                    </div>
-                </div>
-                <div class="card">
-                    <header>
-                        <a class="title" href="#"></a>
-                        <span class="iconoir-more-vert"></span>
-                    </header>
-                    <div class="content"></div>
-                    <div class="meta">
-                        <span class="iconoir-pin"></span>
-                        <span class="iconoir-eye-off"></span>
-                        <span class="iconoir-share-ios"></span>
-                    </div>
-                </div>
+        <div class="dashboard" id="ref">
+            <div class="cardcolumn" style="text-align: center">
+                <div class="card" style="text-align: center">
+            <h2>Search the OJT's reference number</h2>
             </div>
-            <div class="cardcolumn">
-                <div class="card">
-                    <header>
-                        <a class="title" href="#"></a>
-                        <span class="iconoir-more-vert"></span>
-                    </header>
-                    <div class="content"></div>
-                    <div class="meta">
-                        <span class="iconoir-pin"></span>
-                        <span class="iconoir-eye-off"></span>
-                        <span class="iconoir-share-ios"></span>
-                    </div>
-                </div>
-                <div class="card">
-                    <header>
-                        <a class="title" href="#"></a>
-                        <span class="iconoir-more-vert"></span>
-                    </header>
-                    <div class="content"></div>
-                    <div class="meta">
-                        <span class="iconoir-pin"></span>
-                        <span class="iconoir-eye-off"></span>
-                        <span class="iconoir-share-ios"></span>
-                    </div>
-                </div>
+        </div> 
+        </div>
+        <div class="search-wrapper">
+            <div class="input-holder">
+                <input type="text" class="search-input" placeholder="Search Ref# for OJT admission results. Ex: 001" />
+                <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
             </div>
-            <div class="cardcolumn">
-                <div class="card">
-                    <header>
-                        <a class="title" href="#"></a>
-                        <span class="iconoir-more-vert"></span>
-                    </header>
-                    <div class="content"></div>
-                    <div class="meta">
-                        <span class="iconoir-pin"></span>
-                        <span class="iconoir-eye-off"></span>
-                        <span class="iconoir-share-ios"></span>
-                    </div>
-                </div>
-                <div class="card">
-                    <header>
-                        <a class="title" href="#"></a>
-                        <span class="iconoir-more-vert"></span>
-                    </header>
-                    <div class="content"></div>
-                    <div class="meta">
-                        <span class="iconoir-pin"></span>
-                        <span class="iconoir-eye-off"></span>
-                        <span class="iconoir-share-ios"></span>
-                    </div>
-                </div>
-            </div>
+            <span class="close" onclick="searchToggle(this, event);"></span>
+            <p><!--put image here after search--></p>
         </div>
         <div class="side">
             <div class="card weather">
@@ -163,10 +97,12 @@
                 <header>Notes</header>
                 <div class="content">
                     <ul>
-                        <li>(15:30) results.html ojt applicants can type their reference number and search if accepted or not, if yes, appointment will pop up and they
-                        can now log in to their portal) -me, and sayago will display results (img) </li>
-                        <li>(18:00) Portal HREF nav -assigned sayago, check first if the user is logged, if its, go to index.html dashboard and if not, go
-                        to login page first</li>
+                        <li>(15:30) results.html ojt applicants can type their reference number and search if accepted or not,
+                            if yes, appointment will pop up and they
+                            can now log in to their portal) -me, and sayago will display results (img) </li>
+                        <li>(18:00) Portal HREF nav -assigned sayago, check first if the user is logged, if its, go to
+                            index.html dashboard and if not, go
+                            to login page first</li>
                         <li>(19:30) index (student dashboard) -cecil</li>
                         <li>(22:00) my schedule.html (sayago ojt time and where timeschedule) or improve calendar</li>
                         <li>(23:30) announcement.html (javascript real time) -sayago and me (front end).</li>
