@@ -37,7 +37,7 @@ const dummyData = () => {
       "Notices ";
     card.querySelector(
       ".content"
-    ).innerText = "dito natin lalagay yung mga other contents".slice(
+    ).innerText = "dito natin lalagay yung mga other contents, sayago, cecil".slice(
       0,
       Math.round(Math.random() * -200)
     );

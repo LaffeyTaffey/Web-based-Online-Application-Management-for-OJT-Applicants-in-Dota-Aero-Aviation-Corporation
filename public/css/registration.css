@@ -127,10 +127,10 @@ table th{
 /* multi step indicator */
 
 .multi-step_indicator{
-	position: absolute;
+	padding: 30px 0 0 0;
 	z-index: 2;
-	top: 290px;
-	margin-left: 550px;
+	display: flex;
+	justify-content: center;
 }
 
 
@@ -172,48 +172,3 @@ div #consent{
 }
 
 /* footer */
-.footer {
-	margin-top: auto;
-	background-color: rgba(0, 0, 0, 0.5);
-	color: #fff;
-	padding: 10px 0;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	flex-shrink: 0;
-}
-
-.footer-line {
-	border: none;
-	border-top: 1px solid #fff;
-	margin: 10px 0;
-}
-
-.container-footer {
-	width: 100%;
-	margin: auto;
-}
-
-.row-footer {
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.col {
-	flex: 1 0 100%;
-	padding: 10px;
-	align-items: center;
-}
-
-.text-center {
-	text-align: center;
-}
-
-.social-icons .person {
-	display: inline-block;
-	margin: 0 10px;
-}
-
-.logo {
-	width: 30px;
-	height: 30px;
-}
-/*input type radio resizing and align*/

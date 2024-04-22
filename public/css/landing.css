@@ -376,6 +376,16 @@ main {
     flex: 1 0 100%;
     padding: 10px;
 }
+.container2 {
+display: flex;
+flex-direction: column;
+padding-left: 600px;
+}
+.col1 p{
+        padding: 10px;
+        width: 800px;
+        text-align: center;
+}
 
 .text-center {
     text-align: center;
