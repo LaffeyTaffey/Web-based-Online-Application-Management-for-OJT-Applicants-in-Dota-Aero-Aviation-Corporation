@@ -3,7 +3,7 @@
 /* --------------------------header title ojt application---------------------- */
 
 #OJTapplication{
-	background-color: #422095;
+	background-color: rgb(145, 0, 0);
 	height: 90px;
 	overflow: hidden;
 }
@@ -114,13 +114,13 @@ table th{
 		width: 150px;
 		height: 40px;
 		border-radius: 10px;
- 	 background: dodgerblue;
+ 	 background: rgb(145, 0, 0);
  	 color: #fff;
  	 border: #fff;
 }
 
 #button-submit:hover [type="button"]{
-		background: linear-gradient(25deg, rgba(66, 230, 149, 1), rgba(66, 32, 149, 1));
+		background: linear-gradient(135deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
 }
 
 
