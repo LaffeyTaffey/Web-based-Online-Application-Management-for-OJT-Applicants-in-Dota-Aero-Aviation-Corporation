@@ -55,13 +55,15 @@
     width: auto;
     text-align: center;
     flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .team .team_member {
     background: #fff;
     margin: 5px;
     margin-bottom: 5px;
-    width: 300px;
+    width: calc(33.33% - 20px);
     padding: 20px;
     line-height: 20px;
     color: #8e8b8b;
@@ -104,4 +106,16 @@
 
 .team .team_member:hover .team_img img {
     transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .team .team_member {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .team .team_member {
+        width: calc(50% - 20px);
+    }
 }
