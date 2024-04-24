@@ -794,16 +794,16 @@ padding-left: 600px;
         height: auto;
     }
 
-        box1 {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            font-size: 0.8rem;
-        }
-    
-        .quotes {
-            font-size: 0.8rem;
-        }
-        
+    box1 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 0.8rem;
+    }
+
+    .quotes {
+        font-size: 0.8rem;
+    }
+
 }
 
 /* For medium screens */
@@ -830,49 +830,32 @@ padding-left: 600px;
         padding: 40px;
     }
 
-        .box1 {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            font-size: 0.8rem;
-        }
-    
-        .quotes {
-            font-size: 1rem;
-        }
+    .box1 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 0.8rem;
+    }
+
+    .quotes {
+        font-size: 1rem;
+    }
 
 }
 
 /* For large screens */
 @media only screen and (min-width: 1025px) {
 
-    header {
-        padding: 20px 40px;
-    }
-
-    nav {
-        padding: 25px;
-    }
-
-    nav li a {
-        margin: 0 20px;
-        font-size: 0.9rem;
-    }
-
-    .wrapper {
-        width: 80%;
-    }
-
     .block {
         padding: 50px;
     }
 
-        .box1 {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            font-size: 0.8rem;
-        }
+    .box1 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 0.8rem;
+    }
 
-        .quotes {
-            font-size: 1.2rem;
-        }
+    .quotes {
+        font-size: 1.2rem;
+    }
 }
