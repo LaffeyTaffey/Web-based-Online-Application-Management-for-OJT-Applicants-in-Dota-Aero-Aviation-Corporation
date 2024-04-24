@@ -18,7 +18,7 @@
             <img src="public/assets/img/dota_logo.png" alt="DOTA" id="header-img">
             <h1>DOTA</h1>
         </div>
-
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div> <!-- Hamburger icon -->
         <nav id="nav-bar">
             <ul>
                 <li><a class="nav-link" href="enrollment.html">Enrollment</a></li>
@@ -32,6 +32,14 @@
         <a href="login.html"><button id="signin-button">Sign In →</button></a>
         </nav>
     </header>
+
+    <script>
+        // JavaScript to toggle menu
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            document.getElementById('nav-bar').classList.toggle('active');
+        });
+    </script>
+
     <main>
 <br>
         <div id="calendar-container">

@@ -16,7 +16,7 @@
     <title>Home</title>
 </head>
 
-<body background="public/assets/img/dark-bg2.png">
+<body>
 <header id="header">
     <div class="logo-container">
         <img src="public/assets/img/dota_logo.png" alt="DOTA" id="header-img">
@@ -26,6 +26,7 @@
         <h1>Philippine State College of Aeronautics</h1>
         <img src="public/assets/img/school_logo.png" alt="PSCA" id="header-img">
     </div>
+    <div class="menu-toggle" id="menu-toggle">&#9776;</div> <!-- Hamburger icon -->
     <nav id="nav-bar">
         <ul>
             <li><a class="nav-link" href="#home">Home</a></li>
@@ -35,13 +36,20 @@
             <li><a class="nav-link" href="#ojt-adm">ojt admission</a></li>
             <li><a class="nav-link" href="ticket.html">Submit a ticket</a></li>
             <li><a class="nav-link" href="#about">About us</a></li>
-            <li><a class="nav-link" href="calendar.html#portal">Portal</a></li> <!--this will go to the login page of the students subject to change-->
+            <li><a class="nav-link" href="calendar.html#portal">Portal</a></li>
+            <!--this will go to the login page of the students subject to change-->
             <li><a class="nav-link" href="ojt-adm-results.html">OJT Admission Results</a></li>
         </ul>
-        <a href="login.html"><button id="signin-button">Sign In  →</button></a>
-       
+        <a href="login.html"><button id="signin-button">Sign In →</button></a>
     </nav>
 </header>
+
+<script>
+    // JavaScript to toggle menu
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+        document.getElementById('nav-bar').classList.toggle('active');
+    });
+</script>
 
 <main>
     <script src="public/js/landing.js"></script>

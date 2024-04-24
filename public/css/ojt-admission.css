@@ -1,12 +1,13 @@
 @import url('https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css');
 @import 'material-icons/iconfont/material-icons.css';
+
 container-ojt {
     padding-top: 20px;
     padding-bottom: 20px;
 }
 
-.background-img{
-    background-image:url("https://3.bp.blogspot.com/-piZWCW2uUbg/W2fPXxkWZgI/AAAAAAAAOu0/eydmMjTIqcwLMHEEr2H7imqoRTxMw4o9QCLcBGAs/s1600/among_trees_night_dribbble.png");
+.background-img {
+    background-image: url("https://3.bp.blogspot.com/-piZWCW2uUbg/W2fPXxkWZgI/AAAAAAAAOu0/eydmMjTIqcwLMHEEr2H7imqoRTxMw4o9QCLcBGAs/s1600/among_trees_night_dribbble.png");
     height: 400px;
     width: 800px;
     background-repeat: no-repeat;
@@ -19,7 +20,9 @@ container-ojt {
     position: relative;
 }
 
-.container-ojt h2{font-size:19px;}
+.container-ojt h2 {
+    font-size: 19px;
+}
 
 .box-ojt {
     position: absolute;
@@ -44,7 +47,7 @@ container-ojt {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     transition: 0.5s;
     pointer-events: none;
 }
@@ -64,7 +67,7 @@ container-ojt {
     border: 1px solid #f0a591;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 5px 10px rgba(9,0,0,0.5);
+    box-shadow: 0 5px 10px rgba(9, 0, 0, 0.5);
 }
 
 .box-ojt span {
@@ -168,5 +171,90 @@ button.neumorphic {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    
+
+}
+
+/* media for ojt-admission */
+@media (max-width: 500px) {
+    .background-img {
+        width: 90%;
+        max-width: 100%;
+    }
+
+    .box-ojt {
+        width: 90%;
+        max-width: 100%;
+    }
+
+    .container-ojt h2 {
+        font-size: 16px;
+    }
+
+    .box-ojt .content-ojt {
+        padding: 10px;
+    }
+
+    .box-ojt span:before {
+        height: 1px;
+    }
+
+    button.neumorphic {
+        padding: 1rem 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .background-img {
+        width: 90%;
+        max-width: 100%;
+    }
+
+    .box-ojt {
+        width: 90%;
+        max-width: 100%;
+    }
+
+    .container-ojt h2 {
+        font-size: 16px;
+    }
+
+    .box-ojt .content-ojt {
+        padding: 10px;
+    }
+
+    .box-ojt span:before {
+        height: 1px;
+    }
+
+    button.neumorphic {
+        padding: 1rem 1.5rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .background-img {
+        width: 80%;
+        max-width: 100%;
+    }
+
+    .box-ojt {
+        width: 80%;
+        max-width: 100%;
+    }
+
+    .container-ojt h2 {
+        font-size: 18px;
+    }
+
+    .box-ojt .content-ojt {
+        padding: 15px;
+    }
+
+    .box-ojt span:before {
+        height: 2px;
+    }
+
+    button.neumorphic {
+        padding: 1.5rem 2rem;
+    }
 }
