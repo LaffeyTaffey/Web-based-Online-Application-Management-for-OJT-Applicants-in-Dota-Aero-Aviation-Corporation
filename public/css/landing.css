@@ -354,19 +354,19 @@ main {
 }
 
 .slide:nth-child(1) {
-    background-image: url(https://cdn.discordapp.com/attachments/739424796814737418/1226833664504238130/banner3.png?ex=662634e3&is=6613bfe3&hm=4c4d13805b4bf91ca5605dd14d6136edc73c5a5f137750d10a92eefafbfb1770&);
+    background-image: url(https://i.ibb.co/jVf3v4s/banner3.png);
 }
 
 .slide:nth-child(2) {
-    background-image: url(https://cdn.discordapp.com/attachments/739424796814737418/1226833661924741161/banner4.png?ex=662634e2&is=6613bfe2&hm=b2b49d475b6c149aea015c052358e764f5ff8244e0412f055325804064672fcd&);
+    background-image: url(https://i.ibb.co/5kc0p9c/banner4.png);
 }
 
 .slide:nth-child(3) {
-    background-image: url(https://cdn.discordapp.com/attachments/739424796814737418/1226833663086559263/banner1.png?ex=662634e2&is=6613bfe2&hm=c886a4fe21cd81aae942d31f8aa88a0a9dab87d93f1da665db4283ec9a3f4fe5&);
+    background-image: url(https://i.ibb.co/jr8T2Kw/banner1.png);
 }
 
 .slide:nth-child(4) {
-    background-image: url(https://cdn.discordapp.com/attachments/739424796814737418/1226833663891734588/banner2.png?ex=662634e2&is=6613bfe2&hm=642a790d066f2363237e5168666c2bdec076b2539782492b2916dacb70065f2e&);
+    background-image: url(https://i.ibb.co/wyJ20Qv/banner2.png);
 }
 
 /* ========== footer =========*/
