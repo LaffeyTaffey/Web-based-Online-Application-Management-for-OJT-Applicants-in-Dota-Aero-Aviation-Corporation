@@ -746,3 +746,133 @@ padding-left: 600px;
     margin: 30px 0 0;
     color: #999999;
 }
+
+/* For small screens */
+@media only screen and (max-width: 600px) {
+
+    /* Adjustments for header */
+    header {
+        padding: 10px 20px;
+    }
+
+    nav {
+        padding: 15px;
+    }
+
+    nav li a {
+        margin: 0 10px;
+        font-size: 0.7rem;
+    }
+
+    /* Adjustments for main body */
+    .wrapper {
+        width: 95%;
+    }
+
+    .block {
+        padding: 30px;
+    }
+
+    /* Adjustments for footer */
+    .container-footer {
+        padding: 10px;
+    }
+
+    .col1 p {
+        width: 100%;
+        padding: 10px 5px;
+    }
+
+    /* Adjustments for college admission */
+    .container {
+        padding: 15px;
+    }
+
+    /* Adjustments for news & updates */
+    .module {
+        min-width: 100%;
+        height: auto;
+    }
+
+        box1 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 0.8rem;
+        }
+    
+        .quotes {
+            font-size: 0.8rem;
+        }
+        
+}
+
+/* For medium screens */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+
+    header {
+        padding: 15px 30px;
+    }
+
+    nav {
+        padding: 20px;
+    }
+
+    nav li a {
+        margin: 0 15px;
+        font-size: 0.8rem;
+    }
+
+    .wrapper {
+        width: 90%;
+    }
+
+    .block {
+        padding: 40px;
+    }
+
+        .box1 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 0.8rem;
+        }
+    
+        .quotes {
+            font-size: 1rem;
+        }
+
+}
+
+/* For large screens */
+@media only screen and (min-width: 1025px) {
+
+    header {
+        padding: 20px 40px;
+    }
+
+    nav {
+        padding: 25px;
+    }
+
+    nav li a {
+        margin: 0 20px;
+        font-size: 0.9rem;
+    }
+
+    .wrapper {
+        width: 80%;
+    }
+
+    .block {
+        padding: 50px;
+    }
+
+        .box1 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 0.8rem;
+        }
+
+        .quotes {
+            font-size: 1.2rem;
+        }
+}
