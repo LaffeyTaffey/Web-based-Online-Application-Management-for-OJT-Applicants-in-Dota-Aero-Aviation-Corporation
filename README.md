@@ -1,6 +1,6 @@
 # Web-based-Online-Application-Management-for-OJT-Applicants-in-Dota-Aero-Aviation-Corporation
 
-[img]https://i.imgur.com/ywrWCmu.jpeg[/img]
+<img src="https://i.imgur.com/ywrWCmu.jpeg">
 <br>
     <h1 style="text-align: center;"><p align="center">💬 A Web-based Online Application Management for OJT Applicants in Dota Aero Aviation Corporation made using:</p></h1>
 <p align="center">
