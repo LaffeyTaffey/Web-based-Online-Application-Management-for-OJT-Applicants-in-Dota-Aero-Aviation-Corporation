@@ -4,9 +4,9 @@
 <br>
     <h1 style="text-align: center;"><p align="center">💬 A Web-based Online Application Management for OJT Applicants in Dota Aero Aviation Corporation made using:</p></h1>
 <p align="center">
-    <img src="https://i.imgur.com/AafZJLN" width="150">
-    <img src="https://i.imgur.com/k2bfXVm" width="150">
-    <img src="https://i.imgur.com/KepRaPw" width="250">
+    <img src="https://i.imgur.com/AafZJLN.png" width="150">
+    <img src="https://i.imgur.com/k2bfXVm.png" width="150">
+    <img src="https://i.imgur.com/KepRaPw.png" width="250">
 </p>
 
 <p align="center">
