@@ -4,18 +4,18 @@
 <br>
     <h1 style="text-align: center;"><p align="center">💬 A Web-based Online Application Management for OJT Applicants in Dota Aero Aviation Corporation made using:</p></h1>
 <p align="center">
-    <img src="https://imgur.com/AafZJLN" width="150">
-    <img src="https://imgur.com/k2bfXVm" width="150">
-    <img src="https://imgur.com/KepRaPw" width="250">
+    <img src="https://i.imgur.com/AafZJLN" width="150">
+    <img src="https://i.imgur.com/k2bfXVm" width="150">
+    <img src="https://i.imgur.com/KepRaPw" width="250">
 </p>
 
 <p align="center">
-    <img src="https://imgur.com/gtaxMKh" width="150">
-    <img src="https://imgur.com/qVxQNU1" width="150">
-    <img src="https://imgur.com/QGDGv5x" width="150">
-    <img src="https://imgur.com/uztBsTD" width="150">
-    <img src="https://imgur.com/nIlpdxR" width="150">
-    <img src="https://imgur.com/bqqdfpn" width="150">
+    <img src="https://i.imgur.com/gtaxMKh.png" width="150">
+    <img src="https://i.imgur.com/qVxQNU1.png" width="150">
+    <img src="https://i.imgur.com/QGDGv5x.png" width="150">
+    <img src="https://i.imgur.com/uztBsTD.png" width="150">
+    <img src="https://i.imgur.com/nIlpdxR.png" width="150">
+    <img src="https://i.imgur.com/bqqdfpn.png" width="150">
 </p>
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=LaffeyTaffey)](https://github.com/LaffeyTaffey/github-readme-stats)
