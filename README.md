@@ -50,8 +50,8 @@
 <br>
 
 <h4><p align="center">Documentation</p></h4>
-<p align="center">
-....
+<p>
+    To get started, 
 </p>
 
 

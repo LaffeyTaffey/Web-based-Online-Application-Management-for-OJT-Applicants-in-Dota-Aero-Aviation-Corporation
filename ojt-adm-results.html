@@ -6,11 +6,13 @@
     <link rel="shortcut icon" type="image/x-icon" href="public/assets/img/dota_logo.png" />
     <link rel="stylesheet" href="public/css/login.css" type="text/css">
     <link rel="stylesheet" href="public/css/ojt-adm-results.css" type="text/css">
+    <link rel="stylesheet" href="public/css/landing.css" type="text/css">
+    <link rel="stylesheet" href="public/css/global.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Results</title>
 </head>
 
-<body>
+<body class="fade-in">
     <header id="header">
         <div class="logo-container">
             <img src="public/assets/img/dota_logo.png" alt="DOTA" id="header-img">
@@ -20,24 +22,17 @@
             <h1>Philippine State College of Aeronautics</h1>
             <img src="public/assets/img/school_logo.png" alt="PSCA" id="header-img">
         </div>
-        <div class="menu-toggle" id="menu-toggle">&#9776;</div> <!-- Hamburger icon -->
         <nav id="nav-bar">
             <ul>
                 <li><a class="nav-link" href="landing.html#ojt-adm">OJT Enrollment</a></li>
                 <li><a class="nav-link" href="index.html#announcement">Announcement</a></li>
                 <li><a class="nav-link" href="landing.html">Homepage</a></li>
+                <br>
             </ul>
         </nav>
     </header>
 
-    <script>
-        // JavaScript to toggle menu
-        document.getElementById('menu-toggle').addEventListener('click', function () {
-            document.getElementById('nav-bar').classList.toggle('active');
-        });
-    </script>
-
-<br><br>
+<br><br><br><br><br>
     <!-- search -->
     <div class="container-search">
         <h1>Search your OJT Admission Results by clicking the Search button below:</h1>
@@ -116,5 +111,5 @@
 <!-- End of Async Drift Code -->
 <script src="public/js/ojt-requirements.js"></script>
 <script src="public/js/ojt-adm-results.js"></script>
-
+<script src="public/js/global.js"></script>
 </html>
