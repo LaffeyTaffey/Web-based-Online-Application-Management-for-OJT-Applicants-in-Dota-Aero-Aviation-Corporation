@@ -116,6 +116,7 @@
     margin: 10px auto 80px;
     max-width: 94%;
     z-index: 2;
+    border-radius: 10px;
 }
 
 @media (min-width: 480px) {
@@ -228,6 +229,7 @@
     border: 1px solid rgba(191, 191, 191, 0.4);
     border-top: 0;
     padding: 15px;
+    border-radius: 10px;
 }
 
 @media (min-width: 1000px) {
