@@ -96,6 +96,31 @@
 | `register.html`               | The HTML document **presents a multi-step form for internship application**. Divided into three steps, it collects detailed information from users including personal details, educational background, and internship preferences. Each step is visually distinct with header sections and input fields organized within tables. The form aims to streamline the application process while ensuring accurate data collection. Additionally, it includes navigation buttons for users to move between form sections efficiently. |
 | `ticket.html`                 | This HTML document is a webpage for **submitting tickets**. The main content of the page is an embedded Google Form within an iframe, allowing users to submit tickets. JavaScript code is included to toggle the navigation menu. Additionally, there's asynchronous drift code for messaging if you have concerns. |
 
+<h4><p align="center">CSS files</p></h4>
+
+
+<h4><p align="center">JS files</p></h4>
+
+**server.js**
+
+This script is an Express.js application. Its purpose is to serve static files, such as HTML, CSS, and JavaScript files, and handle HTTP requests.
+
+Here's a breakdown of its functionality:
+
+- **Dependencies:** The script requires several dependencies, including Express.js for creating the server, path for working with file paths, body-parser for parsing incoming request bodies, and knex (although it's not used in this script).
+
+- **Express Server Setup:** It creates an instance of the Express application.
+
+- **Middleware Setup:** It uses body-parser middleware to parse incoming JSON requests.
+
+- **Routing:**
+  - It defines a route for the root path '/' using `appExpress.get()`, which sends the `landing.html` file when someone accesses the root URL.
+  - It serves static files (such as CSS, images, and JavaScript files) using `express.static()` middleware.
+  - It defines a fallback route using `appExpress.use()` to handle 404 errors, sending the `404.html` file when a requested resource is not found.
+
+- **Server Listening:** It starts the server and listens on port 3000. When the server is running, it logs a message indicating that it's listening on port 3000.
+
+Overall, the purpose of this script is to create a basic web server using Express.js, serve static files, and handle HTTP requests.
 
 
 
