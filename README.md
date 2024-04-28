@@ -102,7 +102,7 @@
 <h4><p align="center">JS files</p></h4>
 
 ```ruby
-**server.js**
+server.js
 
 This script is an `Express.js` application. Its purpose is to serve static files, such as HTML, CSS, and JavaScript files, and handle HTTP requests.
 
@@ -122,6 +122,11 @@ Here's a breakdown of its functionality:
 - **Server Listening:** It starts the server and listens on port 3000. When the server is running, it logs a message indicating that it's listening on port 3000.
 
 Overall, the purpose of this script is to create a basic web server using `Express.js`, serve static files, and handle HTTP requests.
+```
+
+```ruby
+academics.js
+
 ```
 
 
