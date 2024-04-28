@@ -40,7 +40,7 @@ header {
     width: 100%;
     padding: 10px 40px;
     border-bottom: 1px solid #E5E5E5;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.85));
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
@@ -179,6 +179,8 @@ nav button::before {
     background: -ms-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 0.8) 100%);
     background: linear-gradient(135deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 0.8) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e1d1f', endColorstr='#df405a', GradientType=1);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0 2px white, 0 0 0 3px rgba(223, 64, 90, 1);
 }
 
 @media (max-width: 600px) {
