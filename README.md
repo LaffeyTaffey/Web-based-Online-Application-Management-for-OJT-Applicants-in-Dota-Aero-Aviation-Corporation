@@ -103,24 +103,26 @@
 
 **server.js**
 
-This script is an Express.js application. Its purpose is to serve static files, such as HTML, CSS, and JavaScript files, and handle HTTP requests.
+This script is an `<span style="color: #6A8759">Express.js</span>` application. Its purpose is to serve static files, such as HTML, CSS, and JavaScript files, and handle HTTP requests.
 
 Here's a breakdown of its functionality:
 
-- **Dependencies:** The script requires several dependencies, including Express.js for creating the server, path for working with file paths, body-parser for parsing incoming request bodies, and knex (although it's not used in this script).
+- **Dependencies:** The script requires several dependencies, including `<span style="color: #6A8759">Express.js</span>` for creating the server, `<span style="color: #6A8759">path</span>` for working with file paths, `<span style="color: #6A8759">body-parser</span>` for parsing incoming request bodies, and `<span style="color: #6A8759">knex</span>` (although it's not used in this script).
 
-- **Express Server Setup:** It creates an instance of the Express application.
+- **Express Server Setup:** It creates an instance of the `<span style="color: #6A8759">Express</span>` application.
 
-- **Middleware Setup:** It uses body-parser middleware to parse incoming JSON requests.
+- **Middleware Setup:** It uses `<span style="color: #6A8759">body-parser</span>` middleware to parse incoming JSON requests.
 
 - **Routing:**
-  - It defines a route for the root path '/' using `appExpress.get()`, which sends the `landing.html` file when someone accesses the root URL.
-  - It serves static files (such as CSS, images, and JavaScript files) using `express.static()` middleware.
-  - It defines a fallback route using `appExpress.use()` to handle 404 errors, sending the `404.html` file when a requested resource is not found.
+  - It defines a route for the root path `'/'` using `<span style="color: #6A8759">appExpress.get()</span>`, which sends the `landing.html` file when someone accesses the root URL.
+  - It serves static files (such as CSS, images, and JavaScript files) using `<span style="color: #6A8759">express.static()</span>` middleware.
+  - It defines a fallback route using `<span style="color: #6A8759">appExpress.use()</span>` to handle 404 errors, sending the `404.html` file when a requested resource is not found.
 
 - **Server Listening:** It starts the server and listens on port 3000. When the server is running, it logs a message indicating that it's listening on port 3000.
 
-Overall, the purpose of this script is to create a basic web server using Express.js, serve static files, and handle HTTP requests.
+Overall, the purpose of this script is to create a basic web server using `<span style="color: #6A8759">Express.js</span>`, serve static files, and handle HTTP requests.
+
+
 
 
 
