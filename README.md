@@ -50,9 +50,16 @@
 <br>
 
 <h4><p align="center">Documentation</p></h4>
-<p>
-    To get started, 
-</p>
+
+| File | Description and Purpose |
+| --- | --- |
+| `404.html` |  to create a custom error page for the HTTP 404 error (file not found). This error page is designed to be visually appealing and informative for users who encounter a missing page on a website. |
+| `admin-login` | a login page for an administrative panel of a website.  Meta Tags and Links: The document includes meta tags for viewport settings and links to external resources such as CSS and JavaScript files. It also sets a favicon for the website.
+Header: The header section contains the logo and name of the website, as well as navigation links to other pages like announcements and the homepage.
+Main Content: The main section of the page features a login form designed for administrative access. It includes input fields for the administrator's reference number and password. There's also a checkbox for keeping the user signed in.
+Information Section: This section provides additional options and assistance for users. It includes links for forgotten passwords and a button to display help information.
+Footer: The footer displays information about the creators of the website, indicating that it was created by students of a specific course at Universidad De Manila. It also includes social media links for the creators.
+JavaScript: The document includes JavaScript code for asynchronous loading of the Drift chat widget, as well as additional scripts for login functionality and global behavior.|
 
 
 
