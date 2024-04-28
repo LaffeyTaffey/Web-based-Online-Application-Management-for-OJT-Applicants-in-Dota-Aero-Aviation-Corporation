@@ -60,7 +60,8 @@
 }
 
 .team .team_member {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
     margin: 5px;
     margin-bottom: 5px;
     width: calc(33.33% - 20px);
@@ -72,14 +73,14 @@
 }
 
 .team .team_member h3 {
-    color: #81c644;
+    color: #E63946;
     font-size: 26px;
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
 .team .team_member p.role {
-    color: #ccc;
+    color: black;
     margin: 12px 0;
     font-size: 12px;
     text-transform: uppercase;

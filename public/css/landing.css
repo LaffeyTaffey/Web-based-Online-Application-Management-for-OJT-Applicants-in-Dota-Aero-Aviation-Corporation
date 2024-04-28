@@ -625,7 +625,12 @@ nav button::before {
     max-width: 1200px;
     margin: 5% auto;
     padding: 20px;
-    background-color: rgba(245, 245, 245, 0.9);
+    background: #DAE2F8;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to top, #D6A4A4, #DAE2F8);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to top, #D6A4A4, #DAE2F8);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     border-radius: 10px;
     overflow: hidden;
     box-sizing: border-box;
@@ -861,7 +866,12 @@ main {
     max-width: 800px;
     margin: 5% auto;
     padding: 20px;
-    background-color: #fff;
+    background: #DAE2F8;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to top, #D6A4A4, #DAE2F8);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to top, #D6A4A4, #DAE2F8);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     border-radius: 10px;
     overflow: hidden;
     box-sizing: border-box;
@@ -1041,7 +1051,12 @@ main {
     max-width: 800px;
     margin: 5% auto;
     padding: 20px;
-    background-color: #fff;
+    background: #DAE2F8;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to top, #D6A4A4, #DAE2F8);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to top, #D6A4A4, #DAE2F8);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     border-radius: 10px;
     overflow: hidden;
     box-sizing: border-box;
@@ -1074,6 +1089,7 @@ main {
     transition: all 0.3s linear 0s;
     overflow: hidden;
     position: relative;
+    border-radius: 10px;
 }
 
 .module:hover {
@@ -1124,7 +1140,7 @@ main {
     width: 100%;
     height: 178px;
     bottom: 0;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.5);
     padding: 30px;
     transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
 }
