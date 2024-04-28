@@ -127,8 +127,31 @@ Overall, the purpose of this script is to create a basic web server using `Expre
 ```ruby
 academics.js
 
+This js code ssets up an event listener on an element with the class taskbar. 
+
+-When the taskbar is clicked, it toggles the bottom style of an element with the class startmenu. 
+-Specifically, if the startmenu's bottom style is currently "50px", it changes it to "-650px", and if it's not "50px", it sets it to "50px". 
+-This effectively shows or hides the startmenu by moving it up or down based on its bottom position.
 ```
 
+```ruby
+admin.js
+
+This code is responsible for setting up event listeners and populating data in notes weather data and more 
+
+-It includes functionality for handling touch events, expanding search, updating the main menu, setting the date and time, populating news cards, and fetching and displaying weather data.
+```
+
+```ruby
+global.js
+This file is an event listener that waits for the DOMContentLoaded event to be fired. 
+Its main purpose is to add a .5 second delay effect of fade-in 
+-Once the event is triggered, it sets a timeout of 500 milliseconds and then executes a function. 
+
+-Inside the function, it selects all elements with the class 'fade-in' using the querySelectorAll method. 
+
+-It then loops through each element and adds the 'fade-in' class to it.
+```
 
 
 
