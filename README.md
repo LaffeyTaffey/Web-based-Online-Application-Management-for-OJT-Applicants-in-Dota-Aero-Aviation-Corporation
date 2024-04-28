@@ -50,6 +50,14 @@
 <br>
 
 <h2><p align="center">Documentation</p></h2>
+<h4><p align="center">JSON files</p></h4>
+
+| File                                | Description and Purpose                                                                                                                                                                                       |
+|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `package.json & package-lock.json` | The **purpose** of this `package.json` file is to provide metadata about the project, particularly regarding its dependencies and how it should be executed. The file describes a server application tailored for managing On-the-Job Training (OJT) applicants at Dota Aero Aviation Corporation. The main functionality is to facilitate web-based online application management. The file specifies the name, version, and description of the project, along with the main file to execute (`server.js`). Additionally, it lists the necessary dependencies for the project to function, including frameworks like Express.js for handling web requests, database tools like Knex for database queries, and utility libraries like Body-parser for parsing incoming request bodies. The provided scripts section defines commands to start the server, making it easier for developers to manage and run the application during development. |
+
+This format ensures readability and clarity in presenting the description and purpose of the `package.json` and `package-lock.json` files.
+
 <h4><p align="center">HTML files</p></h4>
 
 | File                     | Description and Purpose                                                                                                                                                                                                                                                                               |
