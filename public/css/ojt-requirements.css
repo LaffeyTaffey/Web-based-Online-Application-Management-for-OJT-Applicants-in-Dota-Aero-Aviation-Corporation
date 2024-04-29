@@ -294,7 +294,7 @@ p.nxt-prev-button {
     font-weight: bold;
     color: white;
     border: 0 none;
-    border-radius: 1px;
+    border-radius: 10px;
     cursor: pointer;
     padding: 10px 5px;
     margin: 0 5px;
@@ -364,9 +364,17 @@ p.nxt-prev-button {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    background-color: #fff;
+    background-image: linear-gradient(to bottom, #1e3c72 0%, #1e3c72 1%, #2a5298 40%);
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     z-index: 9999;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    opacity: 0.95;
+    color: white;
+}
+
+.success-popup.show {
+    display: block;
+    opacity: 1;
 }
