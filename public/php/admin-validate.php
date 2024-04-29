@@ -78,8 +78,31 @@
                 }
             </style>
             <div class="filled-up-information">
-            <h2>Content here of filled up forms and documents</h2>
-            <p>show Content here of filled up forms and documents add accept/reject button</p>
+                <form action="" method="post">
+                    <table>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Middle Name</th>
+                            <th>Last Name</th>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="fName"></td>
+                            <td><input type="text" name="mName"></td>
+                            <td><input type="text" name="lName"></td>
+                        </tr>
+                        <tr>
+                            <th>Address</th>
+                            <th>Gender</th>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="address"></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                        </tr>
+                    </table>
+                </form>
             </div>
         </div>
      
@@ -122,10 +145,8 @@
         </div>
     </main>
     <div class="video">
-        <video src="public/assets/img/videos/i0aze.mp4" muted playinline autoplay loop></video>
-        <!--to be edited <video
-            src="https://user-images.githubusercontent.com/30212452/203724691-9e93bf50-df02-4034-9743-dfe32d18bf58.mp4"
-            muted playsinline autoplay loop></video>-->
+    <video src="https://user-images.githubusercontent.com/30212452/203724691-9e93bf50-df02-4034-9743-dfe32d18bf58.mp4" muted
+        playsinline autoplay loop></video>
     </div>
 </body>
 <script>

@@ -9,30 +9,14 @@ input:-internal-autofill-selected {
 }
 
 .download-all a {
-    text-decoration: none;
-    padding: 10px 20px;
-    background: rgba(30, 29, 31, 1);
-    background: -moz-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(30, 29, 31, 1)), color-stop(100%, rgba(223, 64, 90, 1)));
-    background: -webkit-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: -o-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: -ms-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: linear-gradient(135deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e1d1f', endColorstr='#df405a', GradientType=1);
+    background-image: linear-gradient(to bottom, #0acffe 0%, #495aff 100%);
     color: white;
     border-radius: 5px;
     transition: all 0.3s ease;
 }
 
 .download-all a:hover {
-    background: rgba(30, 29, 31, 1);
-    background: -moz-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 0.7) 100%);
-    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(30, 29, 31, 1)), color-stop(100%, rgba(223, 64, 90, 0.7)));
-    background: -webkit-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 0.7) 100%);
-    background: -o-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 0.7) 100%);
-    background: -ms-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 0.7) 100%);
-    background: linear-gradient(135deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 0.7) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e1d1f', endColorstr='#df405a', GradientType=1);
+background-image: linear-gradient(to bottom, #0acffe 0%, #495aff 80%);
 }
 
 #multistep {
@@ -314,19 +298,13 @@ p.nxt-prev-button {
     cursor: pointer;
     padding: 10px 5px;
     margin: 0 5px;
-    background: rgba(30, 29, 31, 1);
-    background: -moz-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(30, 29, 31, 1)), color-stop(100%, rgba(223, 64, 90,1)));
-    background: -webkit-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: -o-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: -ms-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: linear-gradient(to 135deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 01) 100%);
+    background-image: linear-gradient(to bottom, #0acffe 0%, #495aff 100%);
     transition: all 0.5s;
 }
 
 .action-button:hover,
 .action-button:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px rgba(223, 64, 90, 1);
+    box-shadow: 0 0 0 2px white, 0 0 0 3px rgb(39, 92, 200);
 }
 
 .form_submited #multistep_form {
@@ -365,14 +343,7 @@ p.nxt-prev-button {
     height: 50px;
     font-size: 16px;
     cursor: pointer;
-    background: rgba(30, 29, 31, 1);
-    background: -moz-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(30, 29, 31, 1)), color-stop(100%, rgba(223, 64, 90, 1)));
-    background: -webkit-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: -o-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: -ms-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: linear-gradient(135deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e1d1f', endColorstr='#df405a', GradientType=1);
+    background-image: linear-gradient(to bottom, #0acffe 0%, #495aff 100%);
     border: none;
     border-radius: 5px;
     margin-top: 20px;
@@ -381,16 +352,9 @@ p.nxt-prev-button {
 
 /* Hover effect for the submit button */
 .submit_btn:hover {
-    background: rgba(30, 29, 31, 1);
-    background: -moz-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 0.7) 100%);
-    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(30, 29, 31, 1)), color-stop(100%, rgba(223, 64, 90, 0.7)));
-    background: -webkit-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 0.7) 100%);
-    background: -o-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 0.7) 100%);
-    background: -ms-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 0.7) 100%);
-    background: linear-gradient(135deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 0.7) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e1d1f', endColorstr='#df405a', GradientType=1);
-    transition: all 0.3s ease;
-    box-shadow: 0 0 0 2px white, 0 0 0 3px rgba(223, 64, 90, 1);
+        background-image: linear-gradient(to bottom, #0acffe 0%, #495aff 80%);
+        transition: all 0.3s ease;
+    box-shadow: 0 0 0 2px white, 0 0 0 3px rgb(68, 79, 238);
 }
 /* Style for the success pop-up */
 .success-popup {

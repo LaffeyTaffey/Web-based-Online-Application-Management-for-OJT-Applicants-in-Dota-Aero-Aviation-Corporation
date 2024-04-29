@@ -23,14 +23,7 @@ a {
     } */
 
 body {
-    background: rgba(30, 29, 31, 1);
-    background: -moz-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(30, 29, 31, 1)), color-stop(100%, rgba(223, 64, 90, 1)));
-    background: -webkit-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: -o-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: -ms-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: linear-gradient(135deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e1d1f', endColorstr='#df405a', GradientType=1);
+    background-image: linear-gradient(to bottom, #0acffe 0%, #495aff 100%);
 }
 
 
@@ -160,27 +153,13 @@ nav button::before {
 }
 
 #signin-button {
-    background: rgba(30, 29, 31, 1);
-    background: -moz-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(30, 29, 31, 1)), color-stop(100%, rgba(223, 64, 90, 1)));
-    background: -webkit-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: -o-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: -ms-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: linear-gradient(135deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e1d1f', endColorstr='#df405a', GradientType=1);
+    background-image: linear-gradient(to right, #0acffe 0%, #495aff 100%);
 }
 
 #signin-button:hover {
-    background: rgba(30, 29, 31, 1);
-    background: -moz-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 0.8) 100%);
-    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(30, 29, 31, 1)), color-stop(100%, rgba(223, 64, 90, 0.8)));
-    background: -webkit-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 0.8) 100%);
-    background: -o-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 0.8) 100%);
-    background: -ms-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 0.8) 100%);
-    background: linear-gradient(135deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 0.8) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e1d1f', endColorstr='#df405a', GradientType=1);
+    background-image: linear-gradient(to right, #0acffe 0%, #495aff 100%);
     transition: all 0.3s ease;
-    box-shadow: 0 0 0 2px white, 0 0 0 3px rgba(223, 64, 90, 1);
+    box-shadow: 0 0 0 5px white;
 }
 
 @media (max-width: 600px) {
@@ -625,7 +604,8 @@ nav button::before {
     max-width: 1200px;
     margin: 5% auto;
     padding: 20px;
-    background: linear-gradient(to top, #D6A4A4, #DAE2F8);
+    background-color: rgba(250, 250, 250, 0.684);
+    backdrop-filter: blur(10px);
     border-radius: 10px;
     overflow: hidden;
     box-sizing: border-box;
@@ -861,7 +841,8 @@ main {
     max-width: 800px;
     margin: 5% auto;
     padding: 20px;
-    background: linear-gradient(to top, #D6A4A4, #DAE2F8);
+    background-color: rgba(250, 250, 250, 0.684);
+        backdrop-filter: blur(10px);
     border-radius: 10px;
     overflow: hidden;
     box-sizing: border-box;
@@ -1041,7 +1022,8 @@ main {
     max-width: 800px;
     margin: 5% auto;
     padding: 20px;
-    background: linear-gradient(to top, #D6A4A4, #DAE2F8);
+    background-color: rgba(250, 250, 250, 0.684);
+        backdrop-filter: blur(10px);
     border-radius: 10px;
     overflow: hidden;
     box-sizing: border-box;
