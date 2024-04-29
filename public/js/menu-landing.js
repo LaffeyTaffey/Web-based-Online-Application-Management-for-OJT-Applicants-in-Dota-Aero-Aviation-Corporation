@@ -28,4 +28,18 @@
             });
         });
 
-        
+document.querySelectorAll('.dropdown > a').forEach(function(item) {
+    item.addEventListener('click', function(event) {
+        event.preventDefault();
+        var dropdownMenu = item.nextElementSibling;
+        if (dropdownMenu.style.display === 'block') {
+            dropdownMenu.style.display = 'none';
+        } else {
+            dropdownMenu.style.display = 'block';
+        }
+    });
+});
+
+
+// menu arrow indc
+

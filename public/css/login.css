@@ -4,6 +4,10 @@
 /*--------------------
 General Style
 ---------------------*/
+
+body {
+    margin: 0;
+}
 *,
 *::before,
 *::after {
@@ -12,7 +16,7 @@ General Style
 
 header {
     width: 100%;
-    padding: 20px 40px;
+    padding: 15px 40px;
     border-bottom: 1px solid #E5E5E5;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -24,7 +28,6 @@ header {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-
 }
 
 .logo-container {

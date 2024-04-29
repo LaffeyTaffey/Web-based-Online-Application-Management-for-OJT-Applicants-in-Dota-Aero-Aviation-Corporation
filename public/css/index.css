@@ -10,14 +10,7 @@
 }*/
 
 body {
-    background: rgba(30, 29, 31, 1);
-    background: -moz-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(30, 29, 31, 1)), color-stop(100%, rgba(223, 64, 90, 1)));
-    background: -webkit-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: -o-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: -ms-linear-gradient(-45deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    background: linear-gradient(135deg, rgba(30, 29, 31, 1) 0%, rgba(223, 64, 90, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e1d1f', endColorstr='#df405a', GradientType=1);
+    background-image: linear-gradient(to bottom, #0acffe 0%, #495aff 100%);
 }
 
 /*calendar -sayago */ 
