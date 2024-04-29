@@ -293,5 +293,3 @@ This JavaScript code creates a dynamic calendar that displays events for each da
 
 
 
-
-
