@@ -1,7 +1,12 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 
-/* --------------------------header title ojt application---------------------- */
-
+#regforms{
+	background: #fff;
+	border-radius: 10px;
+	width: 900px;
+	height:600px;
+	margin:auto;
+}
 #OJTapplication{
 	background-image: linear-gradient(to bottom, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
 	height: 90px;
@@ -56,16 +61,7 @@
 }
 
 
-.registrationForms{
-	background: #fff;
-	border-radius: 10px;
-	width: 900px;
-	height:600px;
-
-}
-
-
-.registrationForms input{
+.tab input{
 	position: relative;
 	width: 250px;
 	height: 30px;
@@ -107,22 +103,6 @@ table th{
 	margin-top: -200px;
 }
 
-#button-submit{
-	padding: 30px 50px 30px 30px;
-}
-#button-submit [type="button"]{
-		width: 150px;
-		height: 40px;
-		border-radius: 10px;
-	background-image: linear-gradient(to right, #1e3c72 0%, #1e3c72 1%, #2a5298 40%);
- 	 color: #fff;
- 	 border: #fff;
-}
-
-#button-submit:hover [type="button"]{
-		background-image: linear-gradient(to right, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
-}
-
 
 /* multi step indicator */
 
@@ -152,23 +132,148 @@ table th{
 	color: #04AA6D;
   }
 
+  /* button submit */
+  #button-forms{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+#button-submit{
+	padding: 30px 50px 30px 30px;
+}
+#button-submit [type="button"]{
+		width: 150px;
+		height: 40px;
+		border-radius: 10px;
+ 	 background: linear-gradient(to right, #1e3c72 0%, #1e3c72 1%, #2a5298 40%);
+ 	 color: #fff;
+ 	 border: #fff;
+}
+
+#button-submit:hover [type="button"]{
+		background: linear-gradient(to right, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
+}
 /* Mark input boxes that gets an error on validation: */
 input.invalid {
 	background-color: #ffdddd;
   }
 
 /* hiding the step*/
-.registrationForms{
+.tab{
 	display: none;
 }
 
-/*div consent*/
-div #consent{
-	width: 70%;
-	height: 35%;
-	z-index: 3;
-	border: 1px solid #ccc;
-
+/* file upload  */
+#guideline_file{
+	float: left;
+	margin-top: -20px;
+	margin-right: 10px;
+	margin-left: 10px;
+	height: 310px;
+	width: 310px;
+	box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
 }
 
-/* footer */
+#uploadFiles input{
+	height: 40px;
+	border: none;
+	margin-top: -10px;
+}
+
+legend {
+	font-weight: bold;
+	font-size: 15px;
+	padding: 5px;
+	left:10px;
+
+  }
+  
+
+fieldset{
+	background-color: #eeeeee;
+	width: 500px;
+	margin-top: 10px;
+	border-radius: 5px;
+	border: 2px solid black;
+}
+
+
+
+#guide{
+	padding: 10px;
+	color: black;
+	margin-left:0px;
+	width: 310px;
+	height: 310px;
+	text-align: left;
+}
+
+
+/* media */
+@media screen and (max-width: 650px) {
+	#regforms{
+		width: 500px;
+		height:800px;
+	}
+	.application-header h3, p{
+		margin-left: -15px;
+	
+	}
+	.application-header h3{
+		margin-top: -10px;
+		font-size: 15px;
+	}
+	.application-header p{
+		font-size: 10px;
+	}
+	
+	.application-header img{
+		margin-top: 10px;
+		margin-right: -450px;
+		float: right;
+	}
+	
+	.application-header img{
+		margin-right: -180px;
+	}
+	
+	#img-bg{
+		width:190px;
+	}
+	#OJTapplication{
+		height: 80px;
+	}
+
+
+	/* table */
+	table th{
+		display: none;
+
+	}
+	tr, td{
+		display: block;
+		width: 100%;
+		margin-left:60px;}
+	 table td:before{
+		content: attr(data-label);
+		position: absolute;
+		left:100px;
+	 }
+	 #address{
+		width: 250px;
+		text-align: left;
+	}
+
+	#guideline_file{
+		margin-left: 90px;
+	}
+	fieldset{
+		margin: auto;
+		width:400px;
+	}
+	.tab{
+		margin:auto;
+	}
+}
