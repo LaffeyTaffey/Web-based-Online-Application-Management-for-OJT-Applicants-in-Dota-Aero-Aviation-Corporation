@@ -384,6 +384,10 @@ h2 {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
+.weather {
+    text-align: center;
+}
+
 /* Adjustments for smaller screens */
 @media screen and (max-width: 800px) {
     .container-dashboard {
