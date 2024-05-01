@@ -21,15 +21,35 @@
         </div>
         <nav id="nav-bar">
             <ul>
-                <li><a class="nav-link" href="landing.html#ojt-adm">OJT Admission</a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link">Admissions <span class="arrow-down-icon">&#9660;</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="landing.html#col-adm">College Admission</a></li>
+                        <li><a href="landing.html#ojt-adm">OJT Admission</a></li>
+                        <li><a href="ojt-adm-results.html">OJT Admission Results</a></li>
+                    </ul>
+                </li>
                 <li><a class="nav-link" href="index.html#announcement">Announcement</a></li>
                 <li><a class="nav-link" href="landing.html">Homepage</a></li>
                 <br>
             </ul>
         </nav>
     </header>
+    <script>
+        document.querySelectorAll('.dropdown > a').forEach(function (item) {
+                item.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    var dropdownMenu = item.nextElementSibling;
+                    if (dropdownMenu.style.display === 'block') {
+                        dropdownMenu.style.display = 'none';
+                    } else {
+                        dropdownMenu.style.display = 'block';
+                    }
+                });
+            });
+    </script>
+
 <main class="fade-in">
-    
 <div class="box">
     <br>
     <div class="box-form">

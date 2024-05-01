@@ -71,6 +71,42 @@ html {
 
 /* ========== header and navbar styling ==========*/
 
+/* Animation Keyframes */
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Apply animation to the menu contents */
+#nav-bar.active {
+    display: block;
+    animation: slideInFromRight 0.5s ease;
+}
+
+/* Animation Keyframes */
+@keyframes slideOutToRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Apply animation to the menu contents */
+#nav-bar.reverse-active {
+    display: block;
+    animation: slideOutToRight 0.5s ease;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+    text-align: center;
+}
+
 header {
     width: 100%;
     padding: 10px 40px;
@@ -237,6 +273,7 @@ nav button::before {
 
 #nav-bar.active {
     display: block;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
 }
 
 @media (max-width: 768px) {
@@ -288,7 +325,8 @@ nav button::before {
     }
 
     #signin-button {
-        width: 100%;
+        width: 50%;
+        vertical-align: middle;
     }
 
     #nav-bar.active {
@@ -336,7 +374,8 @@ nav button::before {
     }
 
     #signin-button {
-        width: 100%;
+        width: 50%;
+        vertical-align: middle;
     }
 
     #nav-bar.active {
@@ -381,7 +420,8 @@ nav button::before {
     }
 
     #signin-button {
-        width: auto;
+        width: 50%;
+        vertical-align: middle;
     }
 
     .menu-toggle {
@@ -427,7 +467,8 @@ nav button::before {
     }
 
     #signin-button {
-        width: 100%;
+        width: 50%;
+        vertical-align: middle;
     }
 
     #nav-bar.active {
@@ -473,7 +514,8 @@ nav button::before {
     }
 
     #signin-button {
-        width: auto;
+        width: 50px;
+        vertical-align: middle;
     }
 
     .menu-toggle {
@@ -508,7 +550,8 @@ nav button::before {
     }
 
     #signin-button {
-        width: 100%;
+        width: 50px;
+        vertical-align: middle;
     }
 
     #nav-bar.active {
@@ -548,7 +591,8 @@ nav button::before {
     }
 
     #signin-button {
-        width: 100%;
+        width: 50px;
+        vertical-align: middle;
     }
 
     #nav-bar.active {
@@ -588,7 +632,8 @@ nav button::before {
     }
 
     #signin-button {
-        width: 100%;
+        width: 50px;
+        vertical-align: middle;
     }
 
     #nav-bar.active {
@@ -629,7 +674,8 @@ nav button::before {
     }
 
     #signin-button {
-        width: 100%;
+        width: 50px;
+        vertical-align: middle;
     }
 
     #nav-bar.active {

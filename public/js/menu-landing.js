@@ -1,7 +1,18 @@
-   // JavaScript to toggle menu
-    document.getElementById('menu-toggle').addEventListener('click', function () {
-        document.getElementById('nav-bar').classList.toggle('active');
-    });
+// JavaScript to toggle menu
+document.getElementById('menu-toggle').addEventListener('click', function () {
+    var navBar = document.getElementById('nav-bar');
+    if (navBar.classList.contains('active')) {
+        navBar.classList.remove('active');
+        navBar.classList.add('reverse-active');
+        setTimeout(function () {
+            navBar.classList.remove('reverse-active');
+        }, 300); // Adjust the timeout to match animation duration
+    } else {
+        navBar.classList.add('active');
+    }
+});
+
+
 
     // JavaScript to handle smooth scrolling animation and close the hamburger menu for internal links
         document.addEventListener('DOMContentLoaded', function () {
