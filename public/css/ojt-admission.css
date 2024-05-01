@@ -206,7 +206,63 @@ button.neumorphic {
     }
 
     .box-ojt {
+        width: 70%;
+        max-width: 100%;
+    }
+
+    .container-ojt h2 {
+        font-size: 18px;
+    }
+
+    .box-ojt .content-ojt {
+        padding: 15px;
+    }
+
+    .box-ojt span:before {
+        height: 2px;
+    }
+
+    button.neumorphic {
+        padding: 1.5rem 2rem;
+    }
+}
+
+@media (max-width: 750px) {
+    .background-img {
         width: 80%;
+        max-width: 100%;
+    }
+
+    .box-ojt {
+        width: 70%;
+        max-width: 100%;
+    }
+
+    .container-ojt h2 {
+        font-size: 18px;
+    }
+
+    .box-ojt .content-ojt {
+        padding: 15px;
+    }
+
+    .box-ojt span:before {
+        height: 2px;
+    }
+
+    button.neumorphic {
+        padding: 1.5rem 2rem;
+    }
+}
+
+@media (max-width: 790px) {
+    .background-img {
+        width: 80%;
+        max-width: 100%;
+    }
+
+    .box-ojt {
+        width: 70%;
         max-width: 100%;
     }
 
