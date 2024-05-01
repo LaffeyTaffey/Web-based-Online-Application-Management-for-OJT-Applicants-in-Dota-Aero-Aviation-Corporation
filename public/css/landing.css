@@ -133,17 +133,19 @@ nav li {
 
 nav li a {
     margin: 0 15px;
-    padding: 10px 5px 15px 5px;
+    padding: 10px 5px;
     color: #828282;
     text-transform: uppercase;
     letter-spacing: 0.05rem;
     font-size: 0.8rem;
+    display: inline-block;
 }
 
 nav li a:hover {
     color: #EB0028;
     border-bottom: 2px solid #EB0028;
     font-weight: bold;
+    padding-bottom: 8px;
 }
 
 nav button {
@@ -197,13 +199,16 @@ nav button::before {
 }
 
 #signin-button {
-    background-image: linear-gradient(to right, #0acffe 0%, #495aff 100%);
+    background: linear-gradient(to right, #1e3c72 0%, #1e3c72 1%, #2a5298 40%);
+    transition: box-shadow 0.3s ease;
 }
 
 #signin-button:hover {
-    background-image: linear-gradient(to right, #0acffe 0%, #495aff 100%);
-    transition: all 0.3s ease;
-    box-shadow: 0 0 0 5px white;
+    box-shadow: 0 0 0 3px rgb(39, 92, 200);
+}
+
+#signin-button:not(:hover) {
+    box-shadow: none;
 }
 
 @media (max-width: 600px) {
@@ -649,7 +654,6 @@ nav button::before {
     margin: 5% auto;
     padding: 20px;
     background-color: rgba(250, 250, 250, 0.684);
-    backdrop-filter: blur(10px);
     border-radius: 10px;
     overflow: hidden;
     box-sizing: border-box;
@@ -886,7 +890,6 @@ main {
     margin: 5% auto;
     padding: 20px;
     background-color: rgba(250, 250, 250, 0.684);
-    backdrop-filter: blur(10px);
     border-radius: 10px;
     overflow: hidden;
     box-sizing: border-box;
