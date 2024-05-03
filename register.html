@@ -72,9 +72,9 @@
                         <th>Last Name</th>
                     </tr>
                     <tr>
-                        <td data-label="First Name"><input type="text" name="fName" ></td>
-                        <td data-label="Middle Name"><input type="text" name="mName" ></td>
-                        <td data-label="Last Name"><input type="text" name="lName" ></td>
+                        <td data-label="First Name"><input type="text" name="fName" class="inputform"></td>
+                        <td data-label="Middle Name"><input type="text" name="mName" class="inputform"></td>
+                        <td data-label="Last Name"><input type="text" name="lName" class="inputform"></td>
                     </tr>
                     <tr>
                         <th colspan="2">Address</th>
@@ -82,7 +82,7 @@
                     </tr>
                     <tr>
                         <td colspan="2" data-label="Address"><input type="text" name="address" id="address" ></td>
-                        <td data-label="Gender"> <select name="gender" id="gender" >
+                        <td data-label="Gender"> <select name="gender" id="gender" class="inputform">
                             <option disabled selected value>select here</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
@@ -95,9 +95,9 @@
                         <th>Religion</th>
                     </tr>
                     <tr>
-                        <td data-label="Date of Birth"><input type="date" name="birthDate" ></td>
-                        <td data-label="Place of Birth"><input type="text" name="birthPlace" ></td>
-                        <td data-label="Religion"><input type="text" name="religion" ></td>
+                        <td data-label="Date of Birth"><input type="date" name="birthDate" class="inputform"></td>
+                        <td data-label="Place of Birth"><input type="text" name="birthPlace" class="inputform"></td>
+                        <td data-label="Religion"><input type="text" name="religion" class="inputform"></td>
                     </tr>
                     <tr>
                         <th>Email</th>
@@ -105,9 +105,9 @@
                         <th>Hobby/Field of Interest</th>
                     </tr>
                     <tr>
-                        <td data-label="Email"><input type="email" name="email"></td>
-                        <td data-label="Phone Number"><input type="number" name="pNumber"></td>
-                        <td data-label="Field of Interest"><input type="text" name="interest"></td>
+                        <td data-label="Email"><input type="email" name="email" class="inputform"></td>
+                        <td data-label="Phone Number"><input type="number" name="pNumber" class="inputform"></td>
+                        <td data-label="Field of Interest"><input type="text" name="interest" class="inputform"></td>
                     </tr>
                 
                 </table>
@@ -123,9 +123,9 @@
                         <th>Degree Program</th>
                     </tr>
                     <tr>
-                        <td data-label="University"><input type="text" name="university"></td>
-                        <td data-label="School Address"><input type="text" name="schoolAddress"></td>
-                        <td data-label="Degree Program"><input type="text" name="degree" ></td>
+                        <td data-label="University"><input type="text" name="university" class="inputform"></td>
+                        <td data-label="School Address"><input type="text" name="schoolAddress" class="inputform"></td>
+                        <td data-label="Degree Program"><input type="text" name="degree" class="inputform"></td>
                     </tr>
                     <tr>
                         <th>Year Level</th>
@@ -133,7 +133,7 @@
                         <th>Total Number of training <br> hours required</th>
                     </tr>
                     <tr>
-                        <td data-label="Year Level"><select name="yearLevel" id="yearLevel" >
+                        <td data-label="Year Level"><select name="yearLevel" id="yearLevel" class="inputform">
                             <option disable selected value>Choose here</option>
                             <option value="First Year">First Year</option>
                             <option value="Second Year">Second Year</option>
@@ -141,8 +141,8 @@
                             <option value="Fourth Year">Fourth Year</option>
                             <option value="Fisth Year">Fifth Year</option>
                         </select></td>
-                        <td data-label="Adviser"><input type="text" name="adviser"></td>
-                        <td data-label="Required training Hours"><input type="number" name="trainingHours"></td>
+                        <td data-label="Adviser"><input type="text" name="adviser" class="inputform"></td>
+                        <td data-label="Required training Hours"><input type="number" name="trainingHours" class="inputform"></td>
                     </tr>
                     <br>
                     <tr>
@@ -151,14 +151,14 @@
                         <th>Expected date to finish</th>
                     </tr>
                     <tr>
-                        <td data-label="Preferred area"> <select name="department" id="department">
+                        <td data-label="Preferred area"> <select name="department" id="department" class="inputform">
                             <option disabled selected value>Select an option</option>
                             <option value="department1">Department 1</option>
                             <option value="department2">Department 2</option>
                             <option value="deparment3">Department 3</option>
                         </select></td>
-                        <td data-label="Expected date to report"><input type="date" name="dateReport" ></td>
-                        <td data-label="Expected date to finish"><input type="date" name="dateFinish" ></td>
+                        <td data-label="Expected date to report"><input type="date" name="dateReport" class="inputform" ></td>
+                        <td data-label="Expected date to finish"><input type="date" name="dateFinish" class="inputform"></td>
                     </tr>
                 </table>
           
@@ -185,13 +185,13 @@
                 </div>
                 <div id="uploadFiles">
                     <fieldset><legend>Image</legend>
-                    <input type="file" name="uploadImage"></fieldset>
+                    <input type="file" name="uploadImage" class="inputform"></fieldset>
                     <fieldset><legend>Memorandum of Agreement</legend>
-                    <input type="file" name="uploadMOA"></fieldset>
+                    <input type="file" name="uploadMOA" class="inputform"></fieldset>
                     <fieldset><legend>Endorsement Letter</legend>
-                    <input type="file" name="uploadEndorsement"></fieldset>
+                    <input type="file" name="uploadEndorsement" class="inputform"></fieldset>
                     <fieldset><legend>NBI Clearance</legend>
-                    <input type="file" name="uploadNBI"></fieldset>
+                    <input type="file" name="uploadNBI" class="inputform"></fieldset>
                 </div>
             </div>
             <!--Button-->
@@ -213,16 +213,5 @@
     <script src="public/js/global.js"></script>
 </body>
 <br><br><br>
-<footer class="footer">
-    <div class="container2">
-        <div class="row-footer">
-            <div class="col1">
-                <p >Made With: <strong>JQuery</strong></p>
-                <p >Created by: <strong>Pineda Maria Cecilia || Rodelas Jr. Levi || Sayago Marc
-                        David</strong></p>
-                <p >Students of MT-41 Universidad De Manila.</p>
-        </div>
-    </div>
-    </div>
-</footer>
+
 </html>
