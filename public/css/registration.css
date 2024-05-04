@@ -219,38 +219,141 @@ fieldset{
 
 
 /* media */
-@media screen and (max-width: 650px) {
+/* max 320 px */
+@media screen and (max-width: 320px) {
+		#regforms{
+			width: 300px;
+			height:1000px;
+		}
+		.application-header h3, p{
+			margin-left: -10px;
+		
+		}
+		.application-header h3{
+			margin-top: -10px;
+			font-size: 10px;
+		}
+		.application-header p{
+			margin-top: -20px;
+			font-size: 8px;
+		}
+		
+		.application-header img{
+			margin-top: 10px;
+			float: right;
+			width: 60px;
+		}
+		
+		.application-header img{
+			margin-right: -100px;
+		}
+		
+		#img-bg{
+			height: 50px;
+			width: 130px;
+		}
+		#OJTapplication{
+			height: 50px;
+		}
+	
+	
+		/* table */
+		table th{
+			display: none;
+	
+		}
+		td{
+			display: block;
+			width: 40px;
+			margin-left:5px;
+			
+		}
+		 td::before{
+			content: attr(data-label) " \A";
+			white-space: pre;
+			left:20px;
+			font-size: 17px;
+			color: gray;
+			font-weight: lighter;
+		 }
+
+		 td .inputform{
+			width: 250px;
+		 }
+
+		 #address{
+			width: 250px;
+			
+		}
+	
+		#guideline_file{
+			margin-top: 10px;
+			margin-bottom: 30px;
+			margin-left: 20px;
+			width:255px;
+			height: 270px;
+		}
+		#guide{
+			width:265px;
+			font-size: 13px;
+		}
+		fieldset{
+			margin: 20px auto;
+			width:200px;
+		}
+
+		#button-forms{
+			margin-top: -10px;
+		}
+
+		#button-submit{
+			padding: 30px 10px 20px 10px;
+		}
+
+		#button-submit [type="button"]{
+			width: 100px;
+			height: 40px;
+		
+	 }
+	}
+
+
+
+/* 480px */
+@media screen and (max-width: 480px){
 	#regforms{
-		width: 500px;
-		height:800px;
+		width: 400px;
+		height:1000px;
 	}
 	.application-header h3, p{
-		margin-left: -15px;
+		margin-left: -10px;
 	
 	}
 	.application-header h3{
-		margin-top: -10px;
+		margin-top: -15px;
 		font-size: 15px;
 	}
 	.application-header p{
+		margin-top: -15px;
 		font-size: 10px;
 	}
 	
 	.application-header img{
 		margin-top: 10px;
-		margin-right: -450px;
 		float: right;
+		width: 80px;
 	}
 	
 	.application-header img{
-		margin-right: -180px;
+		margin-right: -125px;
 	}
 	
 	#img-bg{
-		width:190px;
+		height: 75px;
+		width: 150px;
 	}
 	#OJTapplication{
-		height: 80px;
+		height: 75px;
 	}
 
 
@@ -259,28 +362,147 @@ fieldset{
 		display: none;
 
 	}
-	tr, td{
+	td{
 		display: block;
-		width: 100%;
-		margin-left:60px;}
-	 table td:before{
-		content: attr(data-label);
-		position: absolute;
-		left:100px;
+		width: 40px;
+		margin-left:5px;
+		
+	}
+	 td::before{
+		content: attr(data-label) " \A";
+		white-space: pre;
+		left:20px;
+		font-size: 17px;
+		color: gray;
+		font-weight: lighter;
 	 }
+
+	 td .inputform{
+		width: 330px;
+	 }
+
 	 #address{
-		width: 250px;
-		text-align: left;
+		width: 330px;
+		
 	}
 
 	#guideline_file{
-		margin-left: 90px;
+		margin-top: 10px;
+		margin-bottom: 30px;
+		margin-left: 40px;
+		height: 270px;
 	}
+
+	#guide{
+		width:300px;
+		font-size: 13px;
+	}
+
 	fieldset{
-		margin: auto;
-		width:400px;
+		margin: 20px auto;
+		width:300px;
 	}
-	.tab{
-		margin:auto;
+
+	#button-forms{
+		margin-top: -10px;
 	}
-}
+
+	#button-submit{
+		padding: 30px 10px 20px 10px;
+	}
+	
+ }
+
+
+/* Iphone XR */
+/* 1792x828px at 326ppi */
+@media screen 
+    and (device-width : 414px) 
+    and (device-height : 896px) 
+    and (-webkit-device-pixel-ratio : 2) {
+		#regforms{
+			width: 400px;
+			height:1000px;
+		}
+		.application-header h3, p{
+			margin-left: -10px;
+		
+		}
+		.application-header h3{
+			margin-top: -15px;
+			font-size: 13px;
+		}
+		.application-header p{
+			margin-top: -15px;
+			font-size: 10px;
+		}
+		
+		.application-header img{
+			margin-top: 10px;
+			float: right;
+			width: 80px;
+		}
+		
+		.application-header img{
+			margin-right: -140px;
+		}
+		
+		#img-bg{
+			height: 75px;
+			width: 150px;
+		}
+		#OJTapplication{
+			height: 75px;
+		}
+	
+	
+		/* table */
+		table th{
+			display: none;
+	
+		}
+		td{
+			display: block;
+			width: 40px;
+			margin-left:5px;
+			
+		}
+		 td::before{
+			content: attr(data-label) " \A";
+			white-space: pre;
+			left:20px;
+			font-size: 17px;
+			color: gray;
+			font-weight: lighter;
+		 }
+
+		 td .inputform{
+			width: 330px;
+		 }
+
+		 #address{
+			width: 330px;
+			
+		}
+	
+		#guideline_file{
+			margin-top: 10px;
+			margin-bottom: 30px;
+			margin-left: 40px;
+		}
+		fieldset{
+			margin: 20px auto;
+			width:300px;
+		}
+
+		#button-forms{
+			margin-top: -10px;
+		}
+
+		#button-submit{
+			padding: 30px 10px 20px 10px;
+		}
+		
+	 }
+
+/* upload guidelines make responsive */
