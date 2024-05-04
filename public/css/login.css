@@ -14,35 +14,137 @@ body {
     box-sizing: border-box;
 }
 
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    transform-origin: top center;
+    transform: scaleY(0);
+    transition: transform 0.2s ease;
+}
+
+.dropdown:hover .dropdown-menu {
+    transform: scaleY(1);
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: #828282;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgb(57, 57, 57, 0.1));
+    border-radius: 5px;
+}
+
+.dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 10px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.85));
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.arrow-down-icon {
+    margin-left: 5px;
+    color: rgb(57, 57, 57, 1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* ========== header and navbar styling ==========*/
+
+/* Animation Keyframes */
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Apply animation to the menu contents */
+#nav-bar.active {
+    display: block;
+    animation: slideInFromRight 0.5s ease;
+}
+
+/* Animation Keyframes */
+@keyframes slideOutToRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Apply animation to the menu contents */
+#nav-bar.reverse-active {
+    display: block;
+    animation: slideOutToRight 0.5s ease;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+    text-align: center;
+}
+
 header {
     width: 100%;
-    padding: 15px 40px;
+    padding: 10px 40px;
     border-bottom: 1px solid #E5E5E5;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.85));
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
     transition: all 0.25s ease;
-    z-index: 3;
+    z-index: 10;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+
 }
+
 
 .logo-container {
     display: flex;
     align-items: center;
     margin-right: 20px;
+    margin-left: 20px;
+}
 
+#logo-container1 {
+    animation-delay: 0.3s;
+    /* Delay for sequential animation */
+}
+
+#logo-container2 {
+    animation-delay: 0.5s;
+    /* Delay for sequential animation */
 }
 
 header img {
     height: 30px;
     width: 30px;
     margin-right: 20px;
+    margin-left: 20px;
 }
-
 
 header h1 {
     font-size: 1.1rem;
@@ -51,6 +153,7 @@ header h1 {
     margin: 0;
 
 }
+
 
 nav {
     padding: 15px 15px 0 15px;
@@ -65,10 +168,29 @@ nav ul {
     flex-wrap: wrap;
     justify-content: center;
     margin: 0 auto;
+    animation: fadeInDown 0.5s ease;
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 nav li {
     list-style-type: none;
+    transition: transform 0.2s ease;
+    color: #ffffff;
+}
+
+nav li:hover {
+    transform: scale(1.03);
 }
 
 nav li a {
@@ -87,6 +209,70 @@ nav li a:hover {
     border-bottom: 2px solid #EB0028;
     font-weight: bold;
     padding-bottom: 8px;
+}
+
+nav button {
+    border: none;
+    box-shadow: none;
+    min-width: 110px;
+    height: 50px;
+    color: white;
+    font-size: 0.9rem;
+    border-radius: 25px;
+    padding: 0 20px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+nav button:hover {
+    box-shadow: 0 0 0 3px rgb(39, 92, 200);
+    transform: scale(1.05);
+}
+
+@keyframes shining {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+nav button::before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: rgba(255, 255, 255, 0.5);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    animation: shining 5s infinite;
+    z-index: -1;
+}
+
+#signin-button {
+    background: linear-gradient(to right, #1e3c72 0%, #1e3c72 1%, #2a5298 40%);
+    transition: box-shadow 0.3s ease;
+}
+
+#signin-button:hover {
+    box-shadow: 0 0 0 3px rgb(39, 92, 200);
+}
+
+#signin-button:not(:hover) {
+    box-shadow: none;
+    transform: scale(1);
 }
 
 body,
