@@ -157,6 +157,7 @@ table th{
 #button-submit:hover [type="button"]{
 		background: linear-gradient(to right, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
 		box-shadow: 0 0 0 3px rgb(26, 107, 200);
+		cursor: pointer;
 }
 
 #button-submit:not(:hover) [type="button"]{

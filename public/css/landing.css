@@ -249,12 +249,6 @@ nav button::before {
     box-shadow: none;
 }
 
-@media (max-width: 600px) {
-    h1 {
-        display: none;
-    }
-}
-
 @media (max-width: 330px) {
     header img {
         display: none;
