@@ -176,6 +176,7 @@ nav li a {
     letter-spacing: 0.05rem;
     font-size: 0.8rem;
     display: inline-block;
+    transition: font-weight 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 nav li a:hover {

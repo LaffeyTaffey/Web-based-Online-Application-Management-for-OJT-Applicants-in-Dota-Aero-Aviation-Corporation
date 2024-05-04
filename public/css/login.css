@@ -73,17 +73,20 @@ nav li {
 
 nav li a {
     margin: 0 15px;
-    padding: 10px 5px 15px 5px;
+    padding: 10px 5px;
     color: #828282;
     text-transform: uppercase;
     letter-spacing: 0.05rem;
     font-size: 0.8rem;
+    display: inline-block;
+    transition: font-weight 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 nav li a:hover {
     color: #EB0028;
     border-bottom: 2px solid #EB0028;
     font-weight: bold;
+    padding-bottom: 8px;
 }
 
 body,
