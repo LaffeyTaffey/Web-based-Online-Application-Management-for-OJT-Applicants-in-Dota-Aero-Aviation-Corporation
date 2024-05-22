@@ -263,7 +263,7 @@
     <div class="container-fluid py-4">
         <!-- php goes here fetching data -->
         <?php
-            require('C:\xampp\htdocs\clone\config.php'); //connect to the database
+            require('"C:\xampp\htdocs\Web-based-Online-Application-Management-for-OJT-Applicants-in-Dota-Aero-Aviation-Corporation\config.php"'); //connect to the database
             $query = "SELECT CONCAT(FirstName, ', ', LastName) AS name,";
             $query .= "Picture As image,";
             $query .= "Email AS email,";
