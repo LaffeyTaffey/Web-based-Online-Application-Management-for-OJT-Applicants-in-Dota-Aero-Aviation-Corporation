@@ -286,29 +286,92 @@ html {
     min-height: 100vh;
 }
 
-.footer {
-    margin-top: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    flex-shrink: 0;
+footer {
+    background: rgba(24, 133, 237, 0.75);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
 }
 
-.footer-line {
-    border: none;
-    border-top: 1px solid #fff;
-    margin: 10px 0;
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    z-index: -1;
+    filter: blur(10px);
 }
 
-.container-footer {
-    width: 100%;
-    margin: auto;
+footer h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.row-footer {
+.footer-container {
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
+}
+
+.footer-content {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.footer-content:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.footer-content h3 {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content p {
+    margin: 5px 0;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-content i {
+    margin-right: 10px;
+}
+
+.footer-content:hover p {
+    color: #ffeb3b;
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer-content:hover .profile-img {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .col {

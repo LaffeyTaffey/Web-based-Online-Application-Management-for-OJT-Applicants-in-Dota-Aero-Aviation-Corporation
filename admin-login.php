@@ -6,6 +6,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="public/assets/img/dota_logo.png" />
     <link rel="stylesheet" href="public/css/login.css" type="text/css">
     <link rel="stylesheet" href="public/css/global.css" type="text/css">
+    <link rel="stylesheet" href="public/css/landing.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>ADMIN Log in</title>
 </head>
@@ -16,10 +18,24 @@
             <img src="public/assets/img/dota_logo.png" alt="DOTA" id="header-img">
             <h1>DOTA Aero Aviation Service, Inc.</h1>
         </div>
+
+        <div class="logo-container">
+            <h1>Philippine State College of Aeronautics</h1>
+            <img src="public/assets/img/school_logo.png" alt="PSCA" id="header-img">
+        </div>
         <nav id="nav-bar">
             <ul>
+                <li class="dropdown">
+                    <a href="#" class="nav-link">Admissions <span class="arrow-down-icon">&#9660;</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="landing.html#col-adm">College Admission</a></li>
+                        <li><a href="landing.html#ojt-adm">OJT Admission</a></li>
+                        <li><a href="ojt-adm-results.html">OJT Admission Results</a></li>
+                    </ul>
+                </li>
                 <li><a class="nav-link" href="index.html#announcement">Announcement</a></li>
                 <li><a class="nav-link" href="landing.html">Homepage</a></li>
+                <li><a class="nav-link" href="landing.html#about">About us</a></li>
             </ul>
         </nav>
     </header>
@@ -68,50 +84,7 @@
     <br>
     </main>
 </body>
-<style>
-    footer {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        padding: 1rem;
-        background-color: #efefef;
-        text-align: center;
-    }
-</style>
-<footer class="footer">
-    <div class="container-footer">
-        <div class="row-footer">
-            <div class="col text-center">
-                <p class="whitetext">Made With: <strong>JQuery</strong></p>
-                <p class="whitetext">Created by: <strong>Pineda Maria Cecilia || Rodelas Jr. Levi || Sayago Marc
-                        David</strong></p>
-                <p class="whitetext">Students of MT-41 Universidad De Manila.</p>
-                <hr class="footer-line">
-                <div class="social-icons">
-                    <div class="person">
-                        <a href="https://github.com/raicem-caelia" target="_blank"><img
-                                src="public/assets/img/github.png" alt="GitHub" class="logo"></a>
-                        <a href="https://www.facebook.com/Raicem.Caelia.79" target="_blank"><img
-                                src="public/assets/img/fb.png" alt="Facebook" class="logo"></a>
-                    </div>
-                    <div class="person">
-                        <a href="https://github.com/LaffeyTaffey" target="_blank"><img
-                                src="public/assets/img/github.png" alt="GitHub" class="logo"></a>
-                        <a href="https://www.facebook.com/Danke.Danke11/" target="_blank"><img
-                                src="public/assets/img/fb.png" alt="Facebook" class="logo"></a>
-                    </div>
-                    <div class="person">
-                        <a href="https://github.com/paslangbenteuno" target="_blank"><img
-                                src="public/assets/img/github.png" alt="GitHub" class="logo"></a>
-                        <a href="https://www.facebook.com/Naixs" target="_blank"><img src="public/assets/img/fb.png"
-                                alt="Facebook" class="logo"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+
 <!-- Start of Async Drift Code -->
 <script>
     "use strict";

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="public/css/landing.css" type="text/css">
     <link rel="stylesheet" href="public/css/index.css" type="text/css">
     <link rel="stylesheet" href="public/css/global.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="public/js/landing.js"></script>
     <script src="public/js/jquery-3.1.1.min.js" type="text/javascript"></script>
     <title>Calendar</title>
@@ -28,7 +29,7 @@
             <ul>
                 <li><a class="nav-link" href="index.html">Portal</a></li>
                 <li><a class="nav-link" href="Announcement.html">Announcement</a></li>
-                <li><a class="nav-link" href="personal-information.html">Personal Information</a></li>
+                <li><a class="nav-link" href="landing.html#about">About us</a></li>
                 <li><a class="nav-link" href="landing.html">Homepage</a></li>
             </ul>
         <a href="login.html"><button id="signin-button">Sign In →</button></a>
@@ -80,6 +81,35 @@
             drift.load('vf4skr37birm');
         </script>
         <!-- End of Async Drift Code -->
+         <br>
+        <footer>
+            <h1>Contact Us</h1>
+            <div class="footer-container">
+                <div class="footer-content">
+                    <img src="public/assets/img/about us/thesis-team/Ariel.jpg" alt="Ariel Nepomuceno Jr." class="profile-img">
+                    <h3>Ariel Nepomuceno Jr.</h3>
+                    <p><i class="fa fa-envelope"></i> nepomucenojr.ariel@gmail.com</p>
+                    <p><i class="fa fa-phone"></i> 09668424122</p>
+                    <p><i class="fa fa-user"></i> Ariel Nepomuceno</p>
+                </div>
+                <div class="footer-content">
+                    <img src="public/assets/img/about us/thesis-team/Abad.png" alt="Michael Luis Daniel P Abad"
+                        class="profile-img">
+                    <h3>Michael Luis Daniel P Abad</h3>
+                    <p><i class="fa fa-envelope"></i> abad.michaelluisdaniel@gmail.com</p>
+                    <p><i class="fa fa-phone"></i> 09625412428</p>
+                    <p><i class="fa fa-user"></i> Michael Abad</p>
+                </div>
+                <div class="footer-content">
+                    <img src="public/assets/img/about us/thesis-team/errol2.png" alt="Errol John N. Pacites"
+                        class="profile-img">
+                    <h3>Errol John N. Pacites</h3>
+                    <p><i class="fa fa-envelope"></i> errolpacites25@gmail.com</p>
+                    <p><i class="fa fa-phone"></i> 09319548290</p>
+                    <p><i class="fa fa-user"></i> Errol Pacites</p>
+                </div>
+            </div>
+        </footer>
         
     </main>
     <script src="public/js/landing.js"></script>
