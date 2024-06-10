@@ -28,21 +28,21 @@
         <div class="menu-toggle" id="menu-toggle">&#9776;</div> <!-- Hamburger icon -->
         <nav id="nav-bar">
             <ul>
-                <li><a class="nav-link" href="landing.html">Homepage</a></li>
-                <li><a class="nav-link" href="landing.html#ne&up">News updates</a></li>
-                <li><a class="nav-link" href="landing.html#academics">ACADEMICS</a></li>
-                <li><a class="nav-link" href="Announcement.html">Announcements</a></li>
+                <li><a class="nav-link" href="landing.php">Homepage</a></li>
+                <li><a class="nav-link" href="landing.php#ne&up">News updates</a></li>
+                <li><a class="nav-link" href="landing.php#academics">ACADEMICS</a></li>
+                <li><a class="nav-link" href="Announcement.php">Announcements</a></li>
             </ul>
         </nav>
     </header>
 
     <script>
         // JavaScript to toggle menu
-        document.getElementById('menu-toggle').addEventListener('click', function () {
+        document.getElementById('menu-toggle').addEventListener('click', function() {
             document.getElementById('nav-bar').classList.toggle('active');
         });
     </script>
-    
+
     <main class="fade-in">
         <br><br><br><br><br><br>
 
@@ -164,11 +164,11 @@
                     </div>
                     <script>
                         // Function to handle click on the confirm button
-                        document.getElementById("confirmBtn").addEventListener("click", function () {
+                        document.getElementById("confirmBtn").addEventListener("click", function() {
                             showSuccessPopup();
                             // Redirect after 10 seconds
-                            setTimeout(function () {
-                                window.location.href = "register.html";
+                            setTimeout(function() {
+                                window.location.href = "register.php";
                             }, 10000); // 10 seconds delay
                         });
 
@@ -183,7 +183,7 @@
                     <div id="successPopup" class="success-popup">
                         <p>Success! You can now proceed to filling up the form and submitting the documents for OJT
                             application.</p>
-                        <a href="register.html" style="border: 1px solid; padding: 10px; border-radius: 5px; ">Proceed</a> <!--Done-->
+                        <a href="register.php" style="border: 1px solid; padding: 10px; border-radius: 5px; ">Proceed</a> <!--Done-->
                     </div>
 
                     </p>
@@ -191,28 +191,29 @@
             </form>
         </div>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.0/jquery.easing.js"
-            type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.0/jquery.easing.js" type="text/javascript"></script>
 
 
         <!-- Start of Async Drift Code (message)-->
         <script>
             "use strict";
 
-            !function () {
+            ! function() {
                 var t = window.driftt = window.drift = window.driftt || [];
                 if (!t.init) {
-                    if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+                    if (t.invoked) return void(window.console && console.error && console.error("Drift snippet included twice."));
                     t.invoked = !0, t.methods = ["identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on"],
-                        t.factory = function (e) {
-                            return function () {
+                        t.factory = function(e) {
+                            return function() {
                                 var n = Array.prototype.slice.call(arguments);
                                 return n.unshift(e), t.push(n), t;
                             };
-                        }, t.methods.forEach(function (e) {
+                        }, t.methods.forEach(function(e) {
                             t[e] = t.factory(e);
-                        }), t.load = function (t) {
-                            var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+                        }), t.load = function(t) {
+                            var e = 3e5,
+                                n = Math.ceil(new Date() / e) * e,
+                                o = document.createElement("script");
                             o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
                             var i = document.getElementsByTagName("script")[0];
                             i.parentNode.insertBefore(o, i);
@@ -228,4 +229,5 @@
 </body>
 <script src="public/js/ojt-requirements.js"></script>
 <script src="public/js/global.js"></script>
+
 </html>

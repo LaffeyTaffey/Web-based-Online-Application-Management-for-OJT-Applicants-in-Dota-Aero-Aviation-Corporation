@@ -27,50 +27,50 @@
         <div class="menu-toggle" id="menu-toggle">&#9776;</div> <!-- Hamburger icon -->
         <nav id="nav-bar">
             <ul>
-                <li><a class="nav-link" href="index.html">Portal</a></li>
-                <li><a class="nav-link" href="Announcement.html">Announcement</a></li>
-                <li><a class="nav-link" href="landing.html#about">About us</a></li>
-                <li><a class="nav-link" href="landing.html">Homepage</a></li>
+                <li><a class="nav-link" href="index.php">Portal</a></li>
+                <li><a class="nav-link" href="Announcement.php">Announcement</a></li>
+                <li><a class="nav-link" href="landing.php#about">About us</a></li>
+                <li><a class="nav-link" href="landing.php">Homepage</a></li>
             </ul>
-        <a href="login.html"><button id="signin-button">Sign In →</button></a>
-        <br>
+            <a href="login.php"><button id="signin-button">Sign In →</button></a>
+            <br>
         </nav>
     </header>
 
     <script>
         // JavaScript to toggle menu
-        document.getElementById('menu-toggle').addEventListener('click', function () {
+        document.getElementById('menu-toggle').addEventListener('click', function() {
             document.getElementById('nav-bar').classList.toggle('active');
         });
     </script>
 
     <main class="fade-in">
-<br>
+        <br>
         <div id="calendar-container">
-        <iframe
-            src="https://calendar.google.com/calendar/embed?height=1000&wkst=1&ctz=Asia%2FHong_Kong&bgcolor=%23039BE5&src=a2lvc2hpbWFzYW11bmVAZ21haWwuY29t&src=OWIxMDU2M2Y3NGI3MmU4OTkwODJlODE0YjJhNDczMjFlYWYzYWI1N2NjYTkzZDc3ZGQxNWFiNWZiODJlZmI5MkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4ucGhpbGlwcGluZXMjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%23D50000&color=%2333B679&color=%230B8043"
-            style="border:solid 1px #777" width="800" height="500" frameborder="0" scrolling="no">
-        </iframe>
+            <iframe src="https://calendar.google.com/calendar/embed?height=1000&wkst=1&ctz=Asia%2FHong_Kong&bgcolor=%23039BE5&src=a2lvc2hpbWFzYW11bmVAZ21haWwuY29t&src=OWIxMDU2M2Y3NGI3MmU4OTkwODJlODE0YjJhNDczMjFlYWYzYWI1N2NjYTkzZDc3ZGQxNWFiNWZiODJlZmI5MkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4ucGhpbGlwcGluZXMjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%23D50000&color=%2333B679&color=%230B8043" style="border:solid 1px #777" width="800" height="500" frameborder="0" scrolling="no">
+            </iframe>
         </div>
 
         <!-- Start of Async Drift Code -->
         <script>
             "use strict";
 
-            !function () {
+            ! function() {
                 var t = window.driftt = window.drift = window.driftt || [];
                 if (!t.init) {
-                    if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+                    if (t.invoked) return void(window.console && console.error && console.error("Drift snippet included twice."));
                     t.invoked = !0, t.methods = ["identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on"],
-                        t.factory = function (e) {
-                            return function () {
+                        t.factory = function(e) {
+                            return function() {
                                 var n = Array.prototype.slice.call(arguments);
                                 return n.unshift(e), t.push(n), t;
                             };
-                        }, t.methods.forEach(function (e) {
+                        }, t.methods.forEach(function(e) {
                             t[e] = t.factory(e);
-                        }), t.load = function (t) {
-                            var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+                        }), t.load = function(t) {
+                            var e = 3e5,
+                                n = Math.ceil(new Date() / e) * e,
+                                o = document.createElement("script");
                             o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
                             var i = document.getElementsByTagName("script")[0];
                             i.parentNode.insertBefore(o, i);
@@ -81,7 +81,7 @@
             drift.load('vf4skr37birm');
         </script>
         <!-- End of Async Drift Code -->
-         <br>
+        <br>
         <footer>
             <h1>Contact Us</h1>
             <div class="footer-container">
@@ -93,16 +93,14 @@
                     <p><i class="fa fa-user"></i> Ariel Nepomuceno</p>
                 </div>
                 <div class="footer-content">
-                    <img src="public/assets/img/about us/thesis-team/Abad.png" alt="Michael Luis Daniel P Abad"
-                        class="profile-img">
+                    <img src="public/assets/img/about us/thesis-team/Abad.png" alt="Michael Luis Daniel P Abad" class="profile-img">
                     <h3>Michael Luis Daniel P Abad</h3>
                     <p><i class="fa fa-envelope"></i> abad.michaelluisdaniel@gmail.com</p>
                     <p><i class="fa fa-phone"></i> 09625412428</p>
                     <p><i class="fa fa-user"></i> Michael Abad</p>
                 </div>
                 <div class="footer-content">
-                    <img src="public/assets/img/about us/thesis-team/errol2.png" alt="Errol John N. Pacites"
-                        class="profile-img">
+                    <img src="public/assets/img/about us/thesis-team/errol2.png" alt="Errol John N. Pacites" class="profile-img">
                     <h3>Errol John N. Pacites</h3>
                     <p><i class="fa fa-envelope"></i> errolpacites25@gmail.com</p>
                     <p><i class="fa fa-phone"></i> 09319548290</p>
@@ -110,9 +108,10 @@
                 </div>
             </div>
         </footer>
-        
+
     </main>
     <script src="public/js/landing.js"></script>
     <script src="public/js/global.js"></script>
 </body>
+
 </html>

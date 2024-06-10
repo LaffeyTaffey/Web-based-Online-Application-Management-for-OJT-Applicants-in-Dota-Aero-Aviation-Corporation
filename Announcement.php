@@ -27,19 +27,19 @@
         <div class="menu-toggle" id="menu-toggle">&#9776;</div> <!-- Hamburger icon -->
         <nav id="nav-bar">
             <ul>
-                <li><a class="nav-link" href="index.html">Portal</a></li>
-                <li><a class="nav-link" href="calendar.html">Calendar</a></li>
-                <li><a class="nav-link" href="landing.html">Homepage</a></li>
-                <li><a class="nav-link" href="landing.html#about">About us</a></li>
+                <li><a class="nav-link" href="index.php">Portal</a></li>
+                <li><a class="nav-link" href="calendar.php">Calendar</a></li>
+                <li><a class="nav-link" href="landing.php">Homepage</a></li>
+                <li><a class="nav-link" href="landing.php#about">About us</a></li>
             </ul>
-            <a href="login.html"><button id="signin-button">Sign In →</button></a>
+            <a href="login.php"><button id="signin-button">Sign In →</button></a>
             <br>
         </nav>
     </header>
 
     <script>
         // JavaScript to toggle menu
-        document.getElementById('menu-toggle').addEventListener('click', function () {
+        document.getElementById('menu-toggle').addEventListener('click', function() {
             document.getElementById('nav-bar').classList.toggle('active');
         });
     </script>
@@ -57,7 +57,7 @@
                     <p>Editor: Admin Cecilia Pineda</p>
                 </div>
             </div>
-    
+
             <div class="announcement" id="announcement2">
                 <h2>🚀 Product Launch!</h2>
                 <p>Our newest product is launching soon! Get ready to experience innovation like never before!</p>
@@ -67,7 +67,7 @@
                     <p>Editor: Admin Levi Rodelas</p>
                 </div>
             </div>
-    
+
             <div class="announcement" id="announcement3">
                 <h2>🔔 Important Update!</h2>
                 <p>We have an important announcement to share regarding upcoming changes. Stay tuned for details!</p>
@@ -84,20 +84,22 @@
     <script>
         "use strict";
 
-        !function () {
+        ! function() {
             var t = window.driftt = window.drift = window.driftt || [];
             if (!t.init) {
-                if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+                if (t.invoked) return void(window.console && console.error && console.error("Drift snippet included twice."));
                 t.invoked = !0, t.methods = ["identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on"],
-                    t.factory = function (e) {
-                        return function () {
+                    t.factory = function(e) {
+                        return function() {
                             var n = Array.prototype.slice.call(arguments);
                             return n.unshift(e), t.push(n), t;
                         };
-                    }, t.methods.forEach(function (e) {
+                    }, t.methods.forEach(function(e) {
                         t[e] = t.factory(e);
-                    }), t.load = function (t) {
-                        var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+                    }), t.load = function(t) {
+                        var e = 3e5,
+                            n = Math.ceil(new Date() / e) * e,
+                            o = document.createElement("script");
                         o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
                         var i = document.getElementsByTagName("script")[0];
                         i.parentNode.insertBefore(o, i);
@@ -120,16 +122,14 @@
                 <p><i class="fa fa-user"></i> Ariel Nepomuceno</p>
             </div>
             <div class="footer-content">
-                <img src="public/assets/img/about us/thesis-team/Abad.png" alt="Michael Luis Daniel P Abad"
-                    class="profile-img">
+                <img src="public/assets/img/about us/thesis-team/Abad.png" alt="Michael Luis Daniel P Abad" class="profile-img">
                 <h3>Michael Luis Daniel P Abad</h3>
                 <p><i class="fa fa-envelope"></i> abad.michaelluisdaniel@gmail.com</p>
                 <p><i class="fa fa-phone"></i> 09625412428</p>
                 <p><i class="fa fa-user"></i> Michael Abad</p>
             </div>
             <div class="footer-content">
-                <img src="public/assets/img/about us/thesis-team/errol2.png" alt="Errol John N. Pacites"
-                    class="profile-img">
+                <img src="public/assets/img/about us/thesis-team/errol2.png" alt="Errol John N. Pacites" class="profile-img">
                 <h3>Errol John N. Pacites</h3>
                 <p><i class="fa fa-envelope"></i> errolpacites25@gmail.com</p>
                 <p><i class="fa fa-phone"></i> 09319548290</p>
@@ -141,4 +141,5 @@
     <script src="public/js/landing.js"></script>
     <script src="public/js/global.js"></script>
 </body>
+
 </html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--OJT Portal-->
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="public/assets/img/dota_logo.png" />
@@ -23,22 +24,22 @@
             <h1>Philippine State College of Aeronautics</h1>
             <img src="public/assets/img/school_logo.png" alt="PSCA" id="header-img">
         </div>
-    <div class="menu-toggle" id="menu-toggle">&#9776;</div> <!-- Hamburger icon -->
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div> <!-- Hamburger icon -->
         <nav id="nav-bar">
             <ul>
-                <li><a class="nav-link" href="Announcement.html">Announcement</a></li>
-                <li><a class="nav-link" href="public\material-dashboard-master\pages\profile.html">Account Settings</a></li>
-                <li><a class="nav-link" href="calendar.html">Calendar</a></li>
-                <li><a class="nav-link" href="landing.html">Homepage</a></li>
+                <li><a class="nav-link" href="Announcement.php">Announcement</a></li>
+                <li><a class="nav-link" href="public\material-dashboard-master\pages\profile.php">Account Settings</a></li>
+                <li><a class="nav-link" href="calendar.php">Calendar</a></li>
+                <li><a class="nav-link" href="landing.php">Homepage</a></li>
             </ul>
-            <a href="login.html"><button id="signin-button">Sign In →</button></a>
+            <a href="login.php"><button id="signin-button">Sign In →</button></a>
             <br>
         </nav>
     </header>
 
     <script>
         // JavaScript to toggle menu
-        document.getElementById('menu-toggle').addEventListener('click', function () {
+        document.getElementById('menu-toggle').addEventListener('click', function() {
             document.getElementById('nav-bar').classList.toggle('active');
         });
     </script>
@@ -54,7 +55,7 @@
                         <img src="public/assets/img/about us/coding team/marc.jpg" alt="Applicant Image">
                     </div>
                     <div class="applicant-details">
-                        
+
                         <p><strong>Reference ID:</strong> 123456</p>
                         <p><strong>Name:</strong> John Doe</p>
                         <p><strong>Address:</strong> 123 Main St, City, Country</p>
@@ -88,15 +89,13 @@
                     </div>
                     <ul id="taskList"></ul>
                 </div>
-                
+
                 <div class="calendar">
                     <!-- Calendar -->
                     <h2>Calendar</h2>
                     <br>
                     <div id="calendar"></div>
-                    <iframe
-                        src="https://calendar.google.com/calendar/embed?height=1000&wkst=1&ctz=Asia%2FHong_Kong&bgcolor=%23039BE5&src=a2lvc2hpbWFzYW11bmVAZ21haWwuY29t&src=OWIxMDU2M2Y3NGI3MmU4OTkwODJlODE0YjJhNDczMjFlYWYzYWI1N2NjYTkzZDc3ZGQxNWFiNWZiODJlZmI5MkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4ucGhpbGlwcGluZXMjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%23D50000&color=%2333B679&color=%230B8043"
-                        style="border:solid 1px #777" width="500" height="500" frameborder="0" scrolling="no">
+                    <iframe src="https://calendar.google.com/calendar/embed?height=1000&wkst=1&ctz=Asia%2FHong_Kong&bgcolor=%23039BE5&src=a2lvc2hpbWFzYW11bmVAZ21haWwuY29t&src=OWIxMDU2M2Y3NGI3MmU4OTkwODJlODE0YjJhNDczMjFlYWYzYWI1N2NjYTkzZDc3ZGQxNWFiNWZiODJlZmI5MkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4ucGhpbGlwcGluZXMjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%23D50000&color=%2333B679&color=%230B8043" style="border:solid 1px #777" width="500" height="500" frameborder="0" scrolling="no">
                     </iframe>
                 </div>
                 <script>
@@ -115,7 +114,10 @@
                             data.push(Math.floor(Math.random() * 100));
                         }
 
-                        return { labels, data };
+                        return {
+                            labels,
+                            data
+                        };
                     }
 
                     // Draw pie chart with animation
@@ -163,7 +165,7 @@
                     }
 
                     // Generate random data and draw pie chart on page load
-                    document.addEventListener('DOMContentLoaded', function () {
+                    document.addEventListener('DOMContentLoaded', function() {
                         const data = generateRandomData();
                         drawPieChart(data);
                         updateProgressBar(data.data[0]); // Update progress bar with the completed percentage
@@ -171,67 +173,65 @@
 
                     // Generate new random data and redraw pie chart on button click
                     const refreshButton = document.getElementById('refreshButton');
-                    refreshButton.addEventListener('click', function () {
+                    refreshButton.addEventListener('click', function() {
                         const data = generateRandomData();
                         drawPieChart(data);
                         updateProgressBar(data.data[0]); // Update progress bar with the completed percentage
                     });
 
                     // Task Tracker
-                        function addTask() {
-                            const input = document.getElementById("taskInput");
-                            const task = input.value.trim();
-                            if (task !== "") {
-                                const taskList = document.getElementById("taskList");
-                                const li = document.createElement("li");
-                                li.textContent = task;
-                                taskList.appendChild(li);
-                                input.value = "";
-                            }
+                    function addTask() {
+                        const input = document.getElementById("taskInput");
+                        const task = input.value.trim();
+                        if (task !== "") {
+                            const taskList = document.getElementById("taskList");
+                            const li = document.createElement("li");
+                            li.textContent = task;
+                            taskList.appendChild(li);
+                            input.value = "";
                         }
+                    }
 
-                        function addTask() {
-                                const input = document.getElementById("taskInput");
-                                const task = input.value.trim();
-                                if (task !== "") {
-                                    const taskList = document.getElementById("taskList");
-                                    const li = document.createElement("li");
-                                    const now = new Date().toLocaleString(); // Get current date and time
-                                    li.innerHTML = `
+                    function addTask() {
+                        const input = document.getElementById("taskInput");
+                        const task = input.value.trim();
+                        if (task !== "") {
+                            const taskList = document.getElementById("taskList");
+                            const li = document.createElement("li");
+                            const now = new Date().toLocaleString(); // Get current date and time
+                            li.innerHTML = `
             <span>${task}</span>
             <div class="task-actions">
                 <i class="far fa-edit"></i>
                 <i class="far fa-save"></i>
             </div>`;
-                                    taskList.appendChild(li);
-                                    input.value = "";
+                            taskList.appendChild(li);
+                            input.value = "";
 
-                                    // Functionality for editing the task
-                                    const editIcon = li.querySelector(".fa-edit");
-                                    editIcon.addEventListener("click", function () {
-                                        const taskText = li.querySelector("span");
-                                        const newText = prompt("Edit task:", taskText.textContent);
-                                        if (newText !== null && newText !== "") {
-                                            taskText.textContent = newText;
-                                            const editedTime = document.createElement("span");
-                                            editedTime.textContent = ` (edited: ${now})`; // Display edit time
-                                            taskText.appendChild(editedTime);
-                                        }
-                                    });
-
-                                    // Functionality for saving the task
-                                    const saveIcon = li.querySelector(".fa-save");
-                                    saveIcon.addEventListener("click", function () {
-                                        const taskText = li.querySelector("span");
-                                        const status = document.createElement("span");
-                                        status.textContent = " (saved)";
-                                        status.style.color = "green"; // Status indicator for successful save
-                                        taskText.appendChild(status);
-                                    });
+                            // Functionality for editing the task
+                            const editIcon = li.querySelector(".fa-edit");
+                            editIcon.addEventListener("click", function() {
+                                const taskText = li.querySelector("span");
+                                const newText = prompt("Edit task:", taskText.textContent);
+                                if (newText !== null && newText !== "") {
+                                    taskText.textContent = newText;
+                                    const editedTime = document.createElement("span");
+                                    editedTime.textContent = ` (edited: ${now})`; // Display edit time
+                                    taskText.appendChild(editedTime);
                                 }
-                            }
+                            });
 
-                            
+                            // Functionality for saving the task
+                            const saveIcon = li.querySelector(".fa-save");
+                            saveIcon.addEventListener("click", function() {
+                                const taskText = li.querySelector("span");
+                                const status = document.createElement("span");
+                                status.textContent = " (saved)";
+                                status.style.color = "green"; // Status indicator for successful save
+                                taskText.appendChild(status);
+                            });
+                        }
+                    }
                 </script>
 
             </div>
@@ -263,7 +263,7 @@
                                 <p>Editor: Admin Cecilia Pineda</p>
                             </div>
                         </div>
-                    
+
                         <div class="announcement2" id="announcement2">
                             <h2>🚀 Product Launch!</h2>
                             <p>Our newest product is launching soon! Get ready to experience innovation like never before!</p>
@@ -273,7 +273,7 @@
                                 <p>Editor: Admin Levi Rodelas</p>
                             </div>
                         </div>
-                    
+
                         <div class="announcement3" id="announcement3">
                             <h2>🔔 Important Update!</h2>
                             <p>We have an important announcement to share regarding upcoming changes. Stay tuned for details!</p>
@@ -286,71 +286,71 @@
                     </div>
                 </div>
 
-                
+
 
                 <div class="weather">
                     <h2>Weather Today</h2>
                     <br>
-                    <img class="condition" src="https://www.yr.no/en/content/2-1701668/meteogram.svg" alt="Weather Condition" width="500" height="300"/>
+                    <img class="condition" src="https://www.yr.no/en/content/2-1701668/meteogram.svg" alt="Weather Condition" width="500" height="300" />
                 </div>
 
             </div>
         </div>
     </main>
-<!-- Footer Section -->
-<footer>
-    <h1>Contact Us</h1>
-    <div class="footer-container">
-        <div class="footer-content">
-            <img src="public/assets/img/about us/thesis-team/Ariel.jpg" alt="Ariel Nepomuceno Jr." class="profile-img">
-            <h3>Ariel Nepomuceno Jr.</h3>
-            <p><i class="fa fa-envelope"></i> nepomucenojr.ariel@gmail.com</p>
-            <p><i class="fa fa-phone"></i> 09668424122</p>
-            <p><i class="fa fa-user"></i> Ariel Nepomuceno</p>
+    <!-- Footer Section -->
+    <footer>
+        <h1>Contact Us</h1>
+        <div class="footer-container">
+            <div class="footer-content">
+                <img src="public/assets/img/about us/thesis-team/Ariel.jpg" alt="Ariel Nepomuceno Jr." class="profile-img">
+                <h3>Ariel Nepomuceno Jr.</h3>
+                <p><i class="fa fa-envelope"></i> nepomucenojr.ariel@gmail.com</p>
+                <p><i class="fa fa-phone"></i> 09668424122</p>
+                <p><i class="fa fa-user"></i> Ariel Nepomuceno</p>
+            </div>
+            <div class="footer-content">
+                <img src="public/assets/img/about us/thesis-team/Abad.png" alt="Michael Luis Daniel P Abad" class="profile-img">
+                <h3>Michael Luis Daniel P Abad</h3>
+                <p><i class="fa fa-envelope"></i> abad.michaelluisdaniel@gmail.com</p>
+                <p><i class="fa fa-phone"></i> 09625412428</p>
+                <p><i class="fa fa-user"></i> Michael Abad</p>
+            </div>
+            <div class="footer-content">
+                <img src="public/assets/img/about us/thesis-team/errol2.png" alt="Errol John N. Pacites" class="profile-img">
+                <h3>Errol John N. Pacites</h3>
+                <p><i class="fa fa-envelope"></i> errolpacites25@gmail.com</p>
+                <p><i class="fa fa-phone"></i> 09319548290</p>
+                <p><i class="fa fa-user"></i> Errol Pacites</p>
+            </div>
         </div>
-        <div class="footer-content">
-            <img src="public/assets/img/about us/thesis-team/Abad.png" alt="Michael Luis Daniel P Abad"
-                class="profile-img">
-            <h3>Michael Luis Daniel P Abad</h3>
-            <p><i class="fa fa-envelope"></i> abad.michaelluisdaniel@gmail.com</p>
-            <p><i class="fa fa-phone"></i> 09625412428</p>
-            <p><i class="fa fa-user"></i> Michael Abad</p>
-        </div>
-        <div class="footer-content">
-            <img src="public/assets/img/about us/thesis-team/errol2.png" alt="Errol John N. Pacites"
-                class="profile-img">
-            <h3>Errol John N. Pacites</h3>
-            <p><i class="fa fa-envelope"></i> errolpacites25@gmail.com</p>
-            <p><i class="fa fa-phone"></i> 09319548290</p>
-            <p><i class="fa fa-user"></i> Errol Pacites</p>
-        </div>
-    </div>
-</footer>
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <script src="public/js/landing.js"></script>
     <script src="public/js/global.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
-        
+
     </script>
 </body>
 <script>
     "use strict";
 
-    !function () {
+    ! function() {
         var t = window.driftt = window.drift = window.driftt || [];
         if (!t.init) {
-            if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+            if (t.invoked) return void(window.console && console.error && console.error("Drift snippet included twice."));
             t.invoked = !0, t.methods = ["identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on"],
-                t.factory = function (e) {
-                    return function () {
+                t.factory = function(e) {
+                    return function() {
                         var n = Array.prototype.slice.call(arguments);
                         return n.unshift(e), t.push(n), t;
                     };
-                }, t.methods.forEach(function (e) {
+                }, t.methods.forEach(function(e) {
                     t[e] = t.factory(e);
-                }), t.load = function (t) {
-                    var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+                }), t.load = function(t) {
+                    var e = 3e5,
+                        n = Math.ceil(new Date() / e) * e,
+                        o = document.createElement("script");
                     o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
                     var i = document.getElementsByTagName("script")[0];
                     i.parentNode.insertBefore(o, i);
@@ -360,4 +360,5 @@
     drift.SNIPPET_VERSION = '0.3.1';
     drift.load('vf4skr37birm');
 </script>
+
 </html>
