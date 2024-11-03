@@ -1,0 +1,9 @@
+DELIMITER //
+
+CREATE FUNCTION generate_default_password() RETURNS VARCHAR(100)
+BEGIN
+    RETURN 'default'; 
+END;
+
+//
+DELIMITER ;

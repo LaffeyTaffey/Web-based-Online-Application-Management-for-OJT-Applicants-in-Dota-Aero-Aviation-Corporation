@@ -1,3 +1,91 @@
+<?php
+session_start();
+$conn = mysqli_connect("localhost", "root", "", "account");
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Check if the user is logged in
+if (!isset($_SESSION['reference_number'])) {
+    // If not logged in, redirect to landing page
+    header("Location: landing.php");
+    exit;
+}
+
+// Check if the user is not an admin
+if ($_SESSION['user_type'] !== '') {
+    // If usertype is not admin, redirect to landing page
+    header("Location: landing.php");
+    exit;
+}
+
+// Fetch applicant information
+$reference_number = $_SESSION['reference_number'];
+preg_match('/OJT24_(\d+)/', $reference_number, $matches);
+$last_two_digits = isset($matches[1]) ? $matches[1] : '';
+
+$query = "SELECT * FROM ojtapplicants WHERE RIGHT(ID, 2) = '$last_two_digits'";
+$result = mysqli_query($conn, $query);
+$applicant = mysqli_fetch_assoc($result);
+
+// Track applicant progress
+$applicationSubmissionDate = $applicant['DateReg']; // Example: Date application was submitted
+
+// Fetch documents submission status
+$documentsSubmitted = [
+    'NBI' => $applicant['NBI'] ? true : false,
+    'MOA' => $applicant['MOA'] ? true : false,
+    'Endorsement' => $applicant['Endorsement'] ? true : false
+];
+
+// Calculate total documents and submitted documents
+$totalDocuments = count($documentsSubmitted);
+$submittedDocuments = array_sum($documentsSubmitted);
+
+// Calculate training progress based on real data
+$totalRequiredHours = isset($applicant['TotalNo.']) ? $applicant['TotalNo.'] : 0;
+
+$totalHoursWorkedQuery = "SELECT SUM(hours_worked) AS total_hours_worked FROM training_hours WHERE applicant_id = '$last_two_digits'";
+$totalHoursWorkedResult = mysqli_query($conn, $totalHoursWorkedQuery);
+$totalHoursWorkedRow = mysqli_fetch_assoc($totalHoursWorkedResult);
+$totalHoursWorked = $totalHoursWorkedRow['total_hours_worked'] ?? 0;
+
+$trainingProgress = ($totalHoursWorked / $totalRequiredHours) * 100;
+$documentProgress = ($submittedDocuments / $totalDocuments) * 100;
+$overallProgress = ($trainingProgress + $documentProgress) / 2;
+$completionStatus = $overallProgress >= 100 ? 'Completed' : 'Incomplete';
+
+// Calculate remaining hours
+$remainingHours = max(0, $totalRequiredHours - $totalHoursWorked);
+
+// Calculate training progress
+$trainingProgress = $totalRequiredHours > 0 ? ($totalHoursWorked / $totalRequiredHours) * 100 : 0;
+
+// Format training progress and remaining hours to two decimal places
+$formattedTrainingProgress = number_format($trainingProgress, 2);
+$formattedRemainingHours = number_format($remainingHours, 2);
+
+// Format overall progress to two decimal places
+$formattedOverallProgress = number_format($overallProgress, 2);
+
+// Example function to add communication logs
+function addCommunicationLog($logMessage)
+{
+    global $communicationLog;
+    $timestamp = date('Y-m-d H:i:s');
+    $communicationLog[] = [
+        'timestamp' => $timestamp,
+        'message' => $logMessage
+    ];
+}
+
+// Add initial communication log
+addCommunicationLog("Initial application submitted on $applicationSubmissionDate.");
+
+mysqli_close($conn); // Close the database connection
+?>
 <!DOCTYPE html>
 <html lang="en">
 <!--OJT Portal-->
@@ -6,12 +94,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="public/assets/img/dota_logo.png" />
     <meta name="theme-color" content="#1885ed">
-    <link rel="stylesheet" href="public/css/landing.css" type="text/css">
-    <link rel="stylesheet" href="public/css/index.css" type="text/css">
+    <link rel="stylesheet" href="index2.css" type="text/css">
     <link rel="stylesheet" href="public/css/global.css" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="public/js/landing.js"></script>
     <script src="public/js/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
     <title>OJT Portal</title>
+
+
 </head>
 
 <body>
@@ -19,20 +110,20 @@
         <div class="logo-container">
             <img src="public/assets/img/dota_logo.png" alt="DOTA" id="header-img">
             <h1>DOTA Aero Aviation Service, Inc.</h1>
-        </div>
-        <div class="logo-container">
-            <h1>Philippine State College of Aeronautics</h1>
-            <img src="public/assets/img/school_logo.png" alt="PSCA" id="header-img">
+            <div class="logo-container">
+                <img src="public/assets/img/airplane.png" alt="DOTA" id="header-img">
+                <h1>Excellence in Aviation Services</h1>
+            </div>
         </div>
         <div class="menu-toggle" id="menu-toggle">&#9776;</div> <!-- Hamburger icon -->
         <nav id="nav-bar">
             <ul>
                 <li><a class="nav-link" href="Announcement.php">Announcement</a></li>
-                <li><a class="nav-link" href="public\material-dashboard-master\pages\profile.php">Account Settings</a></li>
+                <li><a class="nav-link" href="index.php#account-settings">Account Settings</a></li>
                 <li><a class="nav-link" href="calendar.php">Calendar</a></li>
                 <li><a class="nav-link" href="landing.php">Homepage</a></li>
             </ul>
-            <a href="login.php"><button id="signin-button">Sign In →</button></a>
+            <a href="logout.php"><button id="signin-button">Sign Out →</button></a>
             <br>
         </nav>
     </header>
@@ -43,257 +134,355 @@
             document.getElementById('nav-bar').classList.toggle('active');
         });
     </script>
+    <script>
+        function editInfo() {
+            const infoFields = document.querySelectorAll('#info_fields p');
+            infoFields.forEach(field => {
+                const value = field.innerText.split(': ')[1];
+                field.innerHTML = `<strong>${field.innerText.split(': ')[0]}:</strong> <input type="text" value="${value}">`;
+            });
+            document.getElementById('save_button').disabled = false;
+        }
+
+        function saveInfo() {
+            const infoFields = document.querySelectorAll('#info_fields p');
+            infoFields.forEach(field => {
+                const input = field.querySelector('input');
+                const value = input.value;
+                field.innerHTML = `<strong>${field.innerText.split(': ')[0]}:</strong> ${value}`;
+            });
+            document.getElementById('save_button').disabled = true;
+            document.getElementById('success_notification').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('success_notification').style.display = 'none';
+            }, 2000);
+        }
+    </script>
+    <style>
+        body {
+            background-image: linear-gradient(to bottom, #0acffe 0%, #495aff 100%);
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: Arial,
+                sans-serif;
+            color: rgb(220, 220, 220);
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: rgb(220, 220, 220);
+        }
+
+        .container-dashboard {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .left-side,
+        .right-side {
+            flex: 0 0 48%;
+            margin-bottom: 20px;
+        }
+
+        .applicant-info,
+        .applicant-progress,
+        .task-tracker,
+        .calendar,
+        .ojt-info,
+        .weather,
+        .announcement {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            background: #1885ed;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #0f6bbf;
+        }
+
+        .success-notification {
+            background: #28a745;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .animate__animated.animate__fadeIn {
+            --animate-duration: 1s;
+        }
+
+        .applicant-progress {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        #progressDetails {
+            margin-top: 10px;
+        }
+    </style>
     <br><br><br><br><br>
-    <main class="fade-in">
-        <div class="container-dashboard">
+    <main class="container fade-in animate__animated animate__fadeIn">
+        <div class="container-dashboard" id="account-settings">
             <div class="left-side">
                 <div class="applicant-info">
-                    <!-- Applicant Information -->
-                    <div class="applicant-image">
-                        <h2>Applicant Information</h2>
-                        <br>
-                        <img src="public/assets/img/about us/coding team/marc.jpg" alt="Applicant Image">
-                    </div>
-                    <div class="applicant-details">
+                    <h2>Applicant Information</h2>
+                    <?php
+                    require('config.php'); // Connect to the database
 
-                        <p><strong>Reference ID:</strong> 123456</p>
-                        <p><strong>Name:</strong> John Doe</p>
-                        <p><strong>Address:</strong> 123 Main St, City, Country</p>
-                        <p><strong>Gender:</strong> Male</p>
-                        <p><strong>Date of Birth:</strong> January 1, 2000</p>
-                        <p><strong>Place of Birth:</strong> City, Country</p>
-                        <p><strong>Religion:</strong> Christianity</p>
-                        <p><strong>Email:</strong> johndoe@example.com</p>
-                        <p><strong>Phone:</strong> +1234567890</p>
-                        <p><strong>Hobby/Interest:</strong> Programming</p>
-                    </div>
+                    // Assuming the applicant's ID is stored in the session
+                    $reference_number = $_SESSION['reference_number'];
+                    // Extract numeric part (X) from reference_number like OJT24_X
+                    preg_match('/OJT24_(\d+)/', $reference_number, $matches);
+                    $last_two_digits = isset($matches[1]) ? $matches[1] : '';
+
+                    // Query to fetch information with condition on the last two digits
+                    $query = "SELECT * FROM ojtapplicants WHERE RIGHT(ID, 2) = '$last_two_digits'";
+                    $result = mysqli_query($dbcon, $query);
+
+                    if ($row = mysqli_fetch_assoc($result)) {
+                        // Construct the path to the profile picture
+                        $profilePicPath = !empty($row['Picture']) ? 'uploaded_documents/ID_' . $row['ID'] . '/' . $row['Picture'] : '../assets/img/team-2.jpg';
+
+                        echo '<div class="text-center">';
+                        echo '<img src="' . $profilePicPath . '" class="avatar avatar-lg border-radius-lg mb-3" alt="Profile Picture">';
+                        // Display welcome message
+                        echo '<p class="text-muted">Welcome, ID: OJT24_' . $row['ID'] . '! You are logged in.</p>';
+                        echo '</div>';
+                    ?>
+
+                        <a href="user_request_info.php" <button class="button" onclick="editInfo()">Request Edit Info</button> </a>
+                        <br><br>
+                        <div id="info_fields">
+                            <?php
+                            foreach ($row as $key => $value) {
+                                if ($key != 'Picture' && $key != 'ID') {
+                                    echo "<p><strong>" . ucfirst(str_replace('_', ' ', $key)) . ":</strong> " . htmlspecialchars($value) . "</p>";
+                                }
+                            }
+                            ?>
+                        </div>
+                    <?php } else { ?>
+                        <p>No applicant found with ID = <?php echo $applicant_id ?></p>
+                    <?php } ?>
                 </div>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        // Data for chart
+                        const data = {
+                            labels: ['Training Progress', 'NBI', 'MOA', 'Endorsement', 'Overall Progress'],
+                            datasets: [{
+                                label: 'Progress',
+                                data: [
+                                    <?php echo $trainingProgress; ?>,
+                                    <?php echo $documentsSubmitted['NBI'] ? 100 : 0; ?>,
+                                    <?php echo $documentsSubmitted['MOA'] ? 100 : 0; ?>,
+                                    <?php echo $documentsSubmitted['Endorsement'] ? 100 : 0; ?>,
+                                    <?php echo $overallProgress; ?>
+                                ],
+                                backgroundColor: [
+                                    'rgba(75, 192, 192, 0.5)', // Training Progress background color
+                                    'rgba(54, 162, 235, 0.5)', // NBI background color
+                                    'rgba(255, 206, 86, 0.5)', // MOA background color
+                                    'rgba(255, 99, 132, 0.5)', // Endorsement background color
+                                    'rgba(153, 102, 255, 0.5)' // Overall Progress background color
+                                ],
+                                borderColor: [
+                                    'rgba(75, 192, 192, 1)', // Training Progress border color
+                                    'rgba(54, 162, 235, 1)', // NBI border color
+                                    'rgba(255, 206, 86, 1)', // MOA border color
+                                    'rgba(255, 99, 132, 1)', // Endorsement border color
+                                    'rgba(153, 102, 255, 1)' // Overall Progress border color
+                                ],
+                                borderWidth: 1
+                            }]
+                        };
+
+                        // Chart configuration
+                        const config = {
+                            type: 'bar',
+                            data: data,
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                        max: 100 // Adjust maximum scale if needed
+                                    }
+                                }
+                            }
+                        };
+
+                        // Create the chart
+                        var myChart = new Chart(
+                            document.getElementById('progressChart'),
+                            config
+                        );
+                    });
+                </script>
+
                 <div class="applicant-progress">
-                    <!-- Applicant Progress -->
                     <h2>Applicant Progress</h2>
-                    <br>
-                    <h3>In Profile:</h3>
-                    <canvas class="pieChart" id="pieChart" width="200" height="200"></canvas>
-                    <p id="colorInfo"></p>
-                    <div class="progress-bar">
-                        <div class="progress" id="progressBar"></div>
-                    </div>
-                </div>
+                    <canvas id="progressChart" width="400" height="200"></canvas>
+                    <p id="progressDetails">Training Hours Completed: <?php echo $formattedTrainingProgress; ?><br>
+                        NBI: <?php echo $documentsSubmitted['NBI'] ? 'Submitted' : 'Not Submitted'; ?><br>
+                        MOA: <?php echo $documentsSubmitted['MOA'] ? 'Submitted' : 'Not Submitted'; ?><br>
+                        Endorsement: <?php echo $documentsSubmitted['Endorsement'] ? 'Submitted' : 'Not Submitted'; ?><br>
+                        Overall Progress: <?php echo $formattedOverallProgress; ?></p>
+                    <?php
+                    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                        require('hourcomp.php');
+                    }
+                    ?>
+                    <?php
+                    $conn = mysqli_connect("localhost", "root", "", "account");
 
-                <div class="task-tracker">
-                    <h2>Task Tracker</h2>
-                    <br>
-                    <div class="task-input">
-                        <input type="text" id="taskInput" placeholder="Add a new task...">
-                        <button onclick="addTask()">Add</button>
+                    if (!$conn) {
+                        die("Connection failed: " . mysqli_connect_error());
+                    }
+
+                    if (!isset($_SESSION['reference_number'])) {
+                        header("Location: landing.php");
+                        exit;
+                    }
+
+                    // Fetch applicant information based on session reference number
+                    $reference_number = $_SESSION['reference_number'];
+                    preg_match('/OJT24_(\d+)/', $reference_number, $matches);
+                    $last_two_digits = isset($matches[1]) ? $matches[1] : '';
+
+                    $query = "SELECT * FROM ojtapplicants WHERE RIGHT(ID, 2) = '$last_two_digits'";
+                    $result = mysqli_query($conn, $query);
+                    $applicant = mysqli_fetch_assoc($result);
+
+                    // Initialize variables to avoid undefined variable warnings
+                    $totalRequiredHours = 0;
+                    $totalHoursWorked = 0;
+                    $remainingHours = 0;
+
+                    if ($applicant) {
+                        $totalRequiredHours = isset($applicant['TotalNo.']) ? $applicant['TotalNo.'] : 0;
+
+                        // Calculate total hours worked
+                        $totalHoursWorkedQuery = "SELECT SUM(hours_worked) AS total_hours_worked FROM training_hours WHERE applicant_id = '$last_two_digits'";
+                        $totalHoursWorkedResult = mysqli_query($conn, $totalHoursWorkedQuery);
+                        $totalHoursWorkedRow = mysqli_fetch_assoc($totalHoursWorkedResult);
+                        $totalHoursWorked = $totalHoursWorkedRow['total_hours_worked'] ?? 0;
+
+                        // Fetch total required hours (assuming it's from the applicant information)
+                        $totalRequiredHours = isset($applicant['TotalNo.']) ? $applicant['TotalNo.'] : 0;
+
+                        // Calculate training progress
+                        $trainingProgress = $totalRequiredHours > 0 ? ($totalHoursWorked / $totalRequiredHours) * 100 : 0;
+
+                        // Calculate completion status based on training progress
+                        $completionStatus = $trainingProgress >= 100 ? 'Completed' : 'Incomplete';
+                    }
+
+
+                    ?>
+                    <style>
+                        .custom-container-bg {
+                            background-color: #E0E8F0;
+                            /* Light greyish blue */
+                            padding: 20px;
+                            border-radius: 8px;
+                        }
+                    </style>
+                    <div class="container mt-4 custom-container-bg">
+                    <form method="post" action="hourcomp.php" id="hourForm">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="timeIn" class="form-label">Time In:</label>
+                <input type="time" class="form-control" id="timeIn" name="timeIn" required>
+            </div>
+            <div class="col-md-6">
+                <label for="timeOut" class="form-label">Time Out:</label>
+                <input type="time" class="form-control" id="timeOut" name="timeOut" required>
+            </div>
+        </div>
+        <div class="mt-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
                     </div>
-                    <ul id="taskList"></ul>
+
+                    <h2>Training Progress</h2>
+                    <p>Total Required Hours: <?php echo $totalRequiredHours; ?></p>
+                    <p>Total Hours Worked: <?php echo $totalHoursWorked; ?></p>
+                    <p>Remaining Hours: <?php echo $formattedRemainingHours; ?></p>
+                    <p>Training Progress: <?php echo $formattedTrainingProgress; ?>%</p>
+                    <p>Completion Status: <?php echo $completionStatus; ?></p>
+
+                </div>
+            </div>
+
+
+
+            <div class="right-side">
+                <div class="ojt-info">
+                    <h2>OJT Information</h2>
+                    <?php
+                    foreach (['University', 'SchoolAddress', 'DegreeProgram', 'YearLevel', 'Adviser', 'TotalNo.', 'Area_intern', 'StartDate', 'Finish_date', 'Status', 'deficiency', 'remarks'] as $field) {
+                        echo "<p><strong>" . str_replace('_', ' ', $field) . ":</strong> " . htmlspecialchars($applicant[$field]) . "</p>";
+                    }
+                    ?>
                 </div>
 
                 <div class="calendar">
-                    <!-- Calendar -->
                     <h2>Calendar</h2>
-                    <br>
-                    <div id="calendar"></div>
-                    <iframe src="https://calendar.google.com/calendar/embed?height=1000&wkst=1&ctz=Asia%2FHong_Kong&bgcolor=%23039BE5&src=a2lvc2hpbWFzYW11bmVAZ21haWwuY29t&src=OWIxMDU2M2Y3NGI3MmU4OTkwODJlODE0YjJhNDczMjFlYWYzYWI1N2NjYTkzZDc3ZGQxNWFiNWZiODJlZmI5MkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4ucGhpbGlwcGluZXMjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%23D50000&color=%2333B679&color=%230B8043" style="border:solid 1px #777" width="500" height="500" frameborder="0" scrolling="no">
-                    </iframe>
+                    <iframe src="https://calendar.google.com/calendar/embed?src=ojtadm1%40gmail.com&ctz=Asia%2FManila" style="border:solid 1px #777" width="500" height="500" frameborder="0" scrolling="no"></iframe>
                 </div>
-                <script>
-                    // Function to update progress bar based on percentage
-                    function updateProgressBar(percent) {
-                        const progressBar = document.getElementById('progressBar');
-                        progressBar.style.width = percent + '%';
-                    }
-
-                    // Generate random data for pie chart
-                    function generateRandomData() {
-                        const data = [];
-                        const labels = ['Completed', 'In Progress', 'Not Started'];
-
-                        for (let i = 0; i < labels.length; i++) {
-                            data.push(Math.floor(Math.random() * 100));
-                        }
-
-                        return {
-                            labels,
-                            data
-                        };
-                    }
-
-                    // Draw pie chart with animation
-                    function drawPieChart(data) {
-                        const canvas = document.getElementById('pieChart');
-                        const ctx = canvas.getContext('2d');
-                        const centerX = canvas.width / 2;
-                        const centerY = canvas.height / 2;
-                        const radius = Math.min(centerX, centerY);
-
-                        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                        let colorInfo = '';
-                        let startAngle = 0;
-
-                        for (let i = 0; i < data.labels.length; i++) {
-                            const sliceAngle = (2 * Math.PI * data.data[i]) / 100;
-                            const percent = data.data[i] + '%';
-                            const label = data.labels[i] + ' (' + percent + ')';
-
-                            ctx.beginPath();
-                            ctx.moveTo(centerX, centerY);
-                            ctx.arc(centerX, centerY, radius, startAngle, startAngle + sliceAngle);
-                            const color = getRandomColor();
-                            ctx.fillStyle = color;
-                            ctx.fill();
-
-                            // Add color information to the variable
-                            colorInfo += `<span style="color:${color};">${label}</span><br>`;
-                            startAngle += sliceAngle;
-                        }
-
-                        // Update the paragraph with color information
-                        document.getElementById('colorInfo').innerHTML = colorInfo;
-                    }
-
-                    // Function to get a random color
-                    function getRandomColor() {
-                        const letters = '0123456789ABCDEF';
-                        let color = '#';
-                        for (let i = 0; i < 6; i++) {
-                            color += letters[Math.floor(Math.random() * 16)];
-                        }
-                        return color;
-                    }
-
-                    // Generate random data and draw pie chart on page load
-                    document.addEventListener('DOMContentLoaded', function() {
-                        const data = generateRandomData();
-                        drawPieChart(data);
-                        updateProgressBar(data.data[0]); // Update progress bar with the completed percentage
-                    });
-
-                    // Generate new random data and redraw pie chart on button click
-                    const refreshButton = document.getElementById('refreshButton');
-                    refreshButton.addEventListener('click', function() {
-                        const data = generateRandomData();
-                        drawPieChart(data);
-                        updateProgressBar(data.data[0]); // Update progress bar with the completed percentage
-                    });
-
-                    // Task Tracker
-                    function addTask() {
-                        const input = document.getElementById("taskInput");
-                        const task = input.value.trim();
-                        if (task !== "") {
-                            const taskList = document.getElementById("taskList");
-                            const li = document.createElement("li");
-                            li.textContent = task;
-                            taskList.appendChild(li);
-                            input.value = "";
-                        }
-                    }
-
-                    function addTask() {
-                        const input = document.getElementById("taskInput");
-                        const task = input.value.trim();
-                        if (task !== "") {
-                            const taskList = document.getElementById("taskList");
-                            const li = document.createElement("li");
-                            const now = new Date().toLocaleString(); // Get current date and time
-                            li.innerHTML = `
-            <span>${task}</span>
-            <div class="task-actions">
-                <i class="far fa-edit"></i>
-                <i class="far fa-save"></i>
-            </div>`;
-                            taskList.appendChild(li);
-                            input.value = "";
-
-                            // Functionality for editing the task
-                            const editIcon = li.querySelector(".fa-edit");
-                            editIcon.addEventListener("click", function() {
-                                const taskText = li.querySelector("span");
-                                const newText = prompt("Edit task:", taskText.textContent);
-                                if (newText !== null && newText !== "") {
-                                    taskText.textContent = newText;
-                                    const editedTime = document.createElement("span");
-                                    editedTime.textContent = ` (edited: ${now})`; // Display edit time
-                                    taskText.appendChild(editedTime);
-                                }
-                            });
-
-                            // Functionality for saving the task
-                            const saveIcon = li.querySelector(".fa-save");
-                            saveIcon.addEventListener("click", function() {
-                                const taskText = li.querySelector("span");
-                                const status = document.createElement("span");
-                                status.textContent = " (saved)";
-                                status.style.color = "green"; // Status indicator for successful save
-                                taskText.appendChild(status);
-                            });
-                        }
-                    }
-                </script>
-
-            </div>
-            <div class="right-side">
-                <div class="ojt-info">
-                    <!-- OJT Information -->
-                    <h2>OJT Information</h2>
-                    <p><strong>College/University:</strong> Example University</p>
-                    <p><strong>School Address:</strong> 456 College Ave, City, Country</p>
-                    <p><strong>Degree Program:</strong> Computer Science</p>
-                    <p><strong>Year Level:</strong> Senior</p>
-                    <p><strong>Adviser:</strong> Prof. Smith</p>
-                    <p><strong>Total Training Hours Required:</strong> 300 hours</p>
-                    <p><strong>Area of Internship:</strong> Software Development</p>
-                    <p><strong>Expected Date to Report:</strong> May 1, 2024</p>
-                    <p><strong>Expected Date to Finish:</strong> August 1, 2024</p>
-                </div>
-                <div class="announcement">
-                    <!-- Announcement -->
-                    <h2>Announcement</h2>
-                    <br>
-                    <div class="announcement-container">
-                        <div class="announcement1" id="announcement1">
-                            <h2>🎉 Big News!</h2>
-                            <p>Join us for an exciting event happening next week! You won't want to miss it!</p>
-                            <div class="announcement-info" id="announcement-info1">
-                                <p>Date: April 20, 2024</p>
-                                <p>Time: 10:00 AM</p>
-                                <p>Editor: Admin Cecilia Pineda</p>
-                            </div>
-                        </div>
-
-                        <div class="announcement2" id="announcement2">
-                            <h2>🚀 Product Launch!</h2>
-                            <p>Our newest product is launching soon! Get ready to experience innovation like never before!</p>
-                            <div class="announcement-info" id="announcement-info2">
-                                <p>Date: April 21, 2024</p>
-                                <p>Time: 2:00 PM</p>
-                                <p>Editor: Admin Levi Rodelas</p>
-                            </div>
-                        </div>
-
-                        <div class="announcement3" id="announcement3">
-                            <h2>🔔 Important Update!</h2>
-                            <p>We have an important announcement to share regarding upcoming changes. Stay tuned for details!</p>
-                            <div class="announcement-info" id="announcement-info3">
-                                <p>Date: April 22, 2024</p>
-                                <p>Time: 4:00 PM</p>
-                                <p>Editor: Admin Marc Sayago</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
 
                 <div class="weather">
                     <h2>Weather Today</h2>
-                    <br>
-                    <img class="condition" src="https://www.yr.no/en/content/2-1701668/meteogram.svg" alt="Weather Condition" width="500" height="300" />
+                    <img class="condition img-fluid" src="https://www.yr.no/en/content/2-1701668/meteogram.svg" alt="Weather Condition">
                 </div>
 
+                <div class="announcement">
+                    <h2>Announcements</h2>
+                    <div class="announcement-container">
+                        <?php
+                        $query = "SELECT * FROM announcements ORDER BY date DESC";
+                        $result = mysqli_query($conn, $query);
+
+                        if ($result && mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo '<div class="announcement">';
+                                echo '<h3>' . htmlspecialchars($row['title']) . '</h3>';
+                                echo '<p>' . htmlspecialchars($row['content']) . '</p>';
+                                echo '<div class="announcement-info">';
+                                echo '<p>Date: ' . htmlspecialchars($row['date']) . '</p>';
+                                echo '<p>Time: ' . htmlspecialchars($row['time']) . '</p>';
+                                echo '<p>Editor: ' . htmlspecialchars($row['editor']) . '</p>';
+                                echo '</div>';
+                                echo '</div>';
+                            }
+                        } else {
+                            echo '<p>No announcements available.</p>';
+                        }
+                        mysqli_close($conn);
+                        ?>
+                    </div>
+
+                </div>
             </div>
         </div>
     </main>
@@ -324,6 +513,22 @@
             </div>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('hourForm');
+            const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+
+            // Check if the form was submitted today
+            if (localStorage.getItem('formSubmittedDate') === today) {
+                form.querySelector('button[type="submit"]').disabled = true;
+                form.querySelectorAll('input').forEach(input => input.disabled = true);
+            }
+
+            form.addEventListener('submit', function() {
+                localStorage.setItem('formSubmittedDate', today); // Store the submission date
+            });
+        });
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <script src="public/js/landing.js"></script>
     <script src="public/js/global.js"></script>
@@ -332,6 +537,7 @@
 
     </script>
 </body>
+<!-- Start of Async Drift Code -->
 <script>
     "use strict";
 
@@ -358,7 +564,8 @@
         }
     }();
     drift.SNIPPET_VERSION = '0.3.1';
-    drift.load('vf4skr37birm');
+    drift.load('e89d849i852c');
 </script>
+<!-- End of Async Drift Code -->
 
 </html>

@@ -13,6 +13,7 @@ function showTab(n) {
     }
     if (n == (x.length - 1)) {
       document.getElementById("NextBtn").innerHTML = "Submit";
+      document.getElementById("NextBtn").value = "Submit";
     } else {
       document.getElementById("NextBtn").innerHTML = "Next";
     }

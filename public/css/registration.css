@@ -182,7 +182,7 @@ input.invalid {
 	margin-top: -20px;
 	margin-right: 10px;
 	margin-left: 30px;
-	height: 310px;
+	height: 400px;
 	width: 310px;
 	box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
 }
@@ -219,6 +219,7 @@ fieldset{
 	width: 310px;
 	height: 310px;
 	text-align: left;
+	font-size: 14.5px;
 }
 /* for successfully registered */
 #success {
