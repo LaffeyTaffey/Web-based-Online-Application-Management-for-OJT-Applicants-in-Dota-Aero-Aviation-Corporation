@@ -20,10 +20,10 @@
         <div class="logo-container">
             <img src="public/assets/img/dota_logo.png" alt="DOTA" id="header-img">
             <h1>DOTA Aero Aviation Service, Inc.</h1>
-        </div>
-        <div class="logo-container">
-            <h1>Philippine State College of Aeronautics</h1>
-            <img src="public/assets/img/school_logo.png" alt="PSCA" id="header-img">
+            <div class="logo-container">
+                <img src="public/assets/img/airplane.png" alt="DOTA" id="header-img">
+                <h1>Excellence in Aviation Services</h1>
+            </div>
         </div>
         <div class="menu-toggle" id="menu-toggle">&#9776;</div> <!-- Hamburger icon -->
         <nav id="nav-bar">
@@ -46,6 +46,7 @@
         });
     </script>
 
+
     <main class="fade-in">
         <br><br><br><br><br><br><br><br>
         <?php
@@ -54,7 +55,7 @@
         }
         ?>
         <div id="regforms">
-            <form action="register.php" method="post" id="reg">
+            <form action="process-insert-data.php" method="post" id="reg" enctype="multipart/form-data">
                 <div id="OJTapplication">
                     <div class="application-header">
                         <h3>INTERNSHIP APPLICATION FORM</h3><br>
@@ -80,7 +81,7 @@
                         </tr>
                         <tr>
                             <td data-label="First Name"><input type="text" name="fName" class="inputform"></td>
-                            <td data-label="Middle Name"><input type="text" name="mName" class="inputform"></td>
+                            <td data-label="Middle Name"><input type="text" name="mName" class="inputform" placeholder="(Optional) Type N/A if absent"></td>
                             <td data-label="Last Name"><input type="text" name="lName" class="inputform"></td>
                         </tr>
                         <tr>
@@ -113,7 +114,7 @@
                         </tr>
                         <tr>
                             <td data-label="Email"><input type="email" name="email" class="inputform"></td>
-                            <td data-label="Phone Number"><input type="number" name="pNumber" class="inputform"></td>
+                            <td data-label="Phone Number"> <input type="text" name="pNumber" class="inputform" maxlength="11" pattern="[0-9]{1,11}" title="Please enter a valid phone number (up to 11 digits)" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 11)"></td>
                             <td data-label="Field of Interest"><input type="text" name="interest" class="inputform"></td>
                         </tr>
 
@@ -171,6 +172,46 @@
 
                 </div>
 
+                <link rel="stylesheet" href="index2.css" type="text/css">
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+                <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
+                <style>
+                    .mb-3 {
+                        margin-bottom: 10px;
+                    }
+
+                    .file-upload-label {
+                        background-color: #007bff;
+                        color: #fff;
+                        text-align: center;
+                        padding: 6px 9px;
+                        cursor: pointer;
+                        border-radius: 4px;
+                        display: inline-block;
+                        margin-top: 10px;
+                    }
+
+                    .file-upload-label:hover {
+                        background-color: #0056b3;
+                    }
+
+                    .file-upload-container {
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    input[type="file"] {
+                        position: absolute;
+                        clip: rect(0, 0, 0, 0);
+                        pointer-events: none;
+                    }
+                </style>
+
+
+
+
+
+
                 <div class="tab">
                     <div id="guideline_file">
                         <div id="guidebox">
@@ -180,13 +221,13 @@
                                 We accept image files in JPG, JPEG, and PNG formats.
                                 Ensure that images are clear, legible, and appropriately sized.
                                 <br>
-                                <br>
+
                                 2. Document Files:
                                 We only accept PDF Files for Memorandum of Agreement (MOA),
                                 NBI clearance, and Endorsement Letters. Ensure that all text is easily
                                 readable and that the document is complete.
                                 <br>
-                                <br>
+
                                 3. File Integrity:
                                 Ensure that your files are free from corruption or any
                                 form of alteration that may affect their authenticity or readability.
@@ -194,24 +235,72 @@
                         </div>
                     </div>
                     <div id="uploadFiles">
-                        <fieldset>
-                            <legend>Image</legend>
-                            <input type="file" name="uploadImage" class="inputform">
-                        </fieldset>
-                        <fieldset>
-                            <legend>Memorandum of Agreement</legend>
-                            <input type="file" name="uploadMOA" class="inputform">
-                        </fieldset>
-                        <fieldset>
-                            <legend>Endorsement Letter</legend>
-                            <input type="file" name="uploadEndorsement" class="inputform">
-                        </fieldset>
-                        <fieldset>
-                            <legend>NBI Clearance</legend>
-                            <input type="file" name="uploadNBI" class="inputform">
-                        </fieldset>
+                        <div class="mb-3">
+                            <label for="uploadImage"><b>Image</b></label>
+                            <input type="file" name="uploadImage" id="uploadImage" class="form-control" accept=".jpg,.jpeg,.png,.gif">
+
+                            <div class="file-upload-label" id="uploadImageLabel">Choose File</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="uploadMOA"><b>Memorandum of Agreement</b></label>
+                            <input type="file" name="uploadMOA" id="uploadMOA" class="form-control" accept=".pdf">
+
+                            <div class="file-upload-label" id="uploadMOALabel">Choose File</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="uploadEndorsement"><b>Endorsement Letter</b></label>
+                            <input type="file" name="uploadEndorsement" id="uploadEndorsement" class="form-control" accept=".pdf">
+
+                            <div class="file-upload-label" id="uploadEndorsementLabel">Choose File</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="uploadNBI"><b>NBI Clearance</b></label>
+                            <input type="file" name="uploadNBI" id="uploadNBI" class="form-control" accept=".pdf">
+
+                            <div class="file-upload-label" id="uploadNBILabel">Choose File</div>
+                        </div>
                     </div>
                 </div>
+
+                <br><br>
+
+
+                <script>
+                    // Add event listeners to file upload labels
+                    document.querySelectorAll('.file-upload-label').forEach(label => {
+                        const input = label.previousElementSibling;
+                        label.addEventListener('click', () => {
+                            input.click(); // Trigger the file input click event
+                        });
+
+                        // Update label text when file is selected and check file size
+                        input.addEventListener('change', function() {
+                            const file = this.files[0];
+                            const fileSizeInMB = file.size / (1024 * 1024); // Calculate file size in MB
+
+                            if (fileSizeInMB > 10) {
+                                alert('File size exceeds 10.9MiB. Please choose a smaller file.');
+                                this.value = ''; // Reset the file input
+                                label.textContent = 'Choose File'; // Reset label text
+                            } else {
+                                const fileName = file.name;
+                                label.textContent = fileName;
+                            }
+                        });
+                    });
+                </script>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        document.querySelector('input[name="mName"]').removeAttribute('required');
+                    });
+                </script>
+
+
+
+                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
                 <!--Button-->
                 <div id="button-forms">
                     <div id="button-submit">

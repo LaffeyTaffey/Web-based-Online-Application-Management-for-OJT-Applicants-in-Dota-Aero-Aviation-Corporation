@@ -1,5 +1,18 @@
 <?php
 session_start();
+<<<<<<< HEAD
+$conn = mysqli_connect("localhost", "root", "", "account");
+
+
+if (isset($_POST['reference_number']) && isset($_POST['pass'])) {
+    $reference_number = $_POST['reference_number'];
+    $password = $_POST['pass'];
+
+    // Query to check if the user exists
+    $query = "SELECT * FROM std_acc WHERE reference_number = '$reference_number' AND password = '$password'";
+    $result = mysqli_query($conn, $query);
+
+=======
 $conn= mysqli_connect("localhost", "root", "", "account");
 
 
@@ -11,13 +24,19 @@ if (isset($_POST['std_id']) && isset($_POST['pass'])) {
     $query = "SELECT * FROM std_acc WHERE std_id = '$std_id' AND password = '$password'";
     $result = mysqli_query($conn, $query);
 	
+>>>>>>> 3a85395913b225b74fde7c005ffb7ef892a00ca6
 
     // Check if the user exists
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         $user_type = $row['user_type'];
+<<<<<<< HEAD
+
+        $_SESSION['reference_number'] = $reference_number;
+=======
 		
 		$_SESSION['std_id'] = $std_id;
+>>>>>>> 3a85395913b225b74fde7c005ffb7ef892a00ca6
         $_SESSION['user_type'] = $user_type;
         // Check if the user_type is empty
         if (empty($user_type)) {
@@ -30,11 +49,19 @@ if (isset($_POST['std_id']) && isset($_POST['pass'])) {
             exit;
         } else {
             // If the user_type is neither empty nor 'admin', display an error message
+<<<<<<< HEAD
+            echo "<script> alert('invalid user type.') </script>";
+        }
+    } else {
+        // If the user does not exist, display an error message
+        echo "<script> alert('Invalid username or password.') </script>";
+=======
             echo "Invalid user type.";
         }
     } else {
         // If the user does not exist, display an error message
         echo "Invalid username or password.";
+>>>>>>> 3a85395913b225b74fde7c005ffb7ef892a00ca6
     }
 }
 ?>
@@ -46,8 +73,10 @@ if (isset($_POST['std_id']) && isset($_POST['pass'])) {
     <link rel="shortcut icon" type="image/x-icon" href="public/assets/img/dota_logo.png" />
     <link rel="stylesheet" href="public/css/login.css" type="text/css">
     <link rel="stylesheet" href="public/css/global.css" type="text/css">
+    <link rel="stylesheet" href="index2.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Log in</title>
+
 </head>
 
 <body>
@@ -55,22 +84,18 @@ if (isset($_POST['std_id']) && isset($_POST['pass'])) {
         <div class="logo-container">
             <img src="public/assets/img/dota_logo.png" alt="DOTA" id="header-img">
             <h1>DOTA Aero Aviation Service, Inc.</h1>
+            <div class="logo-container">
+                <img src="public/assets/img/airplane.png" alt="DOTA" id="header-img">
+                <h1>Excellence in Aviation Services</h1>
+            </div>
         </div>
-        <div class="logo-container">
-            <h1>Philippine State College of Aeronautics</h1>
-            <img src="public/assets/img/school_logo.png" alt="PSCA" id="header-img">
-        </div>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div> <!-- Hamburger icon -->
         <nav id="nav-bar">
             <ul>
-                <li class="dropdown">
-                    <a href="#" class="nav-link">Admissions <span class="arrow-down-icon">&#9660;</span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="landing.php#col-adm">College Admission</a></li>
-                        <li><a href="landing.php#ojt-adm">OJT Admission</a></li>
-                        <li><a href="ojt-adm-results.php">OJT Admission Results</a></li>
-                    </ul>
-                </li>
+                <li><a class="nav-link" href="landing.php#ojt-adm">OJT Admission</a></li>
                 <li><a class="nav-link" href="index.php#announcement">Announcement</a></li>
+                <li><a class="nav-link" href="landing.php#about">About us</a></li>
+                <li><a class="nav-link" href="landing.php#networks">Partnership Network</a></li>
                 <li><a class="nav-link" href="landing.php">Homepage</a></li>
                 <br>
             </ul>
@@ -91,6 +116,7 @@ if (isset($_POST['std_id']) && isset($_POST['pass'])) {
     </script>
 
     <main class="fade-in">
+
         <div class="box">
             <br>
             <div class="box-form">
@@ -99,6 +125,22 @@ if (isset($_POST['std_id']) && isset($_POST['pass'])) {
                     <div class="i i-login"></div>
                     <h2>LOGIN</h2>
                 </div>
+<<<<<<< HEAD
+                <form form class="" action="" method="post" autocomplete="off">
+                    <div class="box-login">
+                        <div class="fieldset-body" id="login_form">
+                            <button onclick="openLoginInfo();" class="b b-form i i-more" title="Information"></button>
+                            <p class="field">
+                                <label for="user">REFERENCE NUMBER</label>
+                                <input type="text" id="user" name="reference_number" title="Reference-Number" required placeholder="Enter Ref# Ex: OJT24_6" />
+                                <span id="valida" class="i i-warning"></span>
+                            </p>
+                            <p class="field">
+                                <label for="pass">USER PASSWORD</label>
+                                <input type="password" id="pass" name="pass" title="Password" required placeholder="Enter your password" />
+                                <span id="valida" class="i i-close"></span>
+                            </p>
+=======
 				<form form class="" action="" method="post" autocomplete="off">
                 <div class="box-login">
                     <div class="fieldset-body" id="login_form">
@@ -113,15 +155,23 @@ if (isset($_POST['std_id']) && isset($_POST['pass'])) {
                             <input type="password" id="pass" name="pass" title="Password" required placeholder="Enter your password" />
                             <span id="valida" class="i i-close"></span>
                         </p>
+>>>>>>> 3a85395913b225b74fde7c005ffb7ef892a00ca6
 
-                        <label class="checkbox">
-                            <input type="checkbox" value="TRUE" title="Keep me Signed in" /> Keep me Signed in
-                        </label>
+                            <label class="checkbox">
+                                <input type="checkbox" value="TRUE" title="Keep me Signed in" /> Keep me Signed in
+                            </label>
 
+<<<<<<< HEAD
+                            <input type="submit" id="do_login" name="Submit" title="Login" />
+                        </div>
+                    </div>
+                </form>
+=======
                         <input type="submit" id="do_login" name="Submit" title="Login" />
                     </div>
                 </div>
 				</form>
+>>>>>>> 3a85395913b225b74fde7c005ffb7ef892a00ca6
             </div>
             <div class="box-info">
                 <p><button onclick="closeLoginInfo();" class="b b-info i i-left" title="Back to Sign In"></button>
@@ -137,7 +187,6 @@ if (isset($_POST['std_id']) && isset($_POST['pass'])) {
         <br>
     </main>
 </body>
-<!-- Start of Async Drift Code -->
 <script>
     "use strict";
 
@@ -164,10 +213,11 @@ if (isset($_POST['std_id']) && isset($_POST['pass'])) {
         }
     }();
     drift.SNIPPET_VERSION = '0.3.1';
-    drift.load('vf4skr37birm');
+    drift.load('e89d849i852c');
 </script>
 <!-- End of Async Drift Code -->
 <script src="public/js/login.js"></script>
 <script src="public/js/global.js"></script>
+<script src="public/js/menu-landing.js"></script>
 
 </html>

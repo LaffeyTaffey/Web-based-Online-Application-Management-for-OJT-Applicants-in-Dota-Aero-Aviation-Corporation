@@ -1,4 +1,3 @@
-
 /* body {
     transition: opacity 0.5s ease-in-out;
     margin: 0;
@@ -29,19 +28,19 @@ header {
 
 }
 
-/*calendar -sayago */ 
-#calendar-container{
+/*calendar -sayago */
+#calendar-container {
     display: flex;
-        justify-content: center;
-        align-items: center;
-        height: auto;
-        background-color: rgba(255, 255, 255, 0.3);
-        padding: 20px;
-        border-radius: 15px;
-        width: 50%;
-        max-width: 100%;
-        margin: 0 auto;
-        margin-top: 130px;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    width: 50%;
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 130px;
 }
 
 .footer {
@@ -142,6 +141,7 @@ header {
     background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
+
 .applicant-image {
     text-align: center;
 }
@@ -166,14 +166,14 @@ header {
 .applicant-progress h2 {
     margin-top: 0;
     background: #6190E8;
-        /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #A7BFE8, #6190E8);
-        /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #A7BFE8, #6190E8);
-        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        border-radius: 5px;
-        padding: 5px;
-        text-align: center;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #A7BFE8, #6190E8);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #A7BFE8, #6190E8);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
 }
 
 .applicant-progress p {
@@ -188,23 +188,23 @@ header {
 .right-side h2 {
     margin-top: 0;
     background: #6190E8;
-        /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #A7BFE8, #6190E8);
-        /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #A7BFE8, #6190E8);
-        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        border-radius: 10px;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #A7BFE8, #6190E8);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #A7BFE8, #6190E8);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 10px;
 }
 
 .applicant-info h2 {
     margin-top: 0;
     background: #6190E8;
-        /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #A7BFE8, #6190E8);
-        /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #A7BFE8, #6190E8);
-        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        border-radius: 10px;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #A7BFE8, #6190E8);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #A7BFE8, #6190E8);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 10px;
 }
 
 .applicant-info:hover {
@@ -226,6 +226,7 @@ header {
         opacity: 0;
         transform: translateY(-20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -249,7 +250,7 @@ h2 {
 
 .ojt-info:hover {
     background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);   
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
 .task-tracker {
@@ -345,7 +346,9 @@ h2 {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
-.announcement1:hover h2, .announcement2:hover h2, .announcement3:hover h2 {
+.announcement1:hover h2,
+.announcement2:hover h2,
+.announcement3:hover h2 {
     color: #007bff;
     /* Change text color to vibrant blue */
 }
