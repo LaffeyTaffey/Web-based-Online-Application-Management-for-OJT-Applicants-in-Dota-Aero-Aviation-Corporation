@@ -8,18 +8,6 @@
 		},
 		{
 			"path": "."
-		},
-		{
-			"path": "../../../../../xampp/htdocs/web"
-		},
-		{
-			"path": "../../../../../xampp/htdocs/prince"
-		},
-		{
-			"path": "../../../../../xampp/htdocs/rabbit"
-		},
-		{
-			"path": "../../../../../xampp/htdocs/usagi"
 		}
 	],
 	"settings": {}

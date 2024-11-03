@@ -1,3 +1,16 @@
+<?php
+session_start();
+$conn= mysqli_connect("localhost", "root", "", "account");
+// Check if the user is logged in
+if (!isset($_SESSION['std_id'])) {
+    // If not logged in, redirect to landing page
+    header("Location: landing.php");
+    exit;
+}
+
+// If logged in, continue to protected page
+echo "Welcome, " . $_SESSION['username'] . "! You are logged in.";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <!--OJT Portal-->
@@ -32,7 +45,7 @@
                 <li><a class="nav-link" href="calendar.php">Calendar</a></li>
                 <li><a class="nav-link" href="landing.php">Homepage</a></li>
             </ul>
-            <a href="login.php"><button id="signin-button">Sign In →</button></a>
+            <a href="logout.php"><button id="signin-button">Sign Out →</button></a>
             <br>
         </nav>
     </header>
