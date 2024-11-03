@@ -1,5 +1,6 @@
 <?php
 session_start();
+<<<<<<< HEAD
 $conn = mysqli_connect("localhost", "root", "", "account");
 
 // Check connection
@@ -9,11 +10,17 @@ if (!$conn) {
 
 // Check if the user is logged in
 if (!isset($_SESSION['reference_number'])) {
+=======
+$conn= mysqli_connect("localhost", "root", "", "account");
+// Check if the user is logged in
+if (!isset($_SESSION['std_id'])) {
+>>>>>>> 3a85395913b225b74fde7c005ffb7ef892a00ca6
     // If not logged in, redirect to landing page
     header("Location: landing.php");
     exit;
 }
 
+<<<<<<< HEAD
 // Check if the user is not an admin
 if ($_SESSION['user_type'] !== '') {
     // If usertype is not admin, redirect to landing page
@@ -85,6 +92,10 @@ function addCommunicationLog($logMessage)
 addCommunicationLog("Initial application submitted on $applicationSubmissionDate.");
 
 mysqli_close($conn); // Close the database connection
+=======
+// If logged in, continue to protected page
+echo "Welcome, " . $_SESSION['username'] . "! You are logged in.";
+>>>>>>> 3a85395913b225b74fde7c005ffb7ef892a00ca6
 ?>
 <!DOCTYPE html>
 <html lang="en">

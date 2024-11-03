@@ -1,5 +1,6 @@
 <?php
 session_start();
+<<<<<<< HEAD
 $conn = mysqli_connect("localhost", "root", "", "account");
 
 
@@ -11,13 +12,31 @@ if (isset($_POST['reference_number']) && isset($_POST['pass'])) {
     $query = "SELECT * FROM std_acc WHERE reference_number = '$reference_number' AND password = '$password'";
     $result = mysqli_query($conn, $query);
 
+=======
+$conn= mysqli_connect("localhost", "root", "", "account");
+
+
+if (isset($_POST['std_id']) && isset($_POST['pass'])) {
+    $std_id = $_POST['std_id'];
+    $password = $_POST['pass'];
+
+    // Query to check if the user exists
+    $query = "SELECT * FROM std_acc WHERE std_id = '$std_id' AND password = '$password'";
+    $result = mysqli_query($conn, $query);
+	
+>>>>>>> 3a85395913b225b74fde7c005ffb7ef892a00ca6
 
     // Check if the user exists
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         $user_type = $row['user_type'];
+<<<<<<< HEAD
 
         $_SESSION['reference_number'] = $reference_number;
+=======
+		
+		$_SESSION['std_id'] = $std_id;
+>>>>>>> 3a85395913b225b74fde7c005ffb7ef892a00ca6
         $_SESSION['user_type'] = $user_type;
         // Check if the user_type is empty
         if (empty($user_type)) {
@@ -30,11 +49,19 @@ if (isset($_POST['reference_number']) && isset($_POST['pass'])) {
             exit;
         } else {
             // If the user_type is neither empty nor 'admin', display an error message
+<<<<<<< HEAD
             echo "<script> alert('invalid user type.') </script>";
         }
     } else {
         // If the user does not exist, display an error message
         echo "<script> alert('Invalid username or password.') </script>";
+=======
+            echo "Invalid user type.";
+        }
+    } else {
+        // If the user does not exist, display an error message
+        echo "Invalid username or password.";
+>>>>>>> 3a85395913b225b74fde7c005ffb7ef892a00ca6
     }
 }
 ?>
@@ -98,6 +125,7 @@ if (isset($_POST['reference_number']) && isset($_POST['pass'])) {
                     <div class="i i-login"></div>
                     <h2>LOGIN</h2>
                 </div>
+<<<<<<< HEAD
                 <form form class="" action="" method="post" autocomplete="off">
                     <div class="box-login">
                         <div class="fieldset-body" id="login_form">
@@ -112,15 +140,38 @@ if (isset($_POST['reference_number']) && isset($_POST['pass'])) {
                                 <input type="password" id="pass" name="pass" title="Password" required placeholder="Enter your password" />
                                 <span id="valida" class="i i-close"></span>
                             </p>
+=======
+				<form form class="" action="" method="post" autocomplete="off">
+                <div class="box-login">
+                    <div class="fieldset-body" id="login_form">
+                        <button onclick="openLoginInfo();" class="b b-form i i-more" title="Information"></button>
+                        <p class="field">
+                            <label for="user">REFERENCE NUMBER</label>
+                            <input type="text" id="user" name="std_id" title="Reference-Number" required placeholder="Enter Ref# Ex: 01012024_0002" />
+                            <span id="valida" class="i i-warning"></span>
+                        </p>
+                        <p class="field">
+                            <label for="pass">USER PASSWORD</label>
+                            <input type="password" id="pass" name="pass" title="Password" required placeholder="Enter your password" />
+                            <span id="valida" class="i i-close"></span>
+                        </p>
+>>>>>>> 3a85395913b225b74fde7c005ffb7ef892a00ca6
 
                             <label class="checkbox">
                                 <input type="checkbox" value="TRUE" title="Keep me Signed in" /> Keep me Signed in
                             </label>
 
+<<<<<<< HEAD
                             <input type="submit" id="do_login" name="Submit" title="Login" />
                         </div>
                     </div>
                 </form>
+=======
+                        <input type="submit" id="do_login" name="Submit" title="Login" />
+                    </div>
+                </div>
+				</form>
+>>>>>>> 3a85395913b225b74fde7c005ffb7ef892a00ca6
             </div>
             <div class="box-info">
                 <p><button onclick="closeLoginInfo();" class="b b-info i i-left" title="Back to Sign In"></button>
