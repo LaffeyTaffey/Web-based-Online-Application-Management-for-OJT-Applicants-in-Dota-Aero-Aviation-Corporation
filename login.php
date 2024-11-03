@@ -1,3 +1,43 @@
+<?php
+session_start();
+$conn= mysqli_connect("localhost", "root", "", "account");
+
+
+if (isset($_POST['std_id']) && isset($_POST['pass'])) {
+    $std_id = $_POST['std_id'];
+    $password = $_POST['pass'];
+
+    // Query to check if the user exists
+    $query = "SELECT * FROM std_acc WHERE std_id = '$std_id' AND password = '$password'";
+    $result = mysqli_query($conn, $query);
+	
+
+    // Check if the user exists
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $user_type = $row['user_type'];
+		
+		$_SESSION['std_id'] = $std_id;
+        $_SESSION['user_type'] = $user_type;
+        // Check if the user_type is empty
+        if (empty($user_type)) {
+            // Redirect to index.php
+            header("Location: index.php");
+            exit;
+        } elseif ($user_type == 'admin') {
+            // Redirect to admin-login.php
+            header("Location: admin-profile.php");
+            exit;
+        } else {
+            // If the user_type is neither empty nor 'admin', display an error message
+            echo "Invalid user type.";
+        }
+    } else {
+        // If the user does not exist, display an error message
+        echo "Invalid username or password.";
+    }
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -59,12 +99,13 @@
                     <div class="i i-login"></div>
                     <h2>LOGIN</h2>
                 </div>
+				<form form class="" action="" method="post" autocomplete="off">
                 <div class="box-login">
                     <div class="fieldset-body" id="login_form">
                         <button onclick="openLoginInfo();" class="b b-form i i-more" title="Information"></button>
                         <p class="field">
                             <label for="user">REFERENCE NUMBER</label>
-                            <input type="text" id="user" name="user" title="Reference-Number" required placeholder="Enter Ref# Ex: 01012024_0002" />
+                            <input type="text" id="user" name="std_id" title="Reference-Number" required placeholder="Enter Ref# Ex: 01012024_0002" />
                             <span id="valida" class="i i-warning"></span>
                         </p>
                         <p class="field">
@@ -77,16 +118,16 @@
                             <input type="checkbox" value="TRUE" title="Keep me Signed in" /> Keep me Signed in
                         </label>
 
-                        <input type="submit" id="do_login" value="Login Now" title="Login" />
+                        <input type="submit" id="do_login" name="Submit" title="Login" />
                     </div>
                 </div>
+				</form>
             </div>
             <div class="box-info">
                 <p><button onclick="closeLoginInfo();" class="b b-info i i-left" title="Back to Sign In"></button>
                 <h3>Need Help?</h3>
                 </p>
                 <div class="line-wh"></div>
-                <a href="forgot-password.php"><button onclick="" class="b-support" title="Forgot Password?"> Forgot Password?</button></a>
                 <a href="ticket.php"><button onclick="" class="b-support" title="Contact Support"> Contact Support</button></a>
                 <div class="line-wh"></div>
                 <a href="landing.php#ojt-adm"><button onclick="" class="b-cta" title="Sign up now!"> REGISTER</button>
