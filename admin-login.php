@@ -17,11 +17,10 @@
         <div class="logo-container">
             <img src="public/assets/img/dota_logo.png" alt="DOTA" id="header-img">
             <h1>DOTA Aero Aviation Service, Inc.</h1>
-        </div>
-
-        <div class="logo-container">
-            <h1>Philippine State College of Aeronautics</h1>
-            <img src="public/assets/img/school_logo.png" alt="PSCA" id="header-img">
+            <div class="logo-container">
+                <img src="public/assets/img/airplane.png" alt="DOTA" id="header-img">
+                <h1>Excellence in Aviation Services</h1>
+            </div>
         </div>
         <nav id="nav-bar">
             <ul>
